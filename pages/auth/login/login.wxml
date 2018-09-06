@@ -1,0 +1,19 @@
+<view class='login'>
+  <view class='mark'>
+    <image class='logo' src='/static/logo.png' mode='cover'></image>
+    <text class='text'>{{text}}</text>
+  </view>
+  <view class='form'>
+    <form bindsubmit='loginSubmit'>
+      <view class='account'>
+        <input name='username' placeholder-style="color:black" placeholder='请输入账号'></input>
+      </view>
+      <view class='password'>
+        <input password name='password' placeholder-style="color:black" placeholder='请输入密码'></input>
+      </view>
+      <view class='button'>
+        <button formType="submit">登陆</button>
+      </view>
+    </form>
+  </view>
+</view>

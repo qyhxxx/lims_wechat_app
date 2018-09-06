@@ -1,0 +1,43 @@
+Page {
+  background-color: #4A708B
+}
+
+.mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 230rpx;
+  height: 230rpx;
+  margin: 100rpx;
+}
+
+.text {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100rpx;
+}
+
+.account {
+  font-size: 16px;
+  color: white;
+  line-height: 48px;
+  text-indent: 48px;
+  border: 2px #4169E1;
+}
+
+.password {
+  font-size: 16px;
+  color: white;
+  line-height: 48px;
+  text-indent: 48px;
+  border: 2px #4169E1;
+}
