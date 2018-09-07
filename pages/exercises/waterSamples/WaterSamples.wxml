@@ -1,0 +1,4 @@
+<!--pages/exercises/waterSamples/WaterSamples.wxml-->
+<scroll-view scroll-y="true" style="height: 500px">
+    <button formType="water" bindtap="waterButton">不同水样辨认</button>
+</scroll-view>
