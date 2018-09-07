@@ -4,7 +4,11 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/data/record/record",
-    "pages/data/report/report"
+    "pages/data/report/report",
+    "pages/exercises/snifferThreshold/SnifferThreshold",
+    "pages/exercises/waterSamples/WaterSamples",
+    "pages/exercises/UPSIT/UPSIT",
+    "pages/exercises/overallinterface"
   ],
   "window": {
     "backgroundTextStyle": "light",

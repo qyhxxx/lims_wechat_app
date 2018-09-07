@@ -1,0 +1,17 @@
+/* pages/exercises/overallinterface.wxss */
+
+.btn1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.text {
+
+  justify-content: center;
+}
+
+.btn1Img {
+  width: 46rpx;
+  height: 46rpx;
+  justify-content: right;
+}
