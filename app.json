@@ -5,6 +5,7 @@
     "pages/logs/logs",
     "pages/data/record/record",
     "pages/data/report/report",
+    "pages/survey/drinking_water/drinking_water",
     "pages/exercises/snifferThreshold/SnifferThreshold",
     "pages/exercises/waterSamples/WaterSamples",
     "pages/exercises/UPSIT/UPSIT",
