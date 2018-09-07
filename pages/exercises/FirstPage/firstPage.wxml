@@ -1,0 +1,13 @@
+<!--pages/exercises/FirstPage/firstPage.wxml-->
+
+  <button class='btn1' bindtap="Button1">
+    <image class='bgImg' src='/static/main_item_background.png'>
+      <image class='btnImg' src='/static/main_test.png'></image>
+      <view>嗅味敏感性调查</view>
+    </image>
+  </button>
+
+  <button class='btn2' bindtap="Button2">
+    <image class='btnImg' src='/static/main_test.png'></image>
+    <view>嗅味层次分析法训练</view>
+  </button>

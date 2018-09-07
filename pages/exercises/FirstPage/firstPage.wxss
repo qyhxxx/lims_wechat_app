@@ -1,0 +1,65 @@
+/* pages/exercises/FirstPage/firstPage.wxss */
+Page {
+  background-color: white
+}
+
+.btn1{
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 20rpx;
+  color:white;
+  border-radius: 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  background: transparent;
+}
+
+.bgImg {
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 20rpx;
+  color:white;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  position: fixed;
+  z-index: 0;
+}
+
+.btnImg {
+  width: 50rpx;
+  height: 50rpx;
+  position: fixed;
+  z-index: 1;
+}
+
+.btn1::after {
+  border: 0; 
+}
+
+
+ .btn2 {
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 20rpx;
+  background-color: blue;
+  color: white;
+  border-radius: 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25rpx;
+ }
+
+.btnImg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+ .btn2::after {
+  border: 0; 
+}

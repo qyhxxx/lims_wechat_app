@@ -48,7 +48,7 @@
 				{
 					"id": 1,
 					"name": "uiExercise",
-					"pathName": "pages/exercises/overallinterface",
+					"pathName": "pages/exercises/FirstPage/firstPage",
 					"query": ""
 				}
 			]
