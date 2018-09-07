@@ -3,7 +3,8 @@
     "pages/auth/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/report/report"
+    "pages/data/record/record",
+    "pages/data/report/report"
   ],
   "window": {
     "backgroundTextStyle": "light",

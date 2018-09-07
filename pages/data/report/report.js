@@ -1,4 +1,4 @@
-// pages/report/report.js
+// pages/data/report/report.js
 Page({
 
   /**
