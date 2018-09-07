@@ -5,6 +5,8 @@
     "pages/logs/logs",
     "pages/data/record/record",
     "pages/data/report/report"
+    "pages/select_onchange/select_onchange_without_intensity/select_onchange"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
