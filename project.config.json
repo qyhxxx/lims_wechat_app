@@ -44,6 +44,12 @@
 					"name": "test",
 					"pathName": "pages/data/report/report",
 					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "uiExercise",
+					"pathName": "pages/exercises/overallinterface",
+					"query": ""
 				}
 			]
 		}
