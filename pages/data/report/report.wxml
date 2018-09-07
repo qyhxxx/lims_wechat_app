@@ -1,2 +1,55 @@
 <!--pages/data/report/report.wxml-->
-<text>pages/data/report/report.wxml</text>
+<form bindsubmit="formSubmit">
+<view class='report-list'>
+  <view class="report-row">
+    <text>{{msg1}}</text>
+    <input style="text-align:right" name="input" placeholder="请输入或扫描编号"/>
+    <image class="image-setting" src='/static/upload_camera.png' bindtap='camera'></image>
+  </view>
+  
+  <view class="report-row">
+    <text>{{msg2}}</text>
+    <view class="section">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" >
+        <view class="picker">
+         {{array[index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="report-row">
+    <text>{{msg3}}</text>
+    
+  </view>
+
+  <view class="report-row">
+    <text>{{msg4}}</text>
+    
+  </view>
+
+  <view class="report-row">
+    <text>{{msg5}}</text>
+    
+  </view>
+
+  <view class="report-row">
+    <text>{{msg6}}</text>
+    
+  </view>
+
+  <view class="report-row">
+    <text>{{msg7}}</text>
+    
+  </view>
+
+  <view class="report-row">
+    <text>{{msg8}}</text>
+    
+  </view>
+
+  <view class="btn-area">
+    <button formType="submit">提交</button>
+  </view>
+  </view>
+</form>

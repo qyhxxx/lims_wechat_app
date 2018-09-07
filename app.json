@@ -8,7 +8,8 @@
     "pages/exercises/snifferThreshold/SnifferThreshold",
     "pages/exercises/waterSamples/WaterSamples",
     "pages/exercises/UPSIT/UPSIT",
-    "pages/exercises/overallinterface"
+    "pages/exercises/overallinterface",
+    "pages/select_onchange/select_onchange_without_intensity/select_onchange"
   ],
   "window": {
     "backgroundTextStyle": "light",
