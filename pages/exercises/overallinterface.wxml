@@ -2,25 +2,25 @@
 <scroll-view scroll-y="true" style="height: 500px">
 
   <button class='btn1' bindtap="waterButton">
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
     <text class='text'>{{text}}</text>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
   </button>
 
   <button class='btn1' bindtap="smellButton">
+    <text class='text'>{{text1}}</text>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
-    <view>嗅味类型评价</view>
   </button>
 
   <button class='btn1' bindtap="upsitButton">
+    <text class='text'>{{text2}}</text>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
-    <view>UPSIT嗅味测试簿调查</view>
   </button>
 
 
-  <view style="background: red; width: 100px; height: 200px" ></view>
+  <view style="background: red; width: 150px; height: 150px" ></view>
 
-  <view style="background: yellow; width: 100px; height:200px"></view>
+  <view style="background: yellow; width: 150px; height:150px"></view>
 
-  <view style="background: blue; width: 100px; height: 200px"></view>
+  <view style="background: blue; width: 150px; height: 150px"></view>
 
 </scroll-view>
