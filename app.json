@@ -1,14 +1,14 @@
 {
-  "pages":[
+  "pages": [
     "pages/auth/login/login",
-    
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/report/report"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4169E1",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "networkTimeout": {
     "request": 10000,
