@@ -1,0 +1,4 @@
+<!--pages/survey/drinking_water/drinking_water.wxml-->
+<view wx:for="{result}}" wx:key="result">
+  <text>{{item.title}}</text>
+</view>
