@@ -14,8 +14,9 @@ Page({
      * Button1点击事件监听
      */
   Button1: function (e) {
-    //打印所有关于点击对象的信息
-    console.log(e);
+    wx.navigateTo({
+      url: '/pages/exercises/Sensitive/sensitive',
+    })
   },
 
   /**

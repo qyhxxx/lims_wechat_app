@@ -11,7 +11,8 @@
     "pages/exercises/UPSIT/UPSIT",
     "pages/exercises/overallinterface",
     "pages/select_onchange/select_onchange_without_intensity/select_onchange",
-    "pages/exercises/FirstPage/firstPage"
+    "pages/exercises/FirstPage/firstPage",
+    "pages/exercises/Sensitive/sensitive"
   ],
   "window": {
     "backgroundTextStyle": "light",

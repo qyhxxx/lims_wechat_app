@@ -4,17 +4,16 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
-		"nodeModules": true
+		"newFeature": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.5",
 	"appid": "wxf72105061fbf7d05",
-	"projectname": "Lims-wx",
+	"projectname": "LimsWx",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -37,34 +36,12 @@
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< HEAD
-			"current": 1,
-=======
-			"current": 3,
->>>>>>> 0b5ad34c47df05ceb33253f48c6fba5b7cfb7988
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "test",
-					"pathName": "pages/data/report/report",
-					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "uiExercise",
-					"pathName": "pages/exercises/FirstPage/firstPage",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "firstpage",
-					"pathName": "pages/exercises/FirstPage/firstPage",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "drink_water",
-					"pathName": "pages/survey/drinking_water/drinking_water",
+					"name": "uiExercises",
+					"pathName": "pages/exercises/overallinterface",
 					"query": ""
 				}
 			]
