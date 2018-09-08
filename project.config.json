@@ -37,21 +37,24 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
 					"name": "test",
-					"pathName": "pages/report/report",
 					"pathName": "pages/data/report/report",
 					"query": ""
 				},
 				{
 					"id": 1,
-					"name": "survey",
-					"pathName": "pages/survey/drinking_water/drinking_water",
 					"name": "uiExercise",
 					"pathName": "pages/exercises/FirstPage/firstPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "drink_water",
+					"pathName": "pages/survey/drinking_water/drinking_water",
 					"query": ""
 				}
 			]

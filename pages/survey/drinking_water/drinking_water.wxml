@@ -1,4 +1,15 @@
 <!--pages/survey/drinking_water/drinking_water.wxml-->
-<view wx:for="{result}}" wx:key="result">
-  <text>{{item.title}}</text>
+<view class='title'>
+  <text>{{title[exercise_num-1]}}</text>
+</view>
+<view class='option-list'>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class='option-radio' wx:for="{{option}}">
+      <radio class='{{radio}}' value="{{item.value}}"/>{{item.name}}
+    </label>
+  </radio-group>
+</view>
+<view>
+  <button bindtap='preExercise' class='button_pre'>{{button_pre}}</button>
+  <button bindtap='nextExercise' class='button_next'>{{button_next}}</button>
 </view>

@@ -1,1 +1,25 @@
 /* pages/survey/drinking_water/drinking_water.wxss */
+.title{
+  padding: 40rpx;
+  font-size: larger;
+  color: blue;
+}
+
+.option-list{
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+
+.option-radio{
+  display: flex;
+  flex-direction: row;
+}
+
+.option-radio-unchecked{
+  color: black;
+}
+
+.option-radio-checked{
+  color: blue;
+}
