@@ -13,34 +13,65 @@ Page({
     msg6:'嗅味类型',
     msg7:'二级嗅味类型',
     msg8: '嗅味强度',
-    array: ['请选择', '龙头水', '沸腾水', '凉开水', '茶水', '水源水', '自定义'],
-    index: 0
+    inputvalue: '',
+    hiddenmodalput: true,
+    voteTitle: null,
+    array: ['龙头水', '沸腾水', '凉开水', '茶水', '水源水', '自定义'],
+    index: 0,
   },
 
   bindPickerChange: function (e) {
+    var array1 = this.data.array
+    var temp = array1[e.detail.value]
+    var temp1 = true
+    if (e.detail.value == 5) {
+      temp1 = false
+    }
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      inputvalue: temp,
+      hiddenmodalput: temp1
     })
-    // if(index==6){
-    //   wx.showModal({
-    //     title: '提示',
-    //     content: '这是一个示例弹窗',
-    //     success: function (res) {
-    //       console.log(res)
-    //       if (res.confirm) {
-    //         console.log('用户点击了确定')
-    //       } else {
-    //         console.log('用户点击了取消')
-    //       }
-    //     }
-    //   })
-    // }
   },
+
+  // 获取对话框的内容
+  voteTitle: function (e) {
+    this.data.voteTitle = e.detail.value;
+  },
+
+  //取消按钮
+  cancel: function () {
+    this.setData({
+      hiddenmodalput: true
+    });
+  },
+  //确认
+  confirm: function () {
+    this.setData({
+      hiddenmodalput: true,
+      inputvalue: this.data.voteTitle
+    })
+  },
+  // dialog: function () {
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '这是一个示例弹窗',
+  //     success: function (res) {
+  //       console.log(res)
+  //       if (res.confirm) {
+  //         console.log('用户点击了确定')
+  //       } else {
+  //         console.log('用户点击了取消')
+  //       }
+  //     }
+  //   })
+  // },
 
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
 
+  // 扫一扫
   camera: function(){
     wx.scanCode({
       onlyFromCamera: true,

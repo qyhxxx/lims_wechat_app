@@ -1,6 +1,12 @@
 /* pages/exercises/FirstPage/firstPage.wxss */
+/** 修改默认的navigator点击态 **/
+
 Page {
   background-color: white
+}
+
+.navigator-hover {
+    color:blue;
 }
 
 .btn1{
