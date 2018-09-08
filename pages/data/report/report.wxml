@@ -3,18 +3,21 @@
 <view class='report-list'>
   <view class="report-row">
     <text>{{msg1}}</text>
-    <input style="text-align:right" name="input" placeholder="请输入或扫描编号"/>
+    <input style="text-align:right" name="检测样编号" placeholder="请输入或扫描编号"/>
     <image class="image-setting" src='/static/upload_camera.png' bindtap='camera'></image>
   </view>
   
   <view class="report-row">
     <text>{{msg2}}</text>
     <view class="section">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" >
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" name="检测对象" >
         <view class="picker">
-         {{array[index]}}
+         <input style="text-align:right" placeholder="请选择" value="{{inputvalue}}"/>
         </view>
       </picker>
+         <modal hidden="{{hiddenmodalput}}" title="自定义" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+            <input placeholder="请输入内容" bindinput="voteTitle"/>
+         </modal>
     </view>
   </view>
 
