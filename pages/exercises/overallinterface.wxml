@@ -1,8 +1,5 @@
 <!--pages/exercises/overallinterface.wxml-->
 
-<view style="text-align:center"> {{title}} </view>
-<!--错误Setting data field "title" to undefined is invalid. 
-但可以运行-->
 <scroll-view scroll-y="true" style="height: 500px">
 
   <button class='btn1' bindtap="waterButton">

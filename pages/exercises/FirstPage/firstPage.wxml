@@ -1,17 +1,33 @@
 <!--pages/exercises/FirstPage/firstPage.wxml-->
 
-<view class="btn-area">
-  <navigator url="/pages/exercises/overallinterface?      title=overallinterface" hover-class="navigator-hover">跳转到overallinterface页面</navigator>
+<view class='smell-list'>
+  <view class="smell-row">
+    <button class='btn' bindtap="Button1">
+       <image class='btnImg' src='/static/main_test.png'></image>
+       <text class='text'>{{text}}</text>
+       <!--<view>嗅味敏感性调查</view>-->
+    </button>
+
+    <button class='btn' bindtap="Button2">
+       <image class='btnImg' src='/static/main_history.png'></image>
+       <view class='view-text'>
+          <text class='text-content'>{{text1}}</text>
+      </view>
+       <!--<text class='text1'>{{text1}}</text>-->
+       <!--<view>嗅味层次分析法训练</view>-->
+    </button>
+    
+  </view>
+  <view class="smell-row">
+    <button class='btn' bindtap="Button3">
+       <image class='btnImg' src='/static/main_upload_data.png'></image>
+      <view class='view-text'>
+          <text class='text-content'>{{text2}}</text>
+      </view>
+      <!--<text class='text1'>{{text2}}</text>-->
+      <!--<view>嗅味投诉上报嗅味特征评价</view>-->
+    </button>
+    
+    <button ></button>
+  </view>
 </view>
-
-  <button class='btn1' bindtap="Button1">
-    <image class='bgImg' src='/static/main_item_background.png'>
-      <image class='btnImg' src='/static/main_test.png'></image>
-      <view>嗅味敏感性调查</view>
-    </image>
-  </button>
-
-  <button class='btn2' bindtap="Button2">
-    <image class='btnImg' src='/static/main_test.png'></image>
-    <view>嗅味层次分析法训练</view>
-  </button>

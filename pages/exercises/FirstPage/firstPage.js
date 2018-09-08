@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    text: '嗅味敏感性调查',
+    text1: '嗅味层次分析法训练',
+    text2: '嗅味投诉上报嗅味特征评价'
   },
 
   /**
@@ -20,17 +22,25 @@ Page({
      * Button2点击事件监听
      */
   Button2: function (e) {
-    //打印所有关于点击对象的信息
-    console.log(e);
+    wx.navigateTo({
+      url: '/pages/exercises/overallinterface',
+    })
+  },
+
+  /**
+     * Button3点击事件监听
+     */
+  Button3: function (e) {
+    wx.navigateTo({
+      url: '/pages/data/report/report',
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      title: options.title
-    })
+    
   },
 
   /**
