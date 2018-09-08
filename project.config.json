@@ -37,7 +37,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 1,
+=======
+			"current": 3,
+>>>>>>> 0b5ad34c47df05ceb33253f48c6fba5b7cfb7988
 			"list": [
 				{
 					"id": 0,
@@ -55,6 +59,12 @@
 					"id": -1,
 					"name": "firstpage",
 					"pathName": "pages/exercises/FirstPage/firstPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "drink_water",
+					"pathName": "pages/survey/drinking_water/drinking_water",
 					"query": ""
 				}
 			]
