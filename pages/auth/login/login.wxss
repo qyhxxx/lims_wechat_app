@@ -2,42 +2,70 @@ Page {
   background-color: #4A708B
 }
 
-.mark {
+.header-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .logo {
-  width: 230rpx;
-  height: 230rpx;
-  margin: 100rpx;
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 100rpx;
 }
 
-.text {
-  font-size: 24px;
+.appName {
+  font-size: 20px;
   color: #ffffff;
+  margin-top: 10rpx;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 100rpx;
+  width: 55%;
+  margin: 50px auto;
 }
 
-.account {
+.user-wrapper {
+  display: flex;
+  padding-bottom: 2px;
+  border-bottom: 4rpx solid #4169E1;
+}
+
+.user-icon {
+  width: 30px;
+  height: 20px;
+}
+
+.username {
+  margin-left: 8px;
   font-size: 16px;
   color: white;
-  line-height: 48px;
-  text-indent: 48px;
-  border: 2px #4169E1;
+}
+
+.password-wrapper {
+  display: flex;
+  padding-bottom: 2px;
+  border-bottom: 4rpx solid #4169E1;
+  margin-top: 40px;
+}
+
+.password-icon {
+  width: 30px;
+  height: 20px;
 }
 
 .password {
+  margin-left: 8px;
   font-size: 16px;
   color: white;
-  line-height: 48px;
-  text-indent: 48px;
-  border: 2px #4169E1;
+}
+
+.button {
+  margin-top: 40px;
+  background-color: #4169E1;
+  color: white;
+  font-size: 16px;
 }
