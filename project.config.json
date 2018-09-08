@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -48,6 +48,12 @@
 				{
 					"id": 1,
 					"name": "uiExercise",
+					"pathName": "pages/exercises/FirstPage/firstPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "firstpage",
 					"pathName": "pages/exercises/FirstPage/firstPage",
 					"query": ""
 				}
