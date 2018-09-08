@@ -42,14 +42,11 @@
 				{
 					"id": 0,
 					"name": "test",
-					"pathName": "pages/report/report",
 					"pathName": "pages/data/report/report",
 					"query": ""
 				},
 				{
 					"id": 1,
-					"name": "survey",
-					"pathName": "pages/survey/drinking_water/drinking_water",
 					"name": "uiExercise",
 					"pathName": "pages/exercises/FirstPage/firstPage",
 					"query": ""

@@ -1,5 +1,9 @@
 <!--pages/exercises/FirstPage/firstPage.wxml-->
 
+<view class="btn-area">
+  <navigator url="/pages/exercises/overallinterface?      title=overallinterface" hover-class="navigator-hover">跳转到overallinterface页面</navigator>
+</view>
+
   <button class='btn1' bindtap="Button1">
     <image class='bgImg' src='/static/main_item_background.png'>
       <image class='btnImg' src='/static/main_test.png'></image>
