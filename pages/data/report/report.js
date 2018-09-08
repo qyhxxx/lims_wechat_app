@@ -13,43 +13,89 @@ Page({
     msg6:'嗅味类型',
     msg7:'二级嗅味类型',
     msg8: '嗅味强度',
-    inputvalue: '',
-    hiddenmodalput: true,
-    voteTitle: null,
-    array: ['龙头水', '沸腾水', '凉开水', '茶水', '水源水', '自定义'],
-    index: 0,
+    inputvalue1: '',
+    hiddenmodalput1: true,
+    voteTitle1: null,
+    array1: ['龙头水', '沸腾水', '凉开水', '茶水', '水源水', '自定义'],
+    index1: 0,
+    inputvalue2: '',
+    array2: ['源水','水厂','出厂水','管网水','水龙头出水','自定义'],
+    index2: 0,
+    voteTitle2: null,
+    hiddenmodalput2: true,
+    array5: [0,2,4,6,8,10,12],
+    index5: 0,
+    inputvalue5: ''
   },
 
-  bindPickerChange: function (e) {
-    var array1 = this.data.array
-    var temp = array1[e.detail.value]
+  bindPickerChange1: function (e) {
+    var array_temp = this.data.array1
+    var temp = array_temp[e.detail.value]
     var temp1 = true
     if (e.detail.value == 5) {
       temp1 = false
     }
     this.setData({
-      index: e.detail.value,
-      inputvalue: temp,
-      hiddenmodalput: temp1
+      index1: e.detail.value,
+      inputvalue1: temp,
+      hiddenmodalput1: temp1
+    })
+  },
+
+  bindPickerChange2: function (e) {
+    var array_temp = this.data.array2
+    var temp = array_temp[e.detail.value]
+    var temp1 = true
+    if (e.detail.value == 5) {
+      temp1 = false
+    }
+    this.setData({
+      index2: e.detail.value,
+      inputvalue2: temp,
+      hiddenmodalput2: temp1
+    })
+  },
+
+  bindPickerChange5: function (e) {
+    var array_temp = this.data.array5
+    var temp = array_temp[e.detail.value]
+
+    this.setData({
+      index5: e.detail.value,
+      inputvalue5: temp,
     })
   },
 
   // 获取对话框的内容
-  voteTitle: function (e) {
-    this.data.voteTitle = e.detail.value;
+  voteTitle1: function (e) {
+    this.data.voteTitle1 = e.detail.value;
+  },
+  voteTitle2: function (e) {
+    this.data.voteTitle2 = e.detail.value;
   },
 
   //取消按钮
-  cancel: function () {
+  cancel1: function () {
     this.setData({
-      hiddenmodalput: true
+      hiddenmodalput1: true
+    });
+  },
+  cancel2: function () {
+    this.setData({
+      hiddenmodalput2: true
     });
   },
   //确认
-  confirm: function () {
+  confirm1: function () {
     this.setData({
-      hiddenmodalput: true,
-      inputvalue: this.data.voteTitle
+      hiddenmodalput1: true,
+      inputvalue1: this.data.voteTitle1
+    })
+  },
+  confirm2: function () {
+    this.setData({
+      hiddenmodalput2: true,
+      inputvalue2: this.data.voteTitle2
     })
   },
   // dialog: function () {
