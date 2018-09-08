@@ -2,26 +2,88 @@
 
 <scroll-view scroll-y="true" style="height: 500px">
 
+  <button class='btn1' bindtap="Button1">
+    <view class='view-text'>
+        <text class='text-content'>{{text1}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button2">
+    <view class='view-text'>
+        <text class='text-content'>{{text2}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button3">
+    <view class='view-text'>
+        <text class='text-content'>{{text3}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button4">
+    <view class='view-text'>
+        <text class='text-content'>{{text4}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button5">
+    <view class='view-text'>
+        <text class='text-content'>{{text5}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button6">
+    <view class='view-text'>
+        <text class='text-content'>{{text6}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button7">
+    <view class='view-text'>
+        <text class='text-content'>{{text7}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button8">
+    <view class='view-text'>
+        <text class='text-content'>{{text8}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
   <button class='btn1' bindtap="waterButton">
-    <text class='text'>{{text}}</text>
+    <view class='view-text'>
+        <text class='text-content'>{{text9}}</text>
+    </view>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
   </button>
 
   <button class='btn1' bindtap="smellButton">
-    <text class='text'>{{text1}}</text>
+    <view class='view-text'>
+        <text class='text-content'>{{text10}}</text>
+    </view>
+    <image class='btn1Img' src='/static/arrow_next.png'></image>
+  </button>
+
+  <button class='btn1' bindtap="Button11">
+    <view class='view-text'>
+        <text class='text-content'>{{text11}}</text>
+    </view>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
   </button>
 
   <button class='btn1' bindtap="upsitButton">
-    <text class='text'>{{text2}}</text>
+    <view class='view-text'>
+        <text class='text-content'>{{text12}}</text>
+    </view>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
   </button>
-
-
-  <view style="background: red; width: 150px; height: 150px" ></view>
-
-  <view style="background: yellow; width: 150px; height:150px"></view>
-
-  <view style="background: blue; width: 150px; height: 150px"></view>
 
 </scroll-view>

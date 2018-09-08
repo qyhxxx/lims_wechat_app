@@ -1,37 +1,27 @@
-// pages/exercises/overallinterface.js
+// pages/exercises/Sensitive/sensitive.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    text: '双醚 强度训练 上海南方中心',
-    text1: '二甲基三硫醚 强度训练 上海南方中心',
-    text2: '2-甲基异莰醇 强度训练 上海南方中心',
-    text3: '双(2-氯异丙基) 醚嗅阀值测试-上海南方中心',
-    text4: '二甲基二硫醚嗅阀值测试-上海南方中心',
-    text5: '己醛嗅阀值测试-上海南方中心',
-    text6: '土臭素嗅阀值测试-上海南方中心',
-    text7: 'MIB嗅阀值测试-上海南方中心',
-    text8: '嗅味强度练习',
-    text9: '不同水样辨认',
-    text10: '嗅味类型评价',
-    text11: '嗅阀值评价',
-    text12: 'UPSIT嗅味测试簿调查'
+    text: '饮用水喜好调查',
+    text1: '物质浓度-嗅味强度效应曲线',
+    text2: 'UPSIT嗅味测试簿调查'
   },
 
   /**
-     * waterButton点击事件监听
+     * drinkingButton点击事件监听
      */
-  waterButton: function (e) {
+  drinkingButton: function (e) {
     //打印所有关于点击对象的信息
     console.log(e);
   },
 
   /**
-     * smellButton点击事件监听
+     * materialButton点击事件监听
      */
-  smellButton: function (e) {
+  materialButton: function (e) {
     //打印所有关于点击对象的信息
     console.log(e);
   },
@@ -48,7 +38,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**

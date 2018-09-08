@@ -1,4 +1,4 @@
-/* pages/exercises/overallinterface.wxss */
+/* pages/exercises/Sensitive/sensitive.wxss */
 
 .btn1 {
   display: flex;
@@ -7,13 +7,7 @@
   align-items: center;
 }
 
-.view-text .text-content {
-  font-size: 35rpx;
-}
-
-.view-text{
-  line-height: 121rpx;
-  font-size: 35rpx;
+.text{
   margin-left: 10rpx;
 }
 
