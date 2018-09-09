@@ -1,85 +1,121 @@
+import '../select_onchange_without_intensity/select_onchange'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        array: ['0', '2', '4', '6', '8', '10', '12'],
+        objectArray: [{
+                id: 0,
+                name: '0'
+            },
+            {
+                id: 1,
+                name: '2'
+            },
+            {
+                id: 2,
+                name: '4'
+            },
+            {
+                id: 3,
+                name: '6'
+            },
+            {
+                id: 4,
+                name: '8'
+            },
+            {
+                id: 5,
+                name: '10'
+            },
+            {
+                id: 6,
+                name: '12'
+            },
+        ],
+        index: 0,
         multiArray: [
             ['土霉味', '氯味/臭氧味', '草味', '腐败味/沼泽味', '鱼腥味', '芳香味', '药味', '化学品味', '其他'],
             ['土味', '霉味', '淤泥味']
         ],
         objectMultiArray: [
             [{
-                    id: 0,
-                    name: '土霉味'
-                },
-                {
-                    id: 1,
-                    name: '氯味/臭氧味'
-                },
-                {
-                    id: 2,
-                    name: '草味'
-                },
-                {
-                    id: 3,
-                    name: '腐败味/沼泽味'
-                },
-                {
-                    id: 4,
-                    name: '鱼腥味'
-                },
-                {
-                    id: 5,
-                    name: '芳香味'
-                },
-                {
-                    id: 6,
-                    name: '药味'
-                },
-                {
-                    id: 7,
-                    name: '化学药品'
-                },
-                {
-                    id: 8,
-                    name: '其他'
-                }
+                id: 0,
+                name: '土霉味'
+            },
+            {
+                id: 1,
+                name: '氯味/臭氧味'
+            },
+            {
+                id: 2,
+                name: '草味'
+            },
+            {
+                id: 3,
+                name: '腐败味/沼泽味'
+            },
+            {
+                id: 4,
+                name: '鱼腥味'
+            },
+            {
+                id: 5,
+                name: '芳香味'
+            },
+            {
+                id: 6,
+                name: '药味'
+            },
+            {
+                id: 7,
+                name: '化学药品'
+            },
+            {
+                id: 8,
+                name: '其他'
+            }
             ],
             [{
-                    id: 0,
-                    name: '土味'
-                },
-                {
-                    id: 1,
-                    name: '霉味'
-                },
-                {
-                    id: 2,
-                    name: '淤泥味'
-                }
+                id: 0,
+                name: '土味'
+            },
+            {
+                id: 1,
+                name: '霉味'
+            },
+            {
+                id: 2,
+                name: '淤泥味'
+            }
             ]
         ],
         multiIndex: [0, 0],
-        hiddenmodalput: true,
     },
 
+    bindPickerChange: function(e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        this.setData({
+            index: e.detail.value
+        })
+    },
 
-    bindMultiPickerChange: function(e) {
+    bindMultiPickerChange: function (e) {
         console.log('pickr发送选择改变，携带值为', e.detail.value)
         this.setData({
             multiIndex: e.detail.value
         })
     },
-    bindMultiPickerColumnChange: function(e) {
+    bindMultiPickerColumnChange: function (e) {
         console.log('修改的列为', e.detail.column, ', 值为', e.detail.value);
         var data = {
             multiArray: this.data.multiArray,
-            multiIndex: this.data.multiIndex,
-            hiddenmodalput: this.data.hiddenmodalput,
+            multiIndex: this.data.multiIndex
         };
-        var firstSmellArray =  ['土霉味', '氯味 / 臭氧味', '草味', '腐败味 / 沼泽味', '鱼腥味', '芳香味', '药味', '化学药品', '其他'];
-        var secondSmellArray0 =  ['土味', '霉味', '淤泥味'];
+        var firstSmellArray = ['土霉味', '氯味 / 臭氧味', '草味', '腐败味 / 沼泽味', '鱼腥味', '芳香味', '药味', '化学药品', '其他'];
+        var secondSmellArray0 = ['土味', '霉味', '淤泥味'];
         var secondSmellArray1 = ['氯味/臭氧味'];
         var secondSmellArray2 = ['鲜草味', '木材味', '干草味', '烟草味'];
         var secondSmellArray3 = ['腐败味', '腐烂蔬菜味', '臭鸡蛋味'];
@@ -87,6 +123,7 @@ Page({
         var secondSmellArray5 = ['甜味', '水果味', '香味'];
         var secondSmellArray6 = ['药味'];
         var secondSmellArray7 = ['油漆味', '汽油味', '塑料味', '胶水味'];
+        var secondSmellArray8 = ['请输入嗅味']
         data.multiIndex[e.detail.column] = e.detail.value;
         switch (e.detail.column) {
             case 0:
@@ -116,10 +153,10 @@ Page({
                         data.multiArray[1] = secondSmellArray7;
                         break;
                     case 8:
-                        hiddenmodalput = false;
+                        data.multiArray[1] = secondSmellArray8;
                         console.log(name);
                         break;
-                        
+
                 }
                 data.multiIndex[1] = 0;
                 break;

@@ -1,4 +1,5 @@
 // pages/survey/drinking_water/drinking_water.js
+var app = getApp()
 Page({
 
   /**
@@ -20,13 +21,22 @@ Page({
     button_pre: '上一题',
     button_next: '下一题',
     exercise_num: 1,
-    radio: 'option-radio-unchecked'
+    radio: 'option-radio-unchecked',
+    radio_value: 0,
+    post_value: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var postData = {
+      'trainingType': '嗅味敏感性调查'
+    }
+
+    app.functions.authRequest('/app/smell/training/item/list', postData, function (res) {
+      console.log(res)
+    })
     // var that = this
     // wx.request({
     //   url: 'http://123.56.40.112:8081/app/smell/training/item/list',
@@ -118,29 +128,33 @@ Page({
    */
   nextExercise: function() {
     if(this.data.exercise_num == 2){
+      this.data.post_value.push(this.data.radio_value)
       wx.showModal({
         title: '这是最后一道题了',
         content: '是否提交调查结果',
         success: function(res){
           if(res.confirm){
-
+            
           }
         }
       })
     }
     else{
       this.setData({
-        'exercise_num': this.data.exercise_num+1
+        'exercise_num': this.data.exercise_num+1,
       })
+      this.data.post_value.push(this.data.radio_value)
     }
+    console.log('data array is ', this.data.post_value)
   },
 
   /**
   *  改变选项时的操作 
   */
-  radioChange: function() {
+  radioChange: function(e) {
     this.setData({
-      radio: 'option-radio-checked'
+      'radio': 'option-radio-checked',
+      'radio_value': e.detail.value
     })
   }
 })
