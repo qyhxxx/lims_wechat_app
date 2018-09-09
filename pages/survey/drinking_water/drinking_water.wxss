@@ -23,3 +23,12 @@
 .option-radio-checked{
   color: blue;
 }
+
+.button-pre{
+
+}
+
+.button-next{
+  color: white;
+  background-color: rgb(112, 170, 224, 0.623)
+}
