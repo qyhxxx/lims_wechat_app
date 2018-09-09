@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -37,11 +37,12 @@
 		},
 		"miniprogram": {
 			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "uiExercises",
-					"pathName": "pages/exercises/overallinterface",
+					"pathName": "pages/exercises/FirstPage/firstPage",
 					"query": ""
 				},
 				{
