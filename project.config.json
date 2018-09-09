@@ -36,18 +36,18 @@
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< HEAD
 			"current": 1,
-			"current": 3,
-=======
-			"current": 0,
->>>>>>> f641dc67cf977515265cc21100cfa728bc3fcfe0
 			"list": [
 				{
 					"id": 0,
 					"name": "uiExercises",
 					"pathName": "pages/exercises/overallinterface",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report",
+					"pathName": "pages/data/report/report"
 				}
 			]
 		}

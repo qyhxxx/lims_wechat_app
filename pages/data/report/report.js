@@ -13,6 +13,7 @@ Page({
     msg6:'嗅味类型',
     msg7:'二级嗅味类型',
     msg8: '嗅味强度',
+    msg9: '添加嗅味类型',
     inputvalue1: '',
     hiddenmodalput1: true,
     voteTitle1: null,
@@ -25,7 +26,8 @@ Page({
     hiddenmodalput2: true,
     array5: [0,2,4,6,8,10,12],
     index5: 0,
-    inputvalue5: ''
+    inputvalue5: '',
+    checkbox: [-1],
   },
 
   bindPickerChange1: function (e) {
@@ -66,7 +68,7 @@ Page({
     })
   },
 
-  // 获取对话框的内容
+// 获取对话框的内容
   voteTitle1: function (e) {
     this.data.voteTitle1 = e.detail.value;
   },
@@ -74,7 +76,7 @@ Page({
     this.data.voteTitle2 = e.detail.value;
   },
 
-  //取消按钮
+//取消按钮
   cancel1: function () {
     this.setData({
       hiddenmodalput1: true
@@ -85,7 +87,7 @@ Page({
       hiddenmodalput2: true
     });
   },
-  //确认
+//确认
   confirm1: function () {
     this.setData({
       hiddenmodalput1: true,
@@ -98,26 +100,22 @@ Page({
       inputvalue2: this.data.voteTitle2
     })
   },
-  // dialog: function () {
-  //   wx.showModal({
-  //     title: '提示',
-  //     content: '这是一个示例弹窗',
-  //     success: function (res) {
-  //       console.log(res)
-  //       if (res.confirm) {
-  //         console.log('用户点击了确定')
-  //       } else {
-  //         console.log('用户点击了取消')
-  //       }
-  //     }
-  //   })
-  // },
 
+// 添加嗅味类型
+  addSmell: function (){
+    var temp = this.data.checkbox;
+    temp.push(this.data.checkbox.length);
+    this.setData({
+      checkbox: temp
+    })
+  },
+
+// form提交
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
 
-  // 扫一扫
+// 扫一扫
   camera: function(){
     wx.scanCode({
       onlyFromCamera: true,
@@ -137,6 +135,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.pd = this.selectComponent("#pd");
 
   },
 

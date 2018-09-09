@@ -45,7 +45,9 @@
     <input style="text-align:right" name="地址" placeholder="定位中"/>
   </view>
 
-  <view class="report-row">
+<!-- 添加嗅味类型 -->
+<view wx:for="{{checkbox}}">
+  <!-- <view class="report-row">
     <text>{{msg6}}</text>
     
   </view>
@@ -55,8 +57,8 @@
     
   </view>
 
-  <view class="report-row">
-    <text>{{msg8}}</text>
+   <view class="report-row">
+      <text>{{msg8}}</text>
       <view class="section">
       <picker bindchange="bindPickerChange5" value="{{index5}}" range="{{array5}}" name="嗅味强度" >
         <view class="picker">
@@ -64,10 +66,18 @@
         </view>
       </picker>
       </view>
-  </view>
+   </view> -->
 
-  <view class="btn-area">
-    <button formType="submit">提交</button>
-  </view>
+   <pd id="pd" msg6='嗅味类型' msg7='二级嗅味类型' msg8='嗅味强度'>
+   </pd>
+</view>
+
+   <view class='addSmellStyle'>
+      <text bindtap='addSmell'>{{msg9}}</text>
+   </view>
+   
+    <button class="button-setting" formType="submit">
+      <text class="button-text" space='emsp'>提  交</text>
+    </button>
   </view>
 </form>
