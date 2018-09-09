@@ -47,7 +47,8 @@
 				{
 					"id": -1,
 					"name": "water",
-					"pathName": "pages/survey/drinking_water/drinking_water"
+					"pathName": "pages/survey/drinking_water/drinking_water",
+					"query": ""
 				},
 				{
 					"id": 1,
