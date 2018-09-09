@@ -1,6 +1,6 @@
 <!--pages/exercises/overallinterface.wxml-->
 
-<scroll-view scroll-y="true" style="height: 500px">
+<scroll-view scroll-y="true" >
 
   <button class='btn' bindtap="Button">
     <view class='view-text'>
