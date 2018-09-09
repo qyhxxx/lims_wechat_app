@@ -1,5 +1,42 @@
-@import "../lib/weui.wxss";
-.picker{
-    padding: 13px;
-    background-color: #FFFFFF;
+
+.title{
+    color: rgb(57, 57, 122);
+    padding-left: .50em;
+    padding-top: 1.100em;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+
+.picker-title{
+    color: rgb(57, 57, 122);
+    padding-left: 13px;
+    margin-top: 35px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.picker-content{
+    color: rgb(57, 57, 122);
+    padding-left: 13px;
+    padding-top: 15px;
+    margin-top: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: blue;
+    border-bottom-width: thin;
+}
+
+.button{
+    margin-top: 100px;
+    margin-left:15%;
+}
+
+#button-pre{
+    border-color: blue;
+    color:blue;
+}
+
+#button-next{
+    background-color: blue;
+    color: white;
 }
