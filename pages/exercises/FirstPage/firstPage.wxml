@@ -3,30 +3,40 @@
 <view class='smell-list'>
   <view class="smell-row">
     <button class='btn' bindtap="Button1">
-       <image class='btnImg' src='/static/main_test.png'></image>
+       <image class='btn1Img' src='/static/main_test.png'></image>
        <text class='text'>{{text}}</text>
        <!--<view>嗅味敏感性调查</view>-->
     </button>
 
     <button class='btn' bindtap="Button2">
-       <image class='btnImg' src='/static/main_history.png'></image>
+       <image class='btn2Img' src='/static/main_history.png'></image>
        <view class='view-text'>
           <text class='text-content'>{{text1}}</text>
-      </view>
+       </view>
        <!--<text class='text1'>{{text1}}</text>-->
        <!--<view>嗅味层次分析法训练</view>-->
     </button>
     
   </view>
   <view class="smell-row">
+
+  <span style="font-size:18rpx;"><view>
     <button class='btn' bindtap="Button3">
-       <image class='btnImg' src='/static/main_upload_data.png'></image>
+       <image class='btn3Img' src='/static/main_upload_data.png'></image>
       <view class='view-text'>
           <text class='text-content'>{{text2}}</text>
       </view>
       <!--<text class='text1'>{{text2}}</text>-->
       <!--<view>嗅味投诉上报嗅味特征评价</view>-->
     </button>
+
+    <view >
+      <modal hidden="{{modalHidden}}" no-cancel="true" confirm-text="返回" bindconfirm="modalBindaconfirm">
+          <button class='btnTips' bindtap="databtn">数据上报</button>
+          <button class='btnTips' bindtap="recordbtn">历史记录</button>
+      </modal>
+    </view>
+  </view></span>
     
     <button ></button>
   </view>
