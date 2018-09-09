@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -36,7 +36,12 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
+			"current": 1,
+			"current": 3,
+=======
 			"current": 0,
+>>>>>>> f641dc67cf977515265cc21100cfa728bc3fcfe0
 			"list": [
 				{
 					"id": 0,
