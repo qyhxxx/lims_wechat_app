@@ -25,10 +25,15 @@
 }
 
 .button-pre{
-
+  margin-top: 20rpx;
+  margin-left:15%;
+  border-color: blue;
+  color:blue;
 }
 
 .button-next{
+  margin-top: 20rpx;
+  margin-left:15%;
+  background-color: blue;
   color: white;
-  background-color: rgb(112, 170, 224, 0.623)
 }

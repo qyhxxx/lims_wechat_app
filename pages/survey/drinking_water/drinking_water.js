@@ -110,6 +110,7 @@ Page({
   *  上一题
   */
   preExercise: function(){
+    var radioValue = this.data.radio_value
     if(this.data.exercise_num == 1){
       wx.showToast({
         title: '这是第一道题了',
@@ -117,8 +118,15 @@ Page({
       })
     }
     else{
+      //返回上一题时先将上一次的选中项显示出来
+      var lastRadio = this.data.post_value[this.data.exercise_num-2]
+      var newOption = this.data.option
+      newOption[lastRadio-1].checked = true
+      console.log('上一题 ',lastRadio)
+      console.log('post value', this.data.post_value)
       this.setData({
         exercise_num: this.data.exercise_num-1,
+        option: newOption
       })
     }
   },
@@ -127,25 +135,62 @@ Page({
    *  下一题
    */
   nextExercise: function() {
-    if(this.data.exercise_num == 2){
-      this.data.post_value.push(this.data.radio_value)
-      wx.showModal({
-        title: '这是最后一道题了',
-        content: '是否提交调查结果',
-        success: function(res){
-          if(res.confirm){
-            
+    var radioValue = this.data.radio_value
+    if (radioValue == 0) {
+      wx.showToast({
+        title: '您还没有做出选择',
+        icon: 'none'
+      })
+    }else{
+      if (this.data.exercise_num == 2) {
+        var that = this 
+        wx.showModal({
+          title: '这是最后一道题了',
+          content: '是否提交调查结果',
+          success: function (res) {
+            if (res.confirm) {
+              that.data.post_value.push(radioValue)
+              console.log('data array is hhh ', that.data.post_value)
+            }
           }
+        })
+      }
+      else {
+        var newOption = this.data.option
+        newOption[radioValue-1].checked = false
+        //判断下一题是否已经选泽过
+        var nextRadio = this.data.post_value[this.data.exercise_num]
+        if(nextRadio){
+          newOption[nextRadio-1].checked = true
+          console.log(nextRadio)
+          this.setData({
+            option: newOption
+          })
+        }else{
+          for(var i = 0; i < 9; i++){
+            newOption[i].checked = false
+          }
+          this.setData({
+            option: newOption
+          })
         }
-      })
+        //判断当前题是否已经被选择过
+        var currentRadio = this.data.post_value[this.data.exercise_num-1]
+        var postValue = this.data.post_value
+        if(!currentRadio){
+          this.data.post_value.push(radioValue)
+        }else{
+          postValue[this.data.exercise_num-1] = radioValue
+          this.setData({
+            post_value: postValue
+          })
+        }
+        this.setData({
+          exercise_num: this.data.exercise_num + 1
+        })
+      }
+      console.log('data array is ', this.data.post_value)
     }
-    else{
-      this.setData({
-        'exercise_num': this.data.exercise_num+1,
-      })
-      this.data.post_value.push(this.data.radio_value)
-    }
-    console.log('data array is ', this.data.post_value)
   },
 
   /**
@@ -153,8 +198,8 @@ Page({
   */
   radioChange: function(e) {
     this.setData({
-      'radio': 'option-radio-checked',
-      'radio_value': e.detail.value
+      radio: 'option-radio-checked',
+      radio_value: e.detail.value
     })
   }
 })

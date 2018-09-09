@@ -5,7 +5,7 @@
 <view class='option-list'>
   <radio-group class="radio-group" bindchange="radioChange">
     <label class='option-radio' wx:for="{{option}}">
-      <radio class='{{radio}}' value="{{item.value}}"/>{{item.name}}
+      <radio checked="{{item.checked}}" class='{{radio}}' value="{{item.value}}"/>{{item.name}}
     </label>
   </radio-group>
 </view>
