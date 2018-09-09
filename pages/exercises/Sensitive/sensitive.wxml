@@ -1,10 +1,20 @@
 <!--pages/exercises/Sensitive/sensitive.wxml-->
 <scroll-view scroll-y="true" style="height: 500px">
 
-  <button class='btn1' bindtap="drinkingButton">
-    <text class='text'>{{text}}</text>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
-  </button>
+  <span style="font-size:18rpx;"><view>
+    <button class='btn1' bindtap="drinkingButton">
+      <text class='text'>{{text}}</text>
+      <image class='btn1Img' src='/static/arrow_next.png'></image>
+    </button>
+
+    <view >
+      <modal hidden="{{modalHidden}}" title="饮用水嗅味喜好调查"no-cancel="true" confirm-text="开始答题" bindconfirm="modalBindaconfirm">
+          <view class='view-modal'>
+             <text class='modal-content'>{{textGuide}}</text>
+          </view>
+      </modal>
+    </view>
+  </view></span>
 
   <button class='btn1' bindtap="materialButton">
     <text class='text'>{{text1}}</text>

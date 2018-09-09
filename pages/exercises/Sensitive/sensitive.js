@@ -7,15 +7,27 @@ Page({
   data: {
     text: '饮用水喜好调查',
     text1: '物质浓度-嗅味强度效应曲线',
-    text2: 'UPSIT嗅味测试簿调查'
+    text2: 'UPSIT嗅味测试簿调查',
+    textGuide: '方法介绍：该方法主要通过测试者提供的喜好得分来评估消费者对饮用水感官特征的态度。',
+    modalHidden: true //是否隐藏对话框
   },
 
   /**
      * drinkingButton点击事件监听
      */
   drinkingButton: function (e) {
-    //打印所有关于点击对象的信息
-    console.log(e);
+    this.setData({
+      modalHidden: !this.data.modalHidden
+    })
+  },
+  // 开始答题 按钮点击事件
+  modalBindaconfirm: function () {
+    wx.navigateTo({
+      url: '/pages/survey/drinking_water/drinking_water',
+    })
+    this.setData({
+      modalHidden: !this.data.modalHidden,
+    })
   },
 
   /**
