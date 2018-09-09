@@ -2,88 +2,88 @@
 
 <scroll-view scroll-y="true" style="height: 500px">
 
-  <button class='btn1' bindtap="Button1">
+  <button class='btn' bindtap="Button1">
     <view class='view-text'>
         <text class='text-content'>{{text1}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button2">
+  <button class='btn' bindtap="Button2">
     <view class='view-text'>
         <text class='text-content'>{{text2}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button3">
-    <view class='view-text'>
-        <text class='text-content'>{{text3}}</text>
+  <button class='btn3' bindtap="Button3">
+    <view class='view-btn3'>
+        <text class='text-btn3'>{{text3}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button4">
+  <button class='btn' bindtap="Button4">
     <view class='view-text'>
         <text class='text-content'>{{text4}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button5">
+  <button class='btn' bindtap="Button5">
     <view class='view-text'>
         <text class='text-content'>{{text5}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button6">
+  <button class='btn' bindtap="Button6">
     <view class='view-text'>
         <text class='text-content'>{{text6}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button7">
+  <button class='btn' bindtap="Button7">
     <view class='view-text'>
         <text class='text-content'>{{text7}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button8">
+  <button class='btn' bindtap="Button8">
     <view class='view-text'>
         <text class='text-content'>{{text8}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="waterButton">
+  <button class='btn' bindtap="waterButton">
     <view class='view-text'>
         <text class='text-content'>{{text9}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="smellButton">
+  <button class='btn' bindtap="smellButton">
     <view class='view-text'>
         <text class='text-content'>{{text10}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button11">
+  <button class='btn' bindtap="Button11">
     <view class='view-text'>
         <text class='text-content'>{{text11}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="upsitButton">
+  <button class='btn' bindtap="upsitButton">
     <view class='view-text'>
         <text class='text-content'>{{text12}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
 </scroll-view>

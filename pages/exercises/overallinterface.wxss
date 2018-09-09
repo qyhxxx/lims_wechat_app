@@ -1,23 +1,36 @@
 /* pages/exercises/overallinterface.wxss */
 
-.btn1 {
+.btn {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-
 .view-text .text-content {
   font-size: 35rpx;
 }
-
 .view-text{
-  line-height: 121rpx;
-  font-size: 35rpx;
+  line-height: 110rpx;
   margin-left: 10rpx;
 }
 
-.btn1Img {
+.btn3 {
+  height: 160rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.view-btn3 .text-btn3 {
+  font-size: 35rpx;
+}
+.view-btn3{
+  line-height: 35rpx;
+  margin-left: 10rpx;
+  margin-top: 0rpx;
+}
+
+.btnImg {
   width: 50rpx;
   height: 50rpx;
   margin-right: 10rpx;
