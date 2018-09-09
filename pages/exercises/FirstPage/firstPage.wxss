@@ -19,8 +19,8 @@ Page {
 }
 
 .btn{
-  width: 250rpx;
-  height: 250rpx;
+  width: 260rpx;
+  height: 260rpx;
   margin-left: 45rpx;
   background-color:cornflowerblue;
   color:white;
@@ -30,8 +30,22 @@ Page {
   justify-content: center;
 }
 
-.btnImg {
-  width: 85rpx;
+.btn1Img {
+  width: 90rpx;
+  height: 110rpx;
+  margin-top: 25rpx;
+  margin-bottom: 12rpx;
+}
+
+.btn2Img {
+  width: 95rpx;
+  height: 115rpx;
+  margin-top: 25rpx;
+  margin-bottom: 12rpx;
+}
+
+.btn3Img {
+  width: 140rpx;
   height: 90rpx;
   margin-top: 25rpx;
   margin-bottom: 12rpx;
@@ -51,4 +65,14 @@ Page {
   line-height: 29rpx;
   margin-top: 0rpx;
   margin-left: 0rpx;
+}
+
+.btnTips{
+  margin-top: 45rpx;
+  background-color:cornflowerblue;
+  color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
