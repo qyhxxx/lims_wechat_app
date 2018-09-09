@@ -36,11 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< HEAD
-			"current": 1,
-=======
-			"current": 0,
->>>>>>> 0675ed5c6fd34def1b2b65306df22acd0c152e55
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -50,10 +46,6 @@
 				},
 				{
 					"id": -1,
-<<<<<<< HEAD
-					"name": "report",
-					"pathName": "pages/data/report/report"
-=======
 					"name": "water",
 					"pathName": "pages/survey/drinking_water/drinking_water",
 					"query": ""
@@ -69,7 +61,11 @@
 					"name": "onchange_with_intensity",
 					"pathName": "pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity",
 					"query": ""
->>>>>>> 0675ed5c6fd34def1b2b65306df22acd0c152e55
+				},
+				{
+					"id": -1,
+					"name": "report",
+					"pathName": "pages/data/report/report"
 				}
 			]
 		}
