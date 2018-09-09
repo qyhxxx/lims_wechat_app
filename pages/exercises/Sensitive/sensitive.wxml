@@ -9,8 +9,8 @@
 
     <view >
       <modal hidden="{{modalHidden}}" title="饮用水嗅味喜好调查"no-cancel="true" confirm-text="开始答题" bindconfirm="modalBindaconfirm">
-          <view class='view-text'>
-             <text class='text-content'>{{textGuide}}</text>
+          <view class='view-modal'>
+             <text class='modal-content'>{{textGuide}}</text>
           </view>
       </modal>
     </view>

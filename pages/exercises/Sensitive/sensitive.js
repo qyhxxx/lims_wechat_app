@@ -20,7 +20,7 @@ Page({
       modalHidden: !this.data.modalHidden
     })
   },
-  //确定(实际当做返回按钮来用)按钮点击事件
+  // 开始答题 按钮点击事件
   modalBindaconfirm: function () {
     wx.navigateTo({
       url: '/pages/survey/drinking_water/drinking_water',
