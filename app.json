@@ -12,8 +12,8 @@
     "pages/exercises/overallinterface",
     "pages/exercises/FirstPage/firstPage",
     "pages/exercises/Sensitive/sensitive",
-"pages/select_onchange/select_onchange_without_intensity/select_onchange",
-"pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity"
+    "pages/select_onchange/select_onchange_without_intensity/select_onchange",
+    "pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -23,3 +23,17 @@
 .option-radio-checked{
   color: blue;
 }
+
+.button-pre{
+  margin-top: 20rpx;
+  margin-left:15%;
+  border-color: blue;
+  color:blue;
+}
+
+.button-next{
+  margin-top: 20rpx;
+  margin-left:15%;
+  background-color: blue;
+  color: white;
+}

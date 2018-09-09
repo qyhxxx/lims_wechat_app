@@ -1,18 +1,9 @@
 <view class="section">
-    <view class="title">题目1jhsdfgkjhdbflajkdbflkjasncbv, jkvb djcb ljd lj hldkj lkjd vblDJK Bkd jvLKD J </view>
+    <view class="section__title">多列选择器</view>
 
     <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker-title">点击选择嗅味信息</view>
-        <view class="picker-content">一级嗅味: {{multiArray[0][multiIndex[0]]}}</view>
-        <view class="picker-content">二级嗅味: {{multiArray[1][multiIndex[1]]}}</view>
+        <view class="picker">
+            当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+        </view>
     </picker>
-
-    <view>
-        <button class="button" id="button-pre" size="mini" plain='true' hover-class='true'>上一题</button>
-        <button class="button" id="button-next" size="mini" hover-class='true'>下一题</button>
-    </view>
-
-    <modal hidden="{{hiddenmodalput}}" title="请输入嗅味" confirm-text="确定" cancel-text="取消" bindconfirm="comfirm">
-        <input placeholder='请输入内容'/>
-    </modal>
 </view>

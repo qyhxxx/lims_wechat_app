@@ -5,11 +5,11 @@
 <view class='option-list'>
   <radio-group class="radio-group" bindchange="radioChange">
     <label class='option-radio' wx:for="{{option}}">
-      <radio class='{{radio}}' value="{{item.value}}"/>{{item.name}}
+      <radio checked="{{item.checked}}" class='{{radio}}' value="{{item.value}}"/>{{item.name}}
     </label>
   </radio-group>
 </view>
 <view>
-  <button bindtap='preExercise' class='button_pre'>{{button_pre}}</button>
-  <button bindtap='nextExercise' class='button_next'>{{button_next}}</button>
+  <button bindtap='preExercise' class='button-pre' size='mini'>{{button_pre}}</button>
+  <button bindtap='nextExercise' class='button-next' size='mini'>{{button_next}}</button>
 </view>
