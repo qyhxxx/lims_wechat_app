@@ -12,7 +12,7 @@
        <image class='btn2Img' src='/static/main_history.png'></image>
        <view class='view-text'>
           <text class='text-content'>{{text1}}</text>
-      </view>
+       </view>
        <!--<text class='text1'>{{text1}}</text>-->
        <!--<view>嗅味层次分析法训练</view>-->
     </button>
