@@ -41,21 +41,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": -1,
-					"name": "auth-user-page",
-					"pathName": "pages/auth/user/user",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "auth-update-page",
-					"pathName": "pages/auth/update/update",
-					"query": ""
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }

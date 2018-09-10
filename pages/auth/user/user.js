@@ -12,7 +12,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('onLoad')
     var that = this
     wx.getStorage({
       key: 'userData',
@@ -38,10 +37,8 @@ Page({
    * 修改用户信息
    */
   changeUser: function () {
-    console.log(this.userData)
-    var that = this
     wx.navigateTo({
-      url: '/pages/auth/update/update?userData=' + JSON.stringify(this.userData),
+      url: '/pages/auth/update/update',
     })
   },
 
