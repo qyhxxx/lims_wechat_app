@@ -1,0 +1,12 @@
+<view class='user'>
+  <view class='setting-list'>
+    <button class='changePsd-wrapper' bindtap='changePsd'>
+      <image class='changePsd-icon' src='/static/change_password.png'></image>
+      <text class='changePsd'>修改密码</text>
+    </button>
+    <button class='changeUser-wrapper' bindtap='changeUser'>
+      <image class='changeUser-icon' src='/static/change_user_info.png'></image>
+      <text class='changeUser'>修改个人信息</text>
+    </button>
+  </view>
+</view>

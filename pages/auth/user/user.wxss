@@ -1,0 +1,33 @@
+.setting-list {
+  margin-top: 20px;
+}
+
+.changePsd-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.changePsd-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.changePsd {
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.changeUser-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.changeUser-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.changeUser {
+  margin-left: 20px;
+  font-size: 16px;
+}

@@ -4,7 +4,7 @@
     <text class='appName'>{{text}}</text>
   </view>
   <view class='form'>
-    <form bindsubmit='loginSubmit'>
+    <form bindsubmit='login'>
       <view class='user-wrapper'>
         <image class='user-icon' src='/static/login_account.png'></image>
         <input class='username' name='username' placeholder-style="color:black" placeholder='请输入账号'></input>
