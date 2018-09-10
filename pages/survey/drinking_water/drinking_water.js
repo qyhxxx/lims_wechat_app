@@ -34,7 +34,7 @@ Page({
       'trainingType': '嗅味敏感性调查'
     }
 
-    app.functions.authRequest('/app/smell/training/item/list', postData, function (res) {
+    app.functions.authRequest('/app/smell/training/item/list', 'POST', postData, function (res) {
       console.log(res)
     })
     // var that = this
