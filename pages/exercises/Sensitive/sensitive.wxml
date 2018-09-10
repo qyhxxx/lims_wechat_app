@@ -3,26 +3,26 @@
 
   <span style="font-size:18rpx;"><view>
     <button class='btn1' bindtap="drinkingButton">
-      <text class='text'>{{text}}</text>
+      <text class='text'>{{title[0]}}</text>
       <image class='btn1Img' src='/static/arrow_next.png'></image>
     </button>
 
     <view >
       <modal hidden="{{modalHidden}}" title="饮用水嗅味喜好调查"no-cancel="true" confirm-text="开始答题" bindconfirm="modalBindaconfirm">
           <view class='view-modal'>
-             <text class='modal-content'>{{textGuide}}</text>
+             <text class='modal-content'>{{textGuide[0]}}</text>
           </view>
       </modal>
     </view>
   </view></span>
 
   <button class='btn1' bindtap="materialButton">
-    <text class='text'>{{text1}}</text>
+    <text class='text'>{{title[1]}}</text>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
   </button>
 
   <button class='btn1' bindtap="upsitButton">
-    <text class='text'>{{text2}}</text>
+    <text class='text'>{{title[2]}}</text>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
   </button>
 
