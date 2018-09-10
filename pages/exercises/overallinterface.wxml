@@ -58,14 +58,12 @@
       </view>
       <image class='btnImg' src='/static/arrow_next.png'></image>
     </button>
-
-    <view >
-      <modal hidden="{{modalHidden}}" title="嗅味强度练习"no-cancel="true" confirm-text="开始答题" bindconfirm="confirm8">
-          <view class='view-modal'>
-             <text class='modal-content'>{{textGuide8}}</text>
-          </view>
-      </modal>
-    </view>
+    
+    <modal hidden="{{modalHidden}}" title="饮用水嗅味喜好调查"no-cancel="true" confirm-text="开始答题" bindconfirm="confirm8">
+        <scroll-view scroll-y="true">
+            <text>{{textGuide8}}</text>
+        </scroll-view>
+     </modal>
   </view></span>
   
   <button class='btn' bindtap="Button">

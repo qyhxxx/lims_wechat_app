@@ -26,7 +26,7 @@ Page({
     })
   },
   // 开始答题 按钮点击事件
-  modalBindaconfirm: function () {
+  confirm1: function () {
     var trainItemId = this.data.trainItemId[0]
     var questionType = this.data.questionType[0]
     console.log(trainItemId)
