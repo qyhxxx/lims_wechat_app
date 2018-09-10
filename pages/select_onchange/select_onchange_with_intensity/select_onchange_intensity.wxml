@@ -1,2 +1,21 @@
 <!--pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity.wxml-->
 <text>pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity.wxml</text>
+<view class="section">
+    <view class="title">题目2jhsdfgkjhdbflajkdbflkjasncbv, jkvb djcb ljd lj hldkj lkjd vblDJK Bkd jvLKD J </view>
+
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker-title">点击选择嗅味信息</view>
+        <view class="picker-content">一级嗅味: {{multiArray[0][multiIndex[0]]}}</view>
+        <view class="picker-content">二级嗅味: {{multiArray[1][multiIndex[1]]}}</view>
+    </picker>
+
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker-title">点击选择嗅味强度</view>
+        <view class="picker-content">嗅味强度: {{array[index]}}</view>
+    </picker>
+
+    <view>
+        <button class="button" id="button-pre" size="mini" plain='true' hover-class='true'>上一题</button>
+        <button class="button" id="button-next" size="mini" hover-class='true'>下一题</button>
+    </view>
+</view>

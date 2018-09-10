@@ -61,7 +61,9 @@ Page({
             ]
         ],
         multiIndex: [0, 0],
+        hiddenmodalput: true,
     },
+
 
     bindMultiPickerChange: function(e) {
         console.log('pickr发送选择改变，携带值为', e.detail.value)
@@ -73,7 +75,8 @@ Page({
         console.log('修改的列为', e.detail.column, ', 值为', e.detail.value);
         var data = {
             multiArray: this.data.multiArray,
-            multiIndex: this.data.multiIndex
+            multiIndex: this.data.multiIndex,
+            hiddenmodalput: this.data.hiddenmodalput,
         };
         var firstSmellArray =  ['土霉味', '氯味 / 臭氧味', '草味', '腐败味 / 沼泽味', '鱼腥味', '芳香味', '药味', '化学药品', '其他'];
         var secondSmellArray0 =  ['土味', '霉味', '淤泥味'];
@@ -113,7 +116,9 @@ Page({
                         data.multiArray[1] = secondSmellArray7;
                         break;
                     case 8:
-                        data.multiArray[1] = null;
+                        hiddenmodalput = false;
+                        console.log(name);
+                        break;
                         
                 }
                 data.multiIndex[1] = 0;
@@ -124,7 +129,6 @@ Page({
         }
         this.setData(data);
     },
-
 
     /**
      * 生命周期函数--监听页面加载

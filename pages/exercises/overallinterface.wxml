@@ -1,89 +1,109 @@
 <!--pages/exercises/overallinterface.wxml-->
 
-<scroll-view scroll-y="true" style="height: 500px">
+<scroll-view scroll-y="true" >
 
-  <button class='btn1' bindtap="Button1">
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text1}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button2">
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text2}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button3">
-    <view class='view-text'>
-        <text class='text-content'>{{text3}}</text>
+  <button class='btn3' bindtap="Button">
+    <view class='view-btn3'>
+        <text class='text-btn3'>{{text3}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button4">
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text4}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button5">
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text5}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button6">
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text6}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button7">
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text7}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="Button8">
-    <view class='view-text'>
+  <span style="font-size:18rpx;"><view>
+    <button class='btn' bindtap="Button">
+      <view class='view-text'>
         <text class='text-content'>{{text8}}</text>
-    </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
-  </button>
+      </view>
+      <image class='btnImg' src='/static/arrow_next.png'></image>
+    </button>
 
-  <button class='btn1' bindtap="waterButton">
+    <view >
+      <modal hidden="{{modalHidden}}" title="嗅味强度练习"no-cancel="true" confirm-text="开始答题" bindconfirm="confirm8">
+          <view class='view-modal'>
+             <text class='modal-content'>{{textGuide8}}</text>
+          </view>
+      </modal>
+    </view>
+  </view></span>
+  
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text9}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="smellButton">
-    <view class='view-text'>
+  <span style="font-size:18rpx;"><view>
+    <button class='btn' bindtap="Button">
+      <view class='view-text'>
         <text class='text-content'>{{text10}}</text>
-    </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
-  </button>
+      </view>
+      <image class='btnImg' src='/static/arrow_next.png'></image>
+    </button>
 
-  <button class='btn1' bindtap="Button11">
+    <view >
+      <modal hidden="{{modalHidden}}" title="嗅味类型评价"no-cancel="true" confirm-text="开始答题" bindconfirm="confirm10">
+          <view class='view-modal'>
+             <text class='modal-content'>{{textGuide10}}</text>
+          </view>
+      </modal>
+    </view>
+  </view></span>
+
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text11}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn1' bindtap="upsitButton">
+  <button class='btn' bindtap="Button">
     <view class='view-text'>
         <text class='text-content'>{{text12}}</text>
     </view>
-    <image class='btn1Img' src='/static/arrow_next.png'></image>
+    <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
 </scroll-view>
