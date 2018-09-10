@@ -37,33 +37,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": 0,
-					"name": "uiExercises",
-					"pathName": "pages/exercises/overallinterface",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "water",
-					"pathName": "pages/survey/drinking_water/drinking_water",
-					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "onchange",
-					"pathName": "pages/select_onchange/select_onchange_without_intensity/select_onchange",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "onchange_with_intensity",
-					"pathName": "pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity",
-					"query": ""
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }
