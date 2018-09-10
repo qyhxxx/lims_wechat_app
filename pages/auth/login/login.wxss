@@ -35,8 +35,8 @@ Page {
 }
 
 .user-icon {
-  width: 30px;
-  height: 20px;
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .username {
@@ -53,8 +53,8 @@ Page {
 }
 
 .password-icon {
-  width: 30px;
-  height: 20px;
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .password {

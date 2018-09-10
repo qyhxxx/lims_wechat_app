@@ -34,7 +34,7 @@ Component({
     hiddenmodalput1: true,
     voteTitle1: null,
     index2: 0,
-    array2: ['霉味', '淤泥味', '土味', '自定义'],
+    array2: [],
     array20: ['霉味','淤泥味','土味','自定义'],
     array21: ['氯味/臭氧味','自定义'],
     array22: ['烟草味','鲜草味','干草味','木材味','自定义'],
@@ -72,16 +72,17 @@ Component({
       }
       var array_temp1 = this.data.array2
       switch (e.detail.value) {
-        case 0: array_temp1 = this.data.array20; break;
-        case 1: array_temp1 = this.data.array21; break;
-        case 2: array_temp1 = this.data.array22; break;
-        case 3: array_temp1 = this.data.array23; break;
-        case 4: array_temp1 = this.data.array24; break;
-        case 5: array_temp1 = this.data.array25; break;
-        case 6: array_temp1 = this.data.array26; break;
-        case 7: array_temp1 = this.data.array27; break;
-        case 8: array_temp1 = this.data.array28; break;
+        case '0': array_temp1 = this.data.array20; break;
+        case '1': array_temp1 = this.data.array21; break;
+        case '2': array_temp1 = this.data.array22; break;
+        case '3': array_temp1 = this.data.array23; break;
+        case '4': array_temp1 = this.data.array24; break;
+        case '5': array_temp1 = this.data.array25; break;
+        case '6': array_temp1 = this.data.array26; break;
+        case '7': array_temp1 = this.data.array27; break;
+        case '8': array_temp1 = this.data.array28; break;
       }
+      this.data.array2 = array_temp1
       this.setData({
         index1: e.detail.value,
         inputvalue1: temp,

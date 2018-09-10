@@ -75,9 +75,9 @@
    <view class='addSmellStyle'>
       <text bindtap='addSmell'>{{msg9}}</text>
    </view>
-   
+  </view>
     <button class="button-setting" formType="submit">
       <text class="button-text" space='emsp'>提  交</text>
     </button>
-  </view>
+  
 </form>

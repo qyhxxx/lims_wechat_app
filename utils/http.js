@@ -1,9 +1,11 @@
-function authRequest (api, postData, cb) {
+function authRequest (api, method, postData, cb) {
   var host = "http://123.56.40.112:8081"
+  wx.showLoading({
+    title: '',
+  })
   wx.getStorage({
     key: 'userData',
     success: function(res) {
-      //console.log("获取存储中的token:" + res.data.accessToken)
       wx.request({
         url: host + api,
         data: postData,
@@ -11,8 +13,9 @@ function authRequest (api, postData, cb) {
           'content-type': 'application/json',
           'cookie': res.data.accessToken
         },
-        method: 'POST',
+        method: method,
         success: function (res) {
+          wx.hideLoading()
           if (res.data.code == 0) {
             return typeof cb == "function" && cb(res.data)
           } else {
@@ -21,12 +24,17 @@ function authRequest (api, postData, cb) {
               icon: 'none'
             })
           }
+        },
+        fail: function () {
+          wx.hideLoading()
+          wx.showToast({
+            title: '网络连接超时',
+            icon: 'none'
+          })
         }
       })
     }
   })
 }
 
-module.exports = {
-  authRequest: authRequest
-}
+module.exports.authRequest = authRequest

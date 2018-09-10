@@ -1,4 +1,3 @@
-var app = getApp()
 Page({
 
   /**
@@ -9,10 +8,13 @@ Page({
   },
 
   /**
-   * 登陆操作
+   * 登陆
    */
-  loginSubmit: function (e) {
+  login: function (e) {
     var postData = e.detail.value
+    wx.showLoading({
+      title: '',
+    })
     wx.request({
       url: 'http://123.56.40.112:8081/app/login',
       data: postData,
@@ -27,31 +29,35 @@ Page({
             key: 'userData',
             data: data.data,
             success: function (res) {
+              wx.hideLoading()
               wx.showToast({
                 title: '登陆成功'
+              })
+              wx.redirectTo({
+                url: '/pages/exercises/FirstPage/firstPage',
+              })
+            },
+            fail: function () {
+              wx.hideLoading()
+              wx.showToast({
+                title: '网络连接超时',
+                icon: 'none'
               })
             }
           })
         } else {
+          wx.hideLoading()
           wx.showToast({
             title: data.exception,
             icon: 'none'
           })
         }
       },
-      complete: function () {
-        var token = wx.getStorage({
-          key: 'userData',
-          success: function (res) {
-            //console.log("登陆完成并将token存储最后打印token:" + res.data.accessToken)
-          }
-        })
-        var postData = {
-          'page': 1,
-          'size': 2
-        }
-        app.functions.authRequest('/app/smell/monitor/list', postData, function (res) {
-          console.log(res)
+      fail: function () {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络连接超时',
+          icon: 'none'
         })
       }
     })
