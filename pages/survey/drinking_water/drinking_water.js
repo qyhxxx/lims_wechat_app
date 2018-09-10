@@ -7,54 +7,59 @@ Page({
    */
   data: {
     option: [
-      {value: '1', name: '我非常高兴以这种水作为每天的饮用水'},
-      {value: '2', name: '我高兴以这种水作为每天的饮用水'},
-      {value: '3', name: '我确定可以接受这种水作为每天的饮用水'},
-      {value: '4', name: '我能够接受这种水作为每天的饮用水'},
-      {value: '5', name: '也许我可以接受这种水作为每天的饮用水'},
-      {value: '6', name: '我认为我不能接受这种水作为每天的饮用水'},
-      {value: '7', name: '我不能接受这种水作为每天的饮用水'},
-      {value: '8', name: '我永远不会接受这种水作为每天的饮用水'},
-      {value: '9', name: '不能忍受将这种水放进嘴里，并且我永远不会喝它'}
+      {value: '0', name: '我非常高兴以这种水作为每天的饮用水'},
+      {value: '1', name: '我高兴以这种水作为每天的饮用水'},
+      {value: '2', name: '我确定可以接受这种水作为每天的饮用水'},
+      {value: '3', name: '我能够接受这种水作为每天的饮用水'},
+      {value: '4', name: '也许我可以接受这种水作为每天的饮用水'},
+      {value: '5', name: '我认为我不能接受这种水作为每天的饮用水'},
+      {value: '6', name: '我不能接受这种水作为每天的饮用水'},
+      {value: '7', name: '我永远不会接受这种水作为每天的饮用水'},
+      {value: '8', name: '不能忍受将这种水放进嘴里，并且我永远不会喝它'}
     ],
     title: ['题目1：您对该水样的评价为：', '题目2：您对该水样的感官评价为：'],
     button_pre: '上一题',
     button_next: '下一题',
     exercise_num: 1,
     radio: 'option-radio-unchecked',
-    radio_value: 0,
-    post_value: []
+    radio_value: -1,
+    post_value: [-1, -1],
+    exercise_id: [-1, -1], //题目id，再页面onLoad时从服务器端获取数据
+    final_answer: [
+      {
+        id: -1,
+        num: -1
+      },
+      {
+        id: -1,
+        num: -1
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var itemId = wx.getStorageSync('trainItemId')
+    console.log('hhhh', itemId)
     var postData = {
-      'trainingType': '嗅味敏感性调查'
+      "trainingItemId": itemId,
+      "size": 2
     }
-
-    app.functions.authRequest('/app/smell/training/item/list', 'POST', postData, function (res) {
+    //初始化题目id
+    var that = this
+    app.functions.authRequest('/app/smell/training/start', 'POST', postData, function (res) {
       console.log(res)
+      var exerciseId = that.data.exercise_id
+      exerciseId[0] = res['data']['questions'][0]['id']
+      exerciseId[1] = res['data']['questions'][1]['id']
+      exerciseId.sort()
+      that.setData({
+        exercise_id: exerciseId
+      })
+      console.log("test ", that.data.exercise_id)
     })
-    // var that = this
-    // wx.request({
-    //   url: 'http://123.56.40.112:8081/app/smell/training/item/list',
-    //   method: 'POST',
-    //   data: {
-    //     trainingType: '嗅味层次分析法训'
-    //   },
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Authorization': 'JSESSIONID=C912AE62EDA3CFF152EF81301E390A5A'
-    //   },
-    //   success: function (res) {
-    //     //将获取到的json数据，存在名字叫result的这个数组中
-    //     that.setData({
-    //       result: res.data,
-    //     })
-    //   }
-    // })
   },
 
   /**
@@ -110,22 +115,25 @@ Page({
   *  上一题
   */
   preExercise: function(){
-    var radioValue = this.data.radio_value
-    if(this.data.exercise_num == 1){
+    var postValue = this.data.post_value
+    var exerciseNum = this.data.exercise_num
+    var lastAnswer = postValue[exerciseNum - 2]
+
+    if(exerciseNum == 1){
       wx.showToast({
         title: '这是第一道题了',
         icon: 'none'
       })
     }
     else{
-      //返回上一题时先将上一次的选中项显示出来
-      var lastRadio = this.data.post_value[this.data.exercise_num-2]
+      //上一题必定是已经被选择过的
       var newOption = this.data.option
-      newOption[lastRadio-1].checked = true
-      console.log('上一题 ',lastRadio)
-      console.log('post value', this.data.post_value)
+      for(var i = 0; i < 9; i++){
+        newOption[i].checked = false
+      }
+      newOption[lastAnswer].checked = true
       this.setData({
-        exercise_num: this.data.exercise_num-1,
+        exercise_num: exerciseNum - 1,
         option: newOption
       })
     }
@@ -135,61 +143,64 @@ Page({
    *  下一题
    */
   nextExercise: function() {
-    var radioValue = this.data.radio_value
-    if (radioValue == 0) {
+    var postValue = this.data.post_value
+    var exerciseNum = this.data.exercise_num
+    var currentAnswer = postValue[exerciseNum-1]
+    
+    if(currentAnswer == -1){
       wx.showToast({
         title: '您还没有做出选择',
         icon: 'none'
       })
-    }else{
-      if (this.data.exercise_num == 2) {
-        var that = this 
+    }
+    else{
+      if(exerciseNum == 2){
+        var that = this
         wx.showModal({
           title: '这是最后一道题了',
           content: '是否提交调查结果',
-          success: function (res) {
-            if (res.confirm) {
-              that.data.post_value.push(radioValue)
-              console.log('data array is hhh ', that.data.post_value)
+          success: function(res) {
+            if(res.confirm){
+              // 数据传至服务器端
+              var answer = that.data.final_answer
+              for(var i = 0; i < 2; i++){
+                answer[i].id = that.data.exercise_id[i]
+                answer[i].num = parseInt(that.data.post_value[i])
+              }
+              console.log(answer)
+              var postData = {
+                "trainingItemId": 3,
+                "location": "init",
+                "answers": answer
+              }
+              app.functions.authRequest('/app/smell/training/end', 'POST', postData, function (res){
+                wx.showToast({
+                  title: '提交数据成功',
+                  icon: 'success'
+                })
+              })
+              wx.redirectTo({
+                url: '/pages/exercises/Sensitive/sensitive'
+              })
             }
           }
         })
       }
-      else {
-        var newOption = this.data.option
-        newOption[radioValue-1].checked = false
-        //判断下一题是否已经选泽过
-        var nextRadio = this.data.post_value[this.data.exercise_num]
-        if(nextRadio){
-          newOption[nextRadio-1].checked = true
-          console.log(nextRadio)
-          this.setData({
-            option: newOption
-          })
-        }else{
-          for(var i = 0; i < 9; i++){
-            newOption[i].checked = false
-          }
-          this.setData({
-            option: newOption
-          })
+      else{
+        //判断下一题是否已经被选择过
+        var nextAnswer = postValue[exerciseNum]
+        var newOption = this.data.option //该变量是为了改变下一题选项的选中(checked)状态
+        for(var i = 0; i < 9; i++){
+          newOption[i].checked = false
         }
-        //判断当前题是否已经被选择过
-        var currentRadio = this.data.post_value[this.data.exercise_num-1]
-        var postValue = this.data.post_value
-        if(!currentRadio){
-          this.data.post_value.push(radioValue)
-        }else{
-          postValue[this.data.exercise_num-1] = radioValue
-          this.setData({
-            post_value: postValue
-          })
+        if(nextAnswer != -1){
+          newOption[nextAnswer].checked = true
         }
         this.setData({
-          exercise_num: this.data.exercise_num + 1
+          exercise_num: exerciseNum+1,
+          option: newOption
         })
       }
-      console.log('data array is ', this.data.post_value)
     }
   },
 
@@ -197,9 +208,14 @@ Page({
   *  改变选项时的操作 
   */
   radioChange: function(e) {
+    var radioValue = e.detail.value
+    var postValue = this.data.post_value
+    var exerciseNum = this.data.exercise_num
+    postValue[exerciseNum-1] = radioValue
     this.setData({
       radio: 'option-radio-checked',
-      radio_value: e.detail.value
+      post_value: postValue
     })
+    console.log('change value is ', this.data.post_value)
   }
 })

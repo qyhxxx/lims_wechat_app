@@ -21,11 +21,14 @@
 .button-setting{
   width: 350rpx;
   height: 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   background-color: rgba(0, 102, 255, 0.664);
 }
 .button-text{
-  color: white;
+  color: white; 
 }
 .addSmellStyle{
   display: flex;

@@ -12,17 +12,7 @@
 }
 
 .btn1Img {
-  width: 50rpx;
-  height: 50rpx;
+  width: 30rpx;
+  height: 45rpx;
   margin-right: 10rpx;
-}
-
-.view-modal .modal-content {
-  font-size: 40rpx;
-}
-.view-modal {
-  height: 900rpx;
-  line-height: 40rpx;
-  margin-top: 0rpx;
-  margin-left: 0rpx;
 }
