@@ -1,73 +1,73 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": true,
-    "es6": true,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true,
-    "nodeModules": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.2.5",
-  "appid": "wxf72105061fbf7d05",
-  "projectname": "Lims-wx",
-  "svr": "",
-  "client": "",
-  "qcloudRoot": "",
-  "miniprogramRoot": "",
-  "pluginRoot": "",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "plugin": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "miniprogram": {
-      "current": -1,
-      "list": [
-        {
-          "id": 0,
-          "name": "uiExercises",
-          "pathName": "pages/exercises/overallinterface",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "water",
-          "pathName": "pages/survey/drinking_water/drinking_water",
-          "query": ""
-        },
-        {
-          "id": 1,
-          "name": "onchange",
-          "pathName": "pages/select_onchange/select_onchange_without_intensity/select_onchange",
-          "query": ""
-        },
-        {
-          "id": 2,
-          "name": "onchange_with_intensity",
-          "pathName": "pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity",
-          "query": ""
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.5",
+	"appid": "wxf72105061fbf7d05",
+	"projectname": "Lims-wx",
+	"svr": "",
+	"client": "",
+	"qcloudRoot": "",
+	"miniprogramRoot": "",
+	"pluginRoot": "",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "uiExercises",
+					"pathName": "pages/data/report/report",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "water",
+					"pathName": "pages/survey/drinking_water/drinking_water",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "onchange",
+					"pathName": "pages/select_onchange/select_onchange_without_intensity/select_onchange",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "onchange_with_intensity",
+					"pathName": "pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity",
+					"query": ""
+				}
+			]
+		}
+	}
 }
