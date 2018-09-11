@@ -34,7 +34,8 @@ Page({
         id: -1,
         num: -1
       }
-    ]
+    ],
+    location: ''
   },
 
   /**
@@ -42,7 +43,7 @@ Page({
    */
   onLoad: function (options) {
     var itemId = wx.getStorageSync('trainItemId')
-    console.log('hhhh', itemId)
+    console.log('itemId is ', itemId)
     var postData = {
       "trainingItemId": itemId,
       "size": 2
@@ -59,6 +60,7 @@ Page({
         exercise_id: exerciseId
       })
       console.log("test ", that.data.exercise_id)
+      
     })
   },
 
