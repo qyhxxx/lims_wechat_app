@@ -47,28 +47,11 @@
 
 <!-- 添加嗅味类型 -->
 <view wx:for="{{checkbox}}">
-  <!-- <view class="report-row">
-    <text>{{msg6}}</text>
-    
-  </view>
-
-  <view class="report-row">
-    <text>{{msg7}}</text>
-    
-  </view>
-
-   <view class="report-row">
-      <text>{{msg8}}</text>
-      <view class="section">
-      <picker bindchange="bindPickerChange5" value="{{index5}}" range="{{array5}}" name="嗅味强度" >
-        <view class="picker">
-         <input style="text-align:right" placeholder="请输入强度" value="{{inputvalue5}}"/>
-        </view>
-      </picker>
-      </view>
-   </view> -->
-
-   <pd id="pd" msg6='嗅味类型' msg7='二级嗅味类型' msg8='嗅味强度'>
+   <pd id="pd" 
+       bindmyevent="onMyevent"
+       msg6='嗅味类型' 
+       msg7='二级嗅味类型' 
+       msg8='嗅味强度'>
    </pd>
 </view>
 

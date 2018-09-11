@@ -16,9 +16,9 @@
   <view class="report-row">
     <text>{{msg7}}</text>
     <view class="section">
-      <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}" name="二级嗅味类型" >
+      <picker bindchange="bindPickerChange2"  disabled="{{hide}}" value="{{index2}}" range="{{array2}}" name="二级嗅味类型" >
         <view class="picker">
-         <input style="text-align:right" placeholder="请选择" value="{{inputvalue2}}"/>
+         <input style="text-align:right" bindtap="withoutOne" disabled="{{hide}}" placeholder="请选择" value="{{inputvalue2}}"/>
         </view>
       </picker>
          <modal hidden="{{hiddenmodalput2}}" title="自定义" confirm-text="确定" cancel-text="取消" bindcancel="cancel2" bindconfirm="confirm2">
@@ -30,7 +30,7 @@
     <view class="report-row">
       <text>{{msg8}}</text>
       <view class="section">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" name="嗅味强度" >
+      <picker bindchange="bindPickerChange" bindtap="onTap" value="{{index}}" range="{{array}}" name="嗅味强度" >
         <view class="picker">
          <input style="text-align:right" placeholder="请输入强度" value="{{inputvalue}}"/>
         </view>
