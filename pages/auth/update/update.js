@@ -18,6 +18,8 @@ Page({
    */
   update: function (e) {
     var postData = e.detail.value
+    postData.birth = Date.parse(postData.birth)
+    postData.lastTrainingDate = Date.parse(postData.lastTrainingDate)
     var that = this
     app.functions.authRequest('/app/userinfo/update', 'POST', postData, function (res) {
       wx.showToast({

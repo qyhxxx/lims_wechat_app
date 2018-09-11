@@ -41,14 +41,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "t",
-					"pathName": "pages/data/report/report"
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }
