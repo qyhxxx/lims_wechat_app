@@ -15,7 +15,8 @@
     "pages/select_onchange/select_onchange_without_intensity/select_onchange",
     "pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity",
     "pages/auth/user/user",
-    "pages/auth/update/update"
+    "pages/auth/update/update",
+    "pages/exercises/completeExercise/completeExercise"
   ],
   "window": {
     "backgroundTextStyle": "light",
