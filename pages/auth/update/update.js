@@ -18,6 +18,7 @@ Page({
    */
   update: function (e) {
     var postData = e.detail.value
+    var that = this
     app.functions.authRequest('/app/userinfo/update', 'POST', postData, function (res) {
       wx.showToast({
         title: '修改成功',
