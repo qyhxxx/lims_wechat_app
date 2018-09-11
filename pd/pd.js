@@ -25,6 +25,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    hide: true,
     index: 0,
     array: [0, 2, 4, 6, 8, 10, 12],
     inputvalue: '',
@@ -47,12 +48,18 @@ Component({
     inputvalue2: '',
     hiddenmodalput2: true,
     voteTitle2: null,
+    index3: 2,
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    onTap: function () {
+      var myEventDetail = {} // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      this.triggerEvent('myevent', this.data.index3)
+    },
 
     bindPickerChange: function (e) {
       var array_temp = this.data.array
@@ -67,7 +74,7 @@ Component({
       var array_temp = this.data.array1
       var temp = array_temp[e.detail.value]
       var temp1 = true
-      if (e.detail.value == 8) {
+      if (e.detail.value == array_temp.length - 1) {
         temp1 = false
       }
       var array_temp1 = this.data.array2
@@ -84,6 +91,7 @@ Component({
       }
       this.data.array2 = array_temp1
       this.setData({
+        hide: false,
         index1: e.detail.value,
         inputvalue1: temp,
         hiddenmodalput1: temp1,
@@ -94,17 +102,6 @@ Component({
     bindPickerChange2: function (e) {
       var v = this.data.index1
       var array_temp = this.data.array2
-      // switch(v){
-      //   case 0: array_temp = this.data.array20; break;
-      //   case 1: array_temp = this.data.array21; break;
-      //   case 2: array_temp = this.data.array22; break;
-      //   case 3: array_temp = this.data.array23; break;
-      //   case 4: array_temp = this.data.array24; break;
-      //   case 5: array_temp = this.data.array25; break;
-      //   case 6: array_temp = this.data.array26; break;
-      //   case 7: array_temp = this.data.array27; break;
-      //   case 8: array_temp = this.data.array28; break;
-      // }
       var temp = array_temp[e.detail.value]
       var temp1 = true
       if (e.detail.value == array_temp.length-1) {
@@ -117,6 +114,14 @@ Component({
       })
     },
 
+    withoutOne: function () {
+      if(this.data.hide == true){
+        wx.showToast({
+          title: '先选择一级类型',
+          icon:'none'
+        })
+      }
+    },
     voteTitle1: function (e) {
       this.data.voteTitle1 = e.detail.value;
     },

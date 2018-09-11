@@ -1,4 +1,5 @@
 // pages/data/report/report.js
+const app = getApp()
 Page({
 
   /**
@@ -24,10 +25,8 @@ Page({
     index2: 0,
     voteTitle2: null,
     hiddenmodalput2: true,
-    array5: [0,2,4,6,8,10,12],
-    index5: 0,
-    inputvalue5: '',
     checkbox: [-1],
+    index3: 1,
   },
 
   bindPickerChange1: function (e) {
@@ -55,16 +54,6 @@ Page({
       index2: e.detail.value,
       inputvalue2: temp,
       hiddenmodalput2: temp1
-    })
-  },
-
-  bindPickerChange5: function (e) {
-    var array_temp = this.data.array5
-    var temp = array_temp[e.detail.value]
-
-    this.setData({
-      index5: e.detail.value,
-      inputvalue5: temp,
     })
   },
 
@@ -110,9 +99,16 @@ Page({
     })
   },
 
+  onMyevent: function(e){
+    console.log(e)
+  },
 // form提交
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    // var postData = e.detail.value
+    // app.functions.authRequest('/app/...', 'POST',postData, function (res) {
+    //   console.log(res)
+    // })
   },
 
 // 扫一扫
