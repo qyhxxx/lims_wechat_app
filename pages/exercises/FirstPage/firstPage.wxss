@@ -52,17 +52,17 @@ Page {
 }
 
 .text{
-  font-size: 28rpx;
+  font-size: 29rpx;
   margin-top: 0rpx;
   margin-left: 0rpx;
 }
 
 .view-text .text-content {
-  font-size: 29rpx;
+  font-size: 30rpx;
 }
 
 .view-text {
-  line-height: 29rpx;
+  line-height: 30rpx;
   margin-top: 0rpx;
   margin-left: 0rpx;
 }

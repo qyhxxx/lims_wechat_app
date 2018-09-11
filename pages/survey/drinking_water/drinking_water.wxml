@@ -9,7 +9,9 @@
     </label>
   </radio-group>
 </view>
-<view>
-  <button bindtap='preExercise' class='button-pre' size='mini'>{{button_pre}}</button>
-  <button bindtap='nextExercise' class='button-next' size='mini'>{{button_next}}</button>
-</view>
+
+<view class="btn-row">
+    <button bindtap='preExercise' class='button-pre'>{{button_pre}}</button>
+  <button bindtap='nextExercise' class='button-next'>{{button_next}}</button>
+    
+  </view>
