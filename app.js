@@ -33,9 +33,40 @@ App({
         }
       }
     })
+    //获取位置信息
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log('location: ', res)
+        var locationString = res.latitude + "," + res.longitude;
+    // TODO
+    // wx.request({
+    //   url: 'http://apis.map.qq.com/ws/geocoder/v1/',
+    //   data: {
+    //     "key": "",
+    //     "location": locationString
+    //   },
+    //   method: 'GET',
+    //   success: function (r) {
+    //     //输出一下位置信息
+    //     console.log('用户位置信息', r.data.result.address);
+    //     //r.data.result.address获得的就是用户的位置信息，将它保存到一个全局变量上
+    //     getApp().globalData.locationInfo = r.data.result.address;
+    //     //这步是将位置信息保存到本地缓存中，key = value的形式
+    //     try {
+    //       wx.setStorageSync('locationInfo', r.data.result.address)
+    //     } catch (e) {
+    //       console.log(e)
+    //     }
+    //   }
+    // });
+      },
+    })
+
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    locationInfo: null
   },
   functions: {
     authRequest: http.authRequest
