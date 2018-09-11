@@ -1,4 +1,17 @@
 <!--pages/exercises/waterSamples/WaterSamples.wxml-->
-<scroll-view scroll-y="true" style="height: 500px">
-    <button formType="water" bindtap="waterButton">不同水样辨认</button>
-</scroll-view>
+<view class='title'>
+  <text>题目{{exercise_num}}：{{exercise[exercise_num-1].stem}}</text>
+</view>
+<view class='option-list'>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class='option-radio' wx:for="{{exercise[exercise_num-1].options}}">
+      <radio checked="{{item.checked}}" class='{{radio}}' value="{{item.id}}"/>{{item.text}}
+    </label>
+  </radio-group>
+</view>
+
+<view class="btn-row">
+    <button bindtap='preExercise' class='button-pre'>{{button_pre}}</button>
+  <button bindtap='nextExercise' class='button-next'>{{button_next}}</button>
+    
+  </view>

@@ -1,0 +1,64 @@
+.title{
+  padding: 30rpx;
+  font-size: larger;
+  color: blue;
+}
+
+.option-list{
+  display: flex;
+  flex-direction: column;
+  height: 850rpx;
+  padding: 30rpx;
+}
+
+.option-radio{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  line-height: 65rpx;
+  font-size: 35rpx
+}
+
+.option-radio-unchecked{
+  color: black;
+}
+
+.option-radio-checked{
+  color: blue;
+}
+
+.btn-row{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(247, 22, 22, 0);
+}
+
+.button-pre{
+  width: 300rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  margin-left:45rpx;
+  border-color: blue;
+  color:blue;
+}
+
+.button-next{
+  width: 300rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  margin-left:45rpx;
+  background-color: blue;
+  color: white;
+}

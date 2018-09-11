@@ -10,79 +10,79 @@ Page({
       {
         text: '双醚 强度训练 上海南方中心', 
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '二甲基三硫醚 强度训练 上海南方中心',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '2-甲基异莰醇 强度训练 上海南方中心',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '双(2-氯异丙基) 醚嗅阀值测试-上海南方中心',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '二甲基二硫醚嗅阀值测试-上海南方中心',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '己醛嗅阀值测试-上海南方中心',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '土臭素嗅阀值测试-上海南方中心',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: 'MIB嗅阀值测试-上海南方中心',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '嗅味强度练习',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '不同水样辨认',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: '嗅味类型评价',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {  
         text: '嗅阀值评价',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       },
       {
         text: 'UPSIT嗅味测试簿调查',
         description: '',
-        trainingItemId: -1,
+        trainItemId: -1,
         questionType: ''
       }
     ],
@@ -109,6 +109,7 @@ Page({
       confirmText: '开始答题',
       success: function (res) {
         if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[8].trainItemId)
           wx.navigateTo({
             url: '/pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity',
           })
@@ -129,6 +130,7 @@ Page({
       confirmText: '开始答题',
       success: function (res) {
         if(res.confirm){
+          wx.setStorageSync('trainItemId', that.data.title[9].trainItemId)
           wx.navigateTo({
             url: '/pages/exercises/waterSamples/WaterSamples',
           })
@@ -149,6 +151,7 @@ Page({
       confirmText: '开始答题',
       success: function (res) {
         if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[10].trainItemId)
           wx.navigateTo({
             url: '/pages/select_onchange/select_onchange_without_intensity/select_onchange',
           })
@@ -207,7 +210,7 @@ Page({
       for(var i = 0; i < length; i++){
         newTitle[i].text = res.data[i]["title"]
         newTitle[i].description = res.data[i]["description"]
-        newTitle[i].trainingItemId = res.data[i]["id"]
+        newTitle[i].trainItemId = res.data[i]["id"]
         newTitle[i].questionType = res.data[i]["questionType"]
       }
       that.setData({
