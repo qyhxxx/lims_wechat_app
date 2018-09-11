@@ -19,6 +19,7 @@ Page({
         that.setData({
           userData: res.data
         })
+        console.log(that.data.userData)
       }
     })
   },

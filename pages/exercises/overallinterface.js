@@ -1,23 +1,91 @@
 // pages/exercises/overallinterface.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    text: '双醚 强度训练 上海南方中心',
-    text1: '二甲基三硫醚 强度训练 上海南方中心',
-    text2: '2-甲基异莰醇 强度训练 上海南方中心',
-    text3: '双(2-氯异丙基) 醚嗅阀值测试-上海南方中心',
-    text4: '二甲基二硫醚嗅阀值测试-上海南方中心',
-    text5: '己醛嗅阀值测试-上海南方中心',
-    text6: '土臭素嗅阀值测试-上海南方中心',
-    text7: 'MIB嗅阀值测试-上海南方中心',
-    text8: '嗅味强度练习',
-    text9: '不同水样辨认',
-    text10: '嗅味类型评价',
-    text11: '嗅阀值评价',
-    text12: 'UPSIT嗅味测试簿调查',
+    title: [
+      {
+        text: '双醚 强度训练 上海南方中心', 
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '二甲基三硫醚 强度训练 上海南方中心',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '2-甲基异莰醇 强度训练 上海南方中心',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '双(2-氯异丙基) 醚嗅阀值测试-上海南方中心',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '二甲基二硫醚嗅阀值测试-上海南方中心',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '己醛嗅阀值测试-上海南方中心',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '土臭素嗅阀值测试-上海南方中心',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: 'MIB嗅阀值测试-上海南方中心',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '嗅味强度练习',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '不同水样辨认',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: '嗅味类型评价',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {  
+        text: '嗅阀值评价',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      },
+      {
+        text: 'UPSIT嗅味测试簿调查',
+        description: '',
+        trainingItemId: -1,
+        questionType: ''
+      }
+    ],
     textGuide8: '方法介绍：此训练课程用以学习如何确定嗅味物质不同浓度条件下的强度等级。训练时，给定测试员一定时间进行闻测记忆指定强度的嗅味样品，再对另外几瓶未知强度等级的样品进行闻测，一强化测试员对嗅味标准品的强度记忆。',
     textGuide10: '方法介绍：至少五人一组，室温下闻测后记下相应味道特征的最佳描述，如果描述有困难时，可参照已知标准品的相应味道，测试结束后再开发讨论，并告知相应的味道。对描述有差异的味道，须经讨论后取得所有测试员对相同物质的共同描述',
     modalHidden: true //是否隐藏对话框
@@ -32,10 +100,80 @@ Page({
     })
   },
 
+  // button点击（嗅味强度练习）
+  Button8: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[8].text,
+      content: that.data.title[8].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（不同水样辨认）
+  Button9: function (){
+    var that = this
+    wx.showModal({
+      title: that.data.title[9].text,
+      content: that.data.title[9].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if(res.confirm){
+          wx.navigateTo({
+            url: '/pages/exercises/waterSamples/WaterSamples',
+          })
+        }
+        else if(res.cancel){
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味类型评价）
+  Button10: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[10].text,
+      content: that.data.title[10].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/select_onchange/select_onchange_without_intensity/select_onchange',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
   // 开始答题 按钮点击事件(嗅味强度练习)
   confirm8: function () {
     wx.navigateTo({
       url: '/pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity',
+    })
+    this.setData({
+      modalHidden: !this.data.modalHidden,
+    })
+  },
+
+  // 开始答题 按钮点击事件(不同水样辨认)
+  confirm9: function () {
+    wx.navigateTo({
+      url: '/pages/exercises/waterSamples/WaterSamples',
     })
     this.setData({
       modalHidden: !this.data.modalHidden,
@@ -58,7 +196,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var postData = {
+      "trainingType": "嗅味层次分析法训练"
+    }
+    var that = this
+    app.functions.authRequest('/app/smell/training/item/list', 'POST', postData, function(res) {
+      console.log(res.data)
+      var newTitle = that.data.title
+      var length = res.data.length
+      for(var i = 0; i < length; i++){
+        newTitle[i].text = res.data[i]["title"]
+        newTitle[i].description = res.data[i]["description"]
+        newTitle[i].trainingItemId = res.data[i]["id"]
+        newTitle[i].questionType = res.data[i]["questionType"]
+      }
+      that.setData({
+        title: newTitle
+      })
+      console.log("new title ", that.data.title)
+    })
   },
 
   /**
