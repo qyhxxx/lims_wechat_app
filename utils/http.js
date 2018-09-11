@@ -16,11 +16,22 @@ function authRequest (api, method, postData, cb) {
         method: method,
         success: function (res) {
           wx.hideLoading()
-          if (res.data.code == 0) {
-            return typeof cb == "function" && cb(res.data)
+          var data = res.data
+          if (data.code == 0) {
+            return typeof cb == "function" && cb(data)
+          } else if (data.code == 6) {
+            wx.showModal({
+              title: '登陆过期',
+              content: data.exception,
+              success: function (res) {
+                wx.redirectTo({
+                  url: '/pages/auth/login/login',
+                })
+              }
+            })
           } else {
             wx.showToast({
-              title: res.data.exception,
+              title: data.exception,
               icon: 'none'
             })
           }
