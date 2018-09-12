@@ -170,7 +170,9 @@ Page({
                 answer[i].num = parseInt(that.data.post_value[i])
               }
               console.log(answer)
-              var location = app.globalData.locationInfo.address
+              app.functions.getLocationInfo()
+              var location = wx.getStorageSync('locationInfo').address
+              console.log('11loaction ', location)
               var postData = {
                 "trainingItemId": 3,
                 "location": location,
@@ -219,6 +221,7 @@ Page({
       radio: 'option-radio-checked',
       post_value: postValue
     })
+    console.log(this.data.radio)
     console.log('change value is ', this.data.post_value)
   }
 })
