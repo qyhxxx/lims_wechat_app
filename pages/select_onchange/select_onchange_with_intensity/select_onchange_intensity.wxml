@@ -1,21 +1,35 @@
 <!--pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity.wxml-->
-<text>pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity.wxml</text>
-<view class="section">
-    <view class="title">题目2jhsdfgkjhdbflajkdbflkjasncbv, jkvb djcb ljd lj hldkj lkjd vblDJK Bkd jvLKD J </view>
+<view class='section'>
+    <form bindsubmit='formSubmit' bindreset='formReset'>
+        <!-- 题目信息 -->
+        <!-- <view class='title'>
+            <text>{{title[exercise_num-1]}}</text>
+        </view> -->
+        <view class='title'>
+            <text>题目一, 烫烫烫烫锟斤烤烫烫烫烫</text>
+        </view>
 
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker-title">点击选择嗅味信息</view>
-        <view class="picker-content">一级嗅味: {{multiArray[0][multiIndex[0]]}}</view>
-        <view class="picker-content">二级嗅味: {{multiArray[1][multiIndex[1]]}}</view>
-    </picker>
+        <!-- 选择一级嗅味以及二级嗅味 -->
+        <picker mode='multiSelector' bindchange='bindMultiPickerChange' bindcolumnchange='bindMultiPickerColumnChange' value='{{multiIndex}}' range='{{multiArray}}'>
+            <view class='picker-title'>点击选择嗅味信息</view>
+            <view class='picker-content'>一级嗅味: {{multiArray[0][multiIndex[0]]}}</view>
+            <view class='picker-content' id='second_smell'>二级嗅味: {{multiArray[1][multiIndex[1]]}}</view>
+        </picker>
 
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <view class="picker-title">点击选择嗅味强度</view>
-        <view class="picker-content">嗅味强度: {{array[index]}}</view>
-    </picker>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker-title">点击选择嗅味强度</view>
+            <view class="picker-content">嗅味强度: {{array[index]}}</view>
+        </picker>
+        <!-- 上下题切换按钮 -->
+        <view class='btn-row'>
+            <button bindtap='preExercise' class='button-pre'>{{button_pre}}</button>
+            <button bindtap='nextExercise' class='button-next'>{{button_next}}</button>
+        </view>
 
-    <view>
-        <button class="button" id="button-pre" size="mini" plain='true' hover-class='true'>上一题</button>
-        <button class="button" id="button-next" size="mini" hover-class='true'>下一题</button>
-    </view>
+        <!-- 一级嗅味选择自定义时的可输入弹框 -->
+        <modal hidden='{{hiddenmodalput}}' title='请输入嗅味' confirm-text='确定' cancel-text='取消' bindcancel='cancel' bindconfirm='comfirm'>
+            <input placeholder='请输入内容' bindinput='voteTitle' />
+        </modal>
+
+    </form>
 </view>

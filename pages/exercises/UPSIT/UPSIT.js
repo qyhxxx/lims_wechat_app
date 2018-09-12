@@ -15,7 +15,8 @@ Page({
     post_option_id: [],
     train_item_id: -1,
     final_answer: [],
-    transmission_data: []
+    transmission_data: [],
+    idx: -1
   },
 
   /**
@@ -139,6 +140,7 @@ Page({
     else {
       //上一题必定是已经被选择过的
       var newExercise = this.data.exercise
+      var newIdx = -1
       for (var i = 0; i < 4; i++) {
         newExercise[exerciseNum - 2].options[i].checked = false
       }
@@ -146,11 +148,13 @@ Page({
       for (var i = 0; i < 4; i++) {
         if (newExercise[exerciseNum - 2].options[i].id == lastAnswer) {
           newExercise[exerciseNum - 2].options[i].checked = true
+          newIdx = lastAnswer
         }
       }
       this.setData({
         exercise_num: exerciseNum - 1,
-        exercise: newExercise
+        exercise: newExercise,
+        idx: newIdx
       })
     }
   },
@@ -225,6 +229,7 @@ Page({
         //判断下一题是否已经被选择过
         var nextAnswer = postOptionId[exerciseNum]
         var newExercise = this.data.exercise //该变量是为了改变下一题选项的选中(checked)状态
+        var newIdx = -1;
         for (var i = 0; i < 4; i++) {
           newExercise[exerciseNum].options[i].checked = false
         }
@@ -232,12 +237,14 @@ Page({
           for (var i = 0; i < 4; i++) {
             if (newExercise[exerciseNum].options[i].id == nextAnswer) {
               newExercise[exerciseNum].options[i].checked = true
+              newIdx = nextAnswer
             }
           }
         }
         this.setData({
           exercise_num: exerciseNum + 1,
-          exercise: newExercise
+          exercise: newExercise,
+          idx: newIdx
         })
       }
     }
@@ -253,7 +260,8 @@ Page({
     var exerciseNum = this.data.exercise_num
     postOptionId[exerciseNum - 1] = radioValue
     this.setData({
-      post_option_id: postOptionId
+      post_option_id: postOptionId,
+      idx: radioValue
     })
     console.log('change value is ', this.data.post_option_id)
   },
