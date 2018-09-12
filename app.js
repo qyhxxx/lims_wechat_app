@@ -49,12 +49,17 @@ App({
       method: 'GET',
       success: function (r) {
         //输出一下位置信息
-        console.log('用户位置信息', r.data.result.address);
         //r.data.result.address获得的就是用户的位置信息，将它保存到一个全局变量上
-        getApp().globalData.locationInfo = r.data.result.address;
+        var locationObject = {
+          address: r.data.result.address,
+          latitude: res.latitude,
+          longitude: res.longitude
+        }
+        console.log('用户位置信息', locationObject);
+        getApp().globalData.locationInfo = locationObject;
         //这步是将位置信息保存到本地缓存中，key = value的形式
         try {
-          wx.setStorageSync('locationInfo', r.data.result.address)
+          wx.setStorageSync('locationInfo', locationObject)
         } catch (e) {
           console.log(e)
         }

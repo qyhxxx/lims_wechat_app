@@ -170,7 +170,7 @@ Page({
                 answer[i].num = parseInt(that.data.post_value[i])
               }
               console.log(answer)
-              var location = app.globalData.locationInfo
+              var location = app.globalData.locationInfo.address
               var postData = {
                 "trainingItemId": 3,
                 "location": location,
@@ -182,8 +182,8 @@ Page({
                   icon: 'success'
                 })
               })
-              wx.redirectTo({
-                url: '/pages/exercises/Sensitive/sensitive'
+              wx.navigateBack({
+                delta: 1
               })
             }
           }

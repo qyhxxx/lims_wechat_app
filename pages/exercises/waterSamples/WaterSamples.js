@@ -286,7 +286,7 @@ Page({
               console.log('transmission_data', transmissionData)
               wx.setStorageSync('transmission_data', transmissionData)
               //console.log(answer)
-              var location = app.globalData.locationInfo
+              var location = app.globalData.locationInfo.address
               console.log('location test', location)
               var postData = {
                 "trainingItemId": that.data.train_item_id,
