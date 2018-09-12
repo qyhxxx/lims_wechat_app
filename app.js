@@ -1,5 +1,6 @@
 //app.js
 var http = require('utils/http.js')
+var location = require('utils/location.js')
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -33,47 +34,15 @@ App({
         }
       }
     })
-    //获取位置信息
-    wx.getLocation({
-      type: 'wgs84',
-      success: function (res) {
-        console.log('location: ', res)
-        var locationString = res.latitude + "," + res.longitude;
-    // TODO
-    wx.request({
-      url: 'http://apis.map.qq.com/ws/geocoder/v1/',
-      data: {
-        "key": "UZJBZ-MZVE4-GWHUE-XKVNS-WZDSV-6NB7B",
-        "location": locationString
-      },
-      method: 'GET',
-      success: function (r) {
-        //输出一下位置信息
-        //r.data.result.address获得的就是用户的位置信息，将它保存到一个全局变量上
-        var locationObject = {
-          address: r.data.result.address,
-          latitude: res.latitude,
-          longitude: res.longitude
-        }
-        console.log('用户位置信息', locationObject);
-        getApp().globalData.locationInfo = locationObject;
-        //这步是将位置信息保存到本地缓存中，key = value的形式
-        try {
-          wx.setStorageSync('locationInfo', locationObject)
-        } catch (e) {
-          console.log(e)
-        }
-      }
-    });
-      },
-    })
+    
 
   },
   globalData: {
     userInfo: null,
-    locationInfo: null
+    locationInfo: null,
   },
   functions: {
-    authRequest: http.authRequest
+    authRequest: http.authRequest,
+    getLocationInfo: location.getLocationInfo
   }
 })
