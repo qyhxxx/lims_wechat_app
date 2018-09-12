@@ -22,9 +22,35 @@ Page({
     postData.lastTrainingDate = Date.parse(postData.lastTrainingDate)
     var that = this
     app.functions.authRequest('/app/userinfo/update', 'POST', postData, function (res) {
-      wx.showToast({
-        title: '修改成功',
-      })
+      that.updateStorage(postData)
+    })
+  },
+
+  updateStorage: function (postData) {
+    this.data.userData.gender = postData.gender
+    this.data.userData.birth = postData.birth
+    this.data.userData.certId = postData.certId
+    this.data.userData.city = postData.city
+    this.data.userData.company = postData.company
+    this.data.userData.profession = postData.profession
+    this.data.userData.rhinitis = postData.rhinitis
+    this.data.userData.rhinitisYear = postData.rhinitisYear
+    this.data.userData.trained = postData.trained
+    this.data.userData.lastTrainingDate = postData.lastTrainingDate
+    wx.setStorage({
+      key: 'userData',
+      data: this.data.userData,
+      success: function (e) {
+        wx.showModal({
+          title: '修改成功',
+          content: '请在用户设置页下拉刷新个人信息',
+          success: function (res) {
+            wx.navigateBack({
+              
+            })
+          }
+        })
+      }
     })
   },
 
