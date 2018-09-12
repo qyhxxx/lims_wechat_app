@@ -163,6 +163,27 @@ Page({
     })
   },
 
+  // button点击（UPSIT嗅味测试簿调查）
+  Button12: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[12].text,
+      content: that.data.title[12].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[12].trainItemId)
+          wx.navigateTo({
+            url: '/pages/exercises/UPSIT/UPSIT',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
   // 开始答题 按钮点击事件(嗅味强度练习)
   confirm8: function () {
     wx.navigateTo({
