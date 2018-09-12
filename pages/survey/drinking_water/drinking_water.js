@@ -170,9 +170,10 @@ Page({
                 answer[i].num = parseInt(that.data.post_value[i])
               }
               console.log(answer)
+              var location = app.globalData.locationInfo
               var postData = {
                 "trainingItemId": 3,
-                "location": "init",
+                "location": location,
                 "answers": answer
               }
               app.functions.authRequest('/app/smell/training/end', 'POST', postData, function (res){

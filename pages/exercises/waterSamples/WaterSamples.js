@@ -286,9 +286,11 @@ Page({
               console.log('transmission_data', transmissionData)
               wx.setStorageSync('transmission_data', transmissionData)
               //console.log(answer)
+              var location = app.globalData.locationInfo
+              console.log('location test', location)
               var postData = {
                 "trainingItemId": that.data.train_item_id,
-                "location": "init",
+                "location": location,
                 "answers": answer
               }
               app.functions.authRequest('/app/smell/training/end', 'POST', postData, function (res) {
@@ -299,7 +301,8 @@ Page({
                   icon: 'success'
                 })
               })
-              wx.navigateTo({
+              //提交成功后需将当前做题页面出栈，所以使用redirectTo
+              wx.redirectTo({
                 url: '/pages/exercises/completeExercise/completeExercise',
               })
             }

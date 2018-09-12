@@ -40,26 +40,26 @@ App({
         console.log('location: ', res)
         var locationString = res.latitude + "," + res.longitude;
     // TODO
-    // wx.request({
-    //   url: 'http://apis.map.qq.com/ws/geocoder/v1/',
-    //   data: {
-    //     "key": "",
-    //     "location": locationString
-    //   },
-    //   method: 'GET',
-    //   success: function (r) {
-    //     //输出一下位置信息
-    //     console.log('用户位置信息', r.data.result.address);
-    //     //r.data.result.address获得的就是用户的位置信息，将它保存到一个全局变量上
-    //     getApp().globalData.locationInfo = r.data.result.address;
-    //     //这步是将位置信息保存到本地缓存中，key = value的形式
-    //     try {
-    //       wx.setStorageSync('locationInfo', r.data.result.address)
-    //     } catch (e) {
-    //       console.log(e)
-    //     }
-    //   }
-    // });
+    wx.request({
+      url: 'http://apis.map.qq.com/ws/geocoder/v1/',
+      data: {
+        "key": "UZJBZ-MZVE4-GWHUE-XKVNS-WZDSV-6NB7B",
+        "location": locationString
+      },
+      method: 'GET',
+      success: function (r) {
+        //输出一下位置信息
+        console.log('用户位置信息', r.data.result.address);
+        //r.data.result.address获得的就是用户的位置信息，将它保存到一个全局变量上
+        getApp().globalData.locationInfo = r.data.result.address;
+        //这步是将位置信息保存到本地缓存中，key = value的形式
+        try {
+          wx.setStorageSync('locationInfo', r.data.result.address)
+        } catch (e) {
+          console.log(e)
+        }
+      }
+    });
       },
     })
 
