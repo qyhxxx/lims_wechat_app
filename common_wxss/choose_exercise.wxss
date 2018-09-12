@@ -2,6 +2,7 @@
   padding: 30rpx;
   font-size: larger;
   color: blue;
+  border-bottom: 1rpx solid rgba(161, 161, 161, 0.247);
 }
 
 .option-list{
@@ -9,6 +10,7 @@
   flex-direction: column;
   height: 850rpx;
   padding: 30rpx;
+  border-bottom: 1rpx solid rgba(161, 161, 161, 0.247);
 }
 
 .option-radio{
@@ -16,15 +18,18 @@
   flex-direction: row;
   align-content: center;
   line-height: 65rpx;
-  font-size: 35rpx
+  font-size: 35rpx;
+  border-bottom: 1rpx solid rgba(161, 161, 161, 0.247);
 }
 
 .option-radio-unchecked{
   color: black;
+  border-bottom: 1rpx solid rgba(161, 161, 161, 0.247);
 }
 
 .option-radio-checked{
   color: blue;
+  border-bottom: 1rpx solid rgba(161, 161, 161, 0.247);
 }
 
 .btn-row{

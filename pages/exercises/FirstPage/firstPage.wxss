@@ -66,8 +66,8 @@ Page {
 }
 
 .btn4Img {
-  width: 75rpx;
-  height: 85rpx;
+  width: 70rpx;
+  height: 80rpx;
   margin-top: 25rpx;
   margin-bottom: 12rpx;
 }
@@ -85,8 +85,6 @@ Page {
 }
 .view-text {
   line-height: 30rpx;
-  margin-top: 0rpx;
-  margin-left: 0rpx;
 }
 
 .btnTips{
