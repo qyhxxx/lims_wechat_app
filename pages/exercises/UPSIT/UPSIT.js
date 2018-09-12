@@ -170,7 +170,7 @@ Page({
       })
     }
     else {
-      if (exerciseNum == 2) {
+      if (exerciseNum == 40) {
         var that = this
         wx.showModal({
           title: '这是最后一道题了',
@@ -184,7 +184,8 @@ Page({
                 answer[i].choice = parseInt(that.data.post_option_id[i])
               }
               //数据传至下一界面（显示做题正确情况以及分数）
-              var transmissionData = that.data.transmisson_data
+              var transmissionData = that.data.transmission_data
+              //console.log('cnm', transmissionData)
               for (var i = 0; i < 40; i++) {
                 transmissionData[i].stem = that.data.exercise[i].stem
                 transmissionData[i].your_answer = optionMapCombiningIdAndText.get(parseInt(that.data.post_option_id[i]))
