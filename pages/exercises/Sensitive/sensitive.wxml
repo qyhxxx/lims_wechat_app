@@ -7,12 +7,11 @@
       <image class='btn1Img' src='/static/arrow_next.png'></image>
     </button>
 
-    
     <modal hidden="{{modalHidden}}" title="饮用水嗅味喜好调查"no-cancel="true" confirm-text="开始答题" bindconfirm="confirm1">
         <scroll-view scroll-y="true">
             <text>{{textGuide[0]}}</text>
         </scroll-view>
-     </modal>
+    </modal>
     
   </view></span>
 

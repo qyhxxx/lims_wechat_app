@@ -5,9 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    text: '嗅味敏感性调查',
-    text1: '嗅味层次分析法训练',
-    text2: '嗅味投诉上报嗅味特征评价',
+    text1: '嗅味敏感性调查',
+    text2: '嗅味层次分析法训练',
+    text3: '嗅味投诉上报嗅味特征评价',
+    text4: '用户设置',
     modalHidden: true //是否隐藏对话框
   },
 
@@ -68,6 +69,14 @@ Page({
     })
   },
 
+  /**
+     * Button4点击事件监听
+     */
+  Button4: function (e) {
+    wx.navigateTo({
+      url: '/pages/auth/user/user',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

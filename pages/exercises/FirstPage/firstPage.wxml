@@ -2,32 +2,26 @@
 
 <view class='smell-list'>
   <view class="smell-row">
-    <button class='btn' bindtap="Button1">
+    <button class='btn_left' bindtap="Button1">
        <image class='btn1Img' src='/static/main_test.png'></image>
-       <text class='text'>{{text}}</text>
-       <!--<view>嗅味敏感性调查</view>-->
+       <text class='text1'>{{text1}}</text>
     </button>
 
-    <button class='btn' bindtap="Button2">
+    <button class='btn_right' bindtap="Button2">
        <image class='btn2Img' src='/static/main_history.png'></image>
        <view class='view-text'>
-          <text class='text-content'>{{text1}}</text>
+          <text class='text-content'>{{text2}}</text>
        </view>
-       <!--<text class='text1'>{{text1}}</text>-->
-       <!--<view>嗅味层次分析法训练</view>-->
     </button>
-    
   </view>
-  <view class="smell-row">
 
+  <view class="smell-row">
   <span style="font-size:18rpx;"><view>
-    <button class='btn' bindtap="Button3">
+    <button class='btn_left' bindtap="Button3">
        <image class='btn3Img' src='/static/main_upload_data.png'></image>
       <view class='view-text'>
-          <text class='text-content'>{{text2}}</text>
+          <text class='text-content'>{{text3}}</text>
       </view>
-      <!--<text class='text1'>{{text2}}</text>-->
-      <!--<view>嗅味投诉上报嗅味特征评价</view>-->
     </button>
 
     <view >
@@ -38,6 +32,9 @@
     </view>
   </view></span>
     
-    <button ></button>
+    <button class='btn_right' bindtap="Button4">
+       <image class='btn4Img' src='/static/toolbar_user_setting.png'></image>
+       <text class='text4'>{{text4}}</text>
+    </button>
   </view>
 </view>
