@@ -1,16 +1,16 @@
 <!--pages/data/report/report.wxml-->
 <form bindsubmit="formSubmit">
 <view class='report-list'>
-  <view class="report-row">
+  <!-- <view class="report-row">
     <text>{{msg1}}</text>
     <input style="text-align:right" name="检测样编号" placeholder="请输入或扫描编号"/>
     <image class="image-setting" src='/static/upload_camera.png' bindtap='camera'></image>
-  </view>
+  </view> -->
   
   <view class="report-row">
     <text>{{msg2}}</text>
     <view class="section">
-      <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}" name="检测对象" >
+      <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}" name="object" >
         <view class="picker">
          <input style="text-align:right" placeholder="请选择" value="{{inputvalue1}}"/>
         </view>
@@ -24,7 +24,7 @@
   <view class="report-row">
     <text>{{msg3}}</text>
     <view class="section">
-      <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}" name="供水系统位置" >
+      <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}" name="ws_loc" >
         <view class="picker">
          <input style="text-align:right" placeholder="请选择" value="{{inputvalue2}}"/>
         </view>
@@ -37,12 +37,12 @@
 
   <view class="report-row">
     <text>{{msg4}}</text>
-     <input style="text-align:right" name="水温" placeholder="请输入水温" type='digit'/>
+     <input style="text-align:right" name="temperature" placeholder="请输入水温" type='digit'/>
   </view>
 
   <view class="report-row">
     <text>{{msg5}}</text>
-    <input style="text-align:right" name="地址" placeholder="定位中"/>
+    <input style="text-align:right" name="地址" placeholder="定位中" value="{{locationValue}}"/>
   </view>
 
 <!-- 添加嗅味类型 -->

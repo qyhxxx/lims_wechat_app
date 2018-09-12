@@ -26,6 +26,7 @@ Component({
    */
   data: {
     hide: true,
+    hide1: true,
     index: 0,
     array: [0, 2, 4, 6, 8, 10, 12],
     inputvalue: '',
@@ -33,7 +34,7 @@ Component({
     array1: ['土霉味','氯味/臭氧味','草味','腐败味/沼泽味','鱼腥味','芳香味','药味','化学品味','自定义'],
     inputvalue1: '',
     hiddenmodalput1: true,
-    voteTitle1: null,
+    voteTitle1: '',
     index2: 0,
     array2: [],
     array20: ['霉味','淤泥味','土味','自定义'],
@@ -47,23 +48,28 @@ Component({
     array28: ['自定义'],
     inputvalue2: '',
     hiddenmodalput2: true,
-    voteTitle2: null,
-    index3: 2,
+    voteTitle2: '',
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    onTap: function () {
-      var myEventDetail = {} // detail对象，提供给事件监听函数
-      var myEventOption = {} // 触发事件的选项
-      this.triggerEvent('myevent', this.data.index3)
-    },
 
     bindPickerChange: function (e) {
       var array_temp = this.data.array
       var temp = array_temp[e.detail.value]
+      // 传输数据给页面
+      var myEventDetail = {
+        other_sub_type: this.data.voteTitle2,   //自定义二级嗅味类型
+        other_type: this.data.voteTitle1, //自定义一级嗅味类型
+        strength: temp,  //嗅味强度
+        sub_type: this.data.index2, //二级嗅味类型id
+        type: this.data.index1, //一级嗅味类型id
+      } // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      this.triggerEvent('myevent', myEventDetail)
+      
       this.setData({
         index: e.detail.value,
         inputvalue: temp,
@@ -96,6 +102,9 @@ Component({
         inputvalue1: temp,
         hiddenmodalput1: temp1,
         array2: array_temp1,
+        inputvalue: '',
+        inputvalue2: '',
+        hide1: true
       })
     },
 
@@ -110,18 +119,29 @@ Component({
       this.setData({
         index2: e.detail.value,
         inputvalue2: temp,
-        hiddenmodalput2: temp1
+        hiddenmodalput2: temp1,
+        hide1: false,
+        inputvalue: ''
       })
     },
 
     withoutOne: function () {
       if(this.data.hide == true){
         wx.showToast({
-          title: '先选择一级类型',
+          title: '先选择一级嗅味类型',
           icon:'none'
         })
       }
     },
+    withoutTwo: function () {
+      if(this.data.hide1 == true || this.data.inputvalue2 == ''){
+        wx.showToast({
+          title: '先选择二级嗅味类型',
+          icon: 'none'
+        })
+      }
+    },
+
     voteTitle1: function (e) {
       this.data.voteTitle1 = e.detail.value;
     },
