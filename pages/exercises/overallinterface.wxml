@@ -104,7 +104,7 @@
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button12">
     <view class='view-text'>
         <text class='text-content'>{{title[12].text}}</text>
     </view>

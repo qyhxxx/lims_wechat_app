@@ -24,6 +24,7 @@
 }
 
 .option-radio-checked{
+  
   color: blue;
 }
 

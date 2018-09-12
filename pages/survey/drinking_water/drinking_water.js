@@ -35,7 +35,8 @@ Page({
         num: -1
       }
     ],
-    location: ''
+    location: '',
+    idx: -1 //控制选中项变色
   },
 
   /**
@@ -130,13 +131,16 @@ Page({
     else{
       //上一题必定是已经被选择过的
       var newOption = this.data.option
+      var newIdx = -1
       for(var i = 0; i < 9; i++){
         newOption[i].checked = false
       }
       newOption[lastAnswer].checked = true
+      newIdx = lastAnswer
       this.setData({
         exercise_num: exerciseNum - 1,
-        option: newOption
+        option: newOption,
+        idx: lastAnswer
       })
     }
   },
@@ -195,15 +199,18 @@ Page({
         //判断下一题是否已经被选择过
         var nextAnswer = postValue[exerciseNum]
         var newOption = this.data.option //该变量是为了改变下一题选项的选中(checked)状态
+        var newIdx = -1
         for(var i = 0; i < 9; i++){
           newOption[i].checked = false
         }
         if(nextAnswer != -1){
           newOption[nextAnswer].checked = true
+          newIdx = nextAnswer
         }
         this.setData({
           exercise_num: exerciseNum+1,
-          option: newOption
+          option: newOption,
+          idx: newIdx
         })
       }
     }
@@ -218,10 +225,10 @@ Page({
     var exerciseNum = this.data.exercise_num
     postValue[exerciseNum-1] = radioValue
     this.setData({
-      radio: 'option-radio-checked',
+      idx: radioValue,
       post_value: postValue
     })
-    console.log(this.data.radio)
+    console.log('mmm', this.data.idx)
     console.log('change value is ', this.data.post_value)
   }
 })
