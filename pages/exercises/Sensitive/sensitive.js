@@ -21,25 +21,22 @@ Page({
      * drinkingButton点击事件监听
      */
   drinkingButton: function (e) {
-    this.setData({
-      modalHidden: !this.data.modalHidden
-    })
-  },
-  // 开始答题 按钮点击事件
-  confirm1: function () {
-    var trainItemId = this.data.trainItemId[0]
-    var questionType = this.data.questionType[0]
-    console.log(trainItemId)
-    wx.setStorageSync('trainItemId', trainItemId)
-    // wx.setStorage({
-    //   key: 'questionType',
-    //   data: questionType,
-    // })
-    wx.navigateTo({
-      url: '/pages/survey/drinking_water/drinking_water',
-    })
-    this.setData({
-      modalHidden: !this.data.modalHidden,
+    var that = this
+    wx.showModal({
+      title: this.data.title[0],
+      content: this.data.textGuide[0],
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.trainItemId[0])
+          wx.navigateTo({
+            url: '/pages/survey/drinking_water/drinking_water',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
     })
   },
 
@@ -55,8 +52,23 @@ Page({
      * upsitButton点击事件监听
      */
   upsitButton: function (e) {
-    //打印所有关于点击对象的信息
-    console.log(e);
+    var that = this
+    wx.showModal({
+      title: this.data.title[2],
+      content: this.data.textGuide[2],
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.trainItemId[2])
+          wx.navigateTo({
+            url: '/pages/exercises/UPSIT/UPSIT',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
   },
 
   /**
