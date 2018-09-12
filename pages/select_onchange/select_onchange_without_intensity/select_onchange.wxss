@@ -1,12 +1,4 @@
-
-.title{
-    color: rgb(57, 57, 122);
-    padding-left: .50em;
-    padding-top: 1.100em;
-    font-size: 16px;
-    font-weight: bold;
-    
-}
+@import '/common_wxss/choose_exercise.wxss';
 
 .picker-title{
     color: rgb(57, 57, 122);
@@ -29,14 +21,4 @@
 .button{
     margin-top: 100px;
     margin-left:15%;
-}
-
-#button-pre{
-    border-color: blue;
-    color:blue;
-}
-
-#button-next{
-    background-color: blue;
-    color: white;
 }

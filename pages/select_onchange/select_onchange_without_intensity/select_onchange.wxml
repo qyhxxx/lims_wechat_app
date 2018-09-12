@@ -1,9 +1,30 @@
-<view class="section">
-    <view class="section__title">多列选择器</view>
-
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker">
-            当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+<view class='section'>
+    <form bindsubmit='formSubmit' bindreset='formReset'>
+        <!-- 题目信息 -->
+        <!-- <view class='title'>
+            <text>{{title[exercise_num-1]}}</text>
+        </view> -->
+        <view class='title'>
+            <text>题目一, 烫烫烫烫锟斤烤烫烫烫烫</text>
         </view>
-    </picker>
+
+        <!-- 选择一级嗅味以及二级嗅味 -->
+        <picker mode='multiSelector' bindchange='bindMultiPickerChange' bindcolumnchange='bindMultiPickerColumnChange' value='{{multiIndex}}' range='{{multiArray}}'>
+            <view class='picker-title'>点击选择嗅味信息</view>
+            <view class='picker-content'>一级嗅味: {{multiArray[0][multiIndex[0]]}}</view>
+            <view class='picker-content' id='second_smell'>二级嗅味: {{multiArray[1][multiIndex[1]]}}</view>
+        </picker>
+
+        <!-- 上下题切换逻辑 -->
+        <view class='btn-row'>
+            <button bindtap='preExercise' class='button-pre'>{{button_pre}}</button>
+            <button bindtap='nextExercise' class='button-next'>{{button_next}}</button>
+        </view>
+
+        <!-- 一级嗅味选择自定义时的可输入弹框 -->
+        <modal hidden='{{hiddenmodalput}}' title='请输入嗅味' confirm-text='确定' cancel-text='取消' bindcancel='cancel' bindconfirm='comfirm'>
+            <input placeholder='请输入内容' bindinput='voteTitle' />
+        </modal>
+
+    </form>
 </view>
