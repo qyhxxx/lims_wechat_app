@@ -1,4 +1,4 @@
-<!-- pd/pd.wxml -->
+<!--pd_sub/pd_sub.wxml-->
 <view class="report-row">
     <text>{{msg6}}</text>
     <view class="section">
@@ -24,16 +24,5 @@
         <modal hidden="{{hiddenmodalput2}}" title="自定义" confirm-text="确定" cancel-text="取消" bindcancel="cancel2" bindconfirm="confirm2">
             <input placeholder="请输入内容" bindinput="voteTitle2" />
         </modal>
-    </view>
-</view>
-
-<view class="report-row">
-    <text>{{msg8}}</text>
-    <view class="section">
-        <picker bindchange="bindPickerChange" bindtap="withoutTwo" disabled="{{hide1}}" value="{{index}}" range="{{array}}" name="嗅味强度">
-            <view class="picker">
-                <input style="text-align:right" placeholder="请输入强度" value="{{inputvalue}}" disabled='true' />
-            </view>
-        </picker>
     </view>
 </view>
