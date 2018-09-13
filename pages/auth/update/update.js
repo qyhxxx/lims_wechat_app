@@ -7,6 +7,7 @@ Page({
    */
   data: {
     userData: {},
+    gender: '',
     showRhinitisYear: '',
     showLastTrainingDate: '',
     birth: '',
@@ -18,6 +19,7 @@ Page({
    */
   update: function (e) {
     var postData = e.detail.value
+    postData.gender = (postData.gender == 'true' ? true : false)
     postData.birth = Date.parse(postData.birth)
     postData.lastTrainingDate = Date.parse(postData.lastTrainingDate)
     var that = this
@@ -62,15 +64,24 @@ Page({
     wx.getStorage({
       key: 'userData',
       success: function (res) {
+        var userData = res.data
         that.setData({
-          userData: res.data,
-          showRhinitisYear: res.data.rhinitis,
-          showLastTrainingDate: res.data.trained,
-          birth: util.myFormatTime(new Date(res.data.birth)),
-          lastTrainingDate: util.myFormatTime(new Date(res.data.lastTrainingDate))
+          userData: userData,
+          gender: userData.gender,
+          showRhinitisYear: userData.rhinitis,
+          showLastTrainingDate: userData.trained,
+          birth: util.myFormatTime(new Date(userData.birth)),
+          lastTrainingDate: util.myFormatTime(new Date(userData.lastTrainingDate))
         })
       }
     })
+  },
+
+  changeGender: function (e) {
+    this.setData({
+      gender: (e.detail.value == 'true' ? true : false)
+    })
+    console.log(e.detail.value)
   },
 
   changeShowRhinitisYear: function (e) {

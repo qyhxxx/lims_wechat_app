@@ -2,12 +2,12 @@
   <form bindsubmit='update'>
     <view class='section_input'>
       <view class='input-text'>性别</view>
-      <radio-group class="radio-gender" name='gender'>
-        <radio class='radio' value='true' checked="{{userData.gender}}" color='#4169E1'>
-          <view class='radio-text'>先生</view>
+      <radio-group class="radio-gender" name='gender' bindchange='changeGender'>
+        <radio class='radio' value='true' checked="{{gender}}" color='#4169E1'>
+          <view class="{{gender ? 'checked-text' : 'unchecked-text'}}">先生</view>
         </radio>
-        <radio class='radio' value='false' checked="{{!userData.gender}}" color='#4169E1'>
-          <view class='radio-text'>女士</view>
+        <radio class='radio' value='false' checked="{{!gender}}" color='#4169E1'>
+          <view class="{{!gender ? 'checked-text' : 'unchecked-text'}}">女士</view>
         </radio>
       </radio-group>
     </view>

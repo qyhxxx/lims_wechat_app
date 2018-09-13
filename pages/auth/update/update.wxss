@@ -28,7 +28,12 @@
   margin: 6px;
 }
 
-.radio-text {
+.unchecked-text {
+  color: rgb(120, 120, 120);
+  font-size: 20px;
+}
+
+.checked-text {
   color: #4169E1;
   font-size: 20px;
 }

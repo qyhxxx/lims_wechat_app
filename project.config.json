@@ -41,21 +41,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": -1,
-					"name": "f",
-					"pathName": "pages/data/report/report",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "water",
-					"pathName": "pages/survey/drinking_water/drinking_water",
-					"query": ""
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }

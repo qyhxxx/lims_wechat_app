@@ -1,2 +1,16 @@
-<!--pages/data/record/record.wxml-->
-<text>pages/data/record/record.wxml</text>
+<view class='record'>
+  <view class='record-wrapper'>
+    <scroll-view scroll-y='true' class='record-table' bindscroll='loadMore'>
+      <view class='record-header'>
+        <text class='header-column'>检测对象</text>
+        <text class='header-column'>供水系统位置</text>
+        <text class='header-column'>水温</text>
+      </view>
+      <view class='record-content' wx:for="{{list}}">
+        <text class='item-column'>{{item.waterSupply.title}}</text>
+        <text class='item-column'>{{item.address}}</text>
+        <text class='item-column'>{{item.waterTemperature}}℃</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>
