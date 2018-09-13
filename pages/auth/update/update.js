@@ -81,7 +81,6 @@ Page({
     this.setData({
       gender: (e.detail.value == 'true' ? true : false)
     })
-    console.log(e.detail.value)
   },
 
   changeShowRhinitisYear: function (e) {
