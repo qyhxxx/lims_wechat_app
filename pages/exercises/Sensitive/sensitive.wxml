@@ -5,8 +5,7 @@
     <button class='btn1' bindtap="drinkingButton">
       <text class='text'>{{title[0]}}</text>
       <image class='btn1Img' src='/static/arrow_next.png'></image>
-    </button>
-    
+    </button> 
   </view></span>
 
   <button class='btn1' bindtap="materi  alButton">

@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "用户设置"
+  "navigationBarTitleText": "用户设置",
+  "enablePullDownRefresh": true
 }

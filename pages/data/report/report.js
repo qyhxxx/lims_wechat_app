@@ -1,12 +1,12 @@
 // pages/data/report/report.js
-const app = getApp()
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    msg1: '检测样编号',
+    // msg1: '检测样编号',
     msg2: '检测对象',
     msg3: '供水系统位置',
     msg4: '水温',
@@ -25,15 +25,22 @@ Page({
     index2: 0,
     voteTitle2: null,
     hiddenmodalput2: true,
+    locationValue: '',
     checkbox: [-1],
-    index3: 1,
+// 上报用
+    smell: [],
+    location: {
+      address:  '',  //地址
+      latitude: 1.1,  //纬度
+      longitude: 1.1, //经度
+    },
   },
 
   bindPickerChange1: function (e) {
     var array_temp = this.data.array1
     var temp = array_temp[e.detail.value]
     var temp1 = true
-    if (e.detail.value == 5) {
+    if (e.detail.value == this.data.array1.length-1) {
       temp1 = false
     }
     this.setData({
@@ -47,7 +54,7 @@ Page({
     var array_temp = this.data.array2
     var temp = array_temp[e.detail.value]
     var temp1 = true
-    if (e.detail.value == 5) {
+    if (e.detail.value == this.data.array2.length - 1) {
       temp1 = false
     }
     this.setData({
@@ -100,31 +107,69 @@ Page({
   },
 
   onMyevent: function(e){
-    console.log(e)
+    console.log(this.data.checkbox.length-1,e.detail)
+    this.data.smell[this.data.checkbox.length-1]=e.detail
+    console.log(this.data.smell)
   },
+
 // form提交
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    // var postData = e.detail.value
-    // app.functions.authRequest('/app/...', 'POST',postData, function (res) {
-    //   console.log(res)
-    // })
+    var other_object = ''
+    if(this.data.index1 == this.data.array1.length-1){
+      other_object = this.data.inputvalue1
+    }
+    var other_ws_loc = ''
+    if(this.data.index2 == this.data.array2.length-1){
+      other_ws_loc = this.data.inputvalue2
+    }
+    console.log('form发生了submit事件，携带数据为：', e.detail.value.temperature)
+    var postData = {
+      "temperature": e.detail.value.temperature,
+      "location": this.data.location,
+      "object": e.detail.value.object,
+      "other_object": other_object,
+      "ws_loc": e.detail.value.ws_loc,
+      "other_ws_loc": other_ws_loc,
+      "smell": this.data.smell
+    }
+    console.log(postData)
+    if(this.data.inputvalue1==''||this.data.inputvalue1==''||e.detail.value.temperature==''||this.data.locationValue==''||this.data.smell==''){
+      wx.showToast({
+        title: '每一项内容不能为空',
+        icon: 'none'
+      })
+    }else{
+      app.functions.authRequest('/app/smell/monitor/report', 'POST', postData, function (res) {
+        console.log(res)
+      })
+    }
   },
 
 // 扫一扫
-  camera: function(){
-    wx.scanCode({
-      onlyFromCamera: true,
-      success: (res) => {
-        console.log(res)
-      }
-    })
-  },
+  // camera: function(){
+  //   wx.scanCode({
+  //     onlyFromCamera: true,
+  //     success: (res) => {
+  //       console.log(res)
+  //     }
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.functions.getLocationInfo()
+    var loca = wx.getStorageSync('locationInfo').address
+    var lati = wx.getStorageSync('locationInfo').latitude
+    var longi = wx.getStorageSync('locationInfo').longitude
+    this.setData({
+      locationValue: loca,
+      location: {
+        address: loca,  //地址
+        latitude: lati,  //纬度
+        longitude: longi, //经度
+      }
+    })
   },
 
   /**
