@@ -9,7 +9,7 @@
     
   </view></span>
 
-  <button class='btn1' bindtap="materialButton">
+  <button class='btn1' bindtap="materi  alButton">
     <text class='text'>{{title[1]}}</text>
     <image class='btn1Img' src='/static/arrow_next.png'></image>
   </button>
