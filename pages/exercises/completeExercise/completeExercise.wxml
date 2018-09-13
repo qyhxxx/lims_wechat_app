@@ -4,7 +4,24 @@
       <text class='text-content'>0</text>
     </view>
 
-    <view class='view-text1'>
+    <view class='view-text1' wx:for="{{transmission_data}}">
+      <view class='content-list'>
+        <view class="content-row">
+           <text class='text-content1'>题目1[ 请辨别B样品是 ：]            </text>
+           <text class='text-content1_right'>正确/错误</text>
+        </view>
+        <view class="content-row">
+           <text class='text-content2'>正确答案 ：</text>
+           <text class='text-content2_right'>自来水</text>
+        </view>
+        <view class="content-row_last">
+           <text class='text-content2'>您的回答 ：</text>
+           <text class='text-content2_right'>自来水</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class='view-text1'>
       <view class='content-list'>
         <view class="content-row">
            <text class='text-content1'>题目1[ 请辨别B样品是 ：]            </text>
@@ -53,7 +70,7 @@
            <text class='text-content2_right'>自来水</text>
         </view>
       </view>
-    </view>
+    </view> -->
 
 </view>
 
