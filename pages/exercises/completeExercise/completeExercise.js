@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    score: 0,
     transmission_data: []
   },
 
@@ -13,10 +14,12 @@ Page({
    */
   onLoad: function (options) {
     var transimissionData = wx.getStorageSync('transmission_data')
+    var score = wx.getStorageSync('score')
     this.setData({
-      transmission_data: transimissionData
+      transmission_data: transimissionData,
+      score: score
     })
-    console.log(this.data.transmission_data)
+    console.log('trans ', this.data.transmission_data)
   },
 
   /**
