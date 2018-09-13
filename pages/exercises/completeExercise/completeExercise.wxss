@@ -52,13 +52,13 @@
   margin-right: 20rpx;
 }
 .view-text1 .text-content2 {
-  color: gainsboro;
+  color: rgb(128, 91, 91);
   font-size: 33rpx;
   line-height: 40rpx;
   margin-left: 20rpx;
 }
 .view-text1 .text-content2_right {
-  color: gainsboro;
+  color: rgb(128, 91, 91);
   font-size: 33rpx;
   line-height: 40rpx;
   margin-right: 20rpx;

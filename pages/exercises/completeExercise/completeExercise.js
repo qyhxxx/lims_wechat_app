@@ -5,14 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    score: 0,
+    transmission_data: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getStorageSync('transmission_data')
+    var transimissionData = wx.getStorageSync('transmission_data')
+    var score = wx.getStorageSync('score')
+    this.setData({
+      transmission_data: transimissionData,
+      score: score
+    })
+    console.log('trans ', this.data.transmission_data)
   },
 
   /**
