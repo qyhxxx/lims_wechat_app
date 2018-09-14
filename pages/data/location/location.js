@@ -4,29 +4,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: {}
+    latitude: '',
+    longitude: '',
+    markers: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var detail = JSON.parse(options.detail)
+    var location = JSON.parse(options.location)
+    var latitude = location.latitude
+    var longitude = location.longitude
     this.setData({
-      detail: detail
+      latitude: latitude,
+      longitude: longitude,
+      markers: [{
+        id: 1,
+        latitude: latitude,
+        longitude: longitude,
+        iconPath: '/static/location.png'
+      }]
     })
-  },
-
-  navigateToLocation: function (e) {
-    var reportLatitude = this.data.detail.reportLatitude
-    var reportLongitude = this.data.detail.reportLongitude
-    var location = {
-      latitude: reportLatitude,
-      longitude: reportLongitude,
-    }
-    wx.navigateTo({
-      url: '/pages/data/location/location?location=' + JSON.stringify(location)
-    })
+    console.log(this.data)
+    wx.createMapContext('myMap', this)
   },
 
   /**

@@ -56,4 +56,5 @@
 .picker {
   position: absolute;
   right: 10px;
+  font-size: 20px;
 }

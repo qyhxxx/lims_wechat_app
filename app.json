@@ -17,7 +17,8 @@
     "pages/auth/user/user",
     "pages/auth/update/update",
     "pages/exercises/completeExercise/completeExercise",
-    "pages/data/detail/detail"
+    "pages/data/detail/detail",
+    "pages/data/location/location"
   ],
   "window": {
     "backgroundTextStyle": "light",
