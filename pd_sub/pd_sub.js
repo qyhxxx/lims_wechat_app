@@ -67,9 +67,11 @@ Component({
             var temp = array_temp[e.detail.value]
             var temp1 = true
             var temp2 = false
+            var temp3 = ''
             if (e.detail.value == array_temp.length - 1) {
                 temp1 = false
                 temp2 = true
+                temp3 = ' '
             }
             var array_temp1 = this.data.array2
             switch (e.detail.value) {
@@ -109,7 +111,7 @@ Component({
                 hiddenmodalput1: temp1,
                 array2: array_temp1,
                 inputvalue: '',
-                inputvalue2: '',
+                inputvalue2: temp3,
                 hide1: true
             })
         },
@@ -143,17 +145,9 @@ Component({
         },
 
         withoutOne: function() {
-            if (this.data.hide == true) {
+            if (this.data.hide == true && this.data.index1 != this.data.array1.length-1) {
                 wx.showToast({
                     title: '先选择一级嗅味类型',
-                    icon: 'none'
-                })
-            }
-        },
-        withoutTwo: function() {
-            if (this.data.hide1 == true || this.data.inputvalue2 == '') {
-                wx.showToast({
-                    title: '先选择二级嗅味类型',
                     icon: 'none'
                 })
             }
@@ -180,6 +174,14 @@ Component({
         },
 
         confirm1: function() {
+          // 传输数据给页面
+          var myEventDetail = {
+            otherType: this.data.voteTitle1,
+            sub_type: '', //二级嗅味类型id
+            type: this.data.index1, //一级嗅味类型id
+          } // detail对象，提供给事件监听函数
+          var myEventOption = {} // 触发事件的选项
+          this.triggerEvent('myevent', myEventDetail)
             this.setData({
                 hiddenmodalput1: true,
                 inputvalue1: this.data.voteTitle1
@@ -189,7 +191,8 @@ Component({
         confirm2: function() {
             this.setData({
                 hiddenmodalput2: true,
-                inputvalue2: this.data.voteTitle2
+                inputvalue2: this.data.voteTitle2,
+              
             })
         },
 
