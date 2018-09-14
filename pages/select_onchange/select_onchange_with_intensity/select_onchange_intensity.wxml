@@ -8,8 +8,10 @@
         </view>
 
         <!-- 引入自定义组件 -->
-        <pd id='pd' bindmyevent='onMyevent' msg6='嗅味类型' msg7='二级嗅味类型' msg8='嗅味强度'></pd>
-
+        <view class='picker-view'>
+            <pd id='pd' bindmyevent='onMyevent' msg6='嗅味类型' msg7='二级嗅味类型' msg8='嗅味强度'></pd>
+        </view>
+        
         <!-- 上下题切换按钮 -->
         <view class='btn-row'>
             <button bindtap='preExercise' class='btn-pre'>{{button_pre}}</button>

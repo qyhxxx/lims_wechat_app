@@ -3,11 +3,13 @@
 
         <!-- 假数据, 之后使用API数据填充 -->
         <view class='title'>
-            <text>{{title}}</text>
+            <text>{{exercise[exercise_num-1].stem}}</text>
         </view>
 
         <!-- 引入自定义组件 -->
-        <pd_sub id='pd' bindmyevent='onMyevent' msg6='嗅味类型' msg7='二级嗅味类型'></pd_sub>
+        <view class='picker-view'>
+            <pd_sub id='pd' bindmyevent='onMyevent' msg6='嗅味类型' msg7='二级嗅味类型'></pd_sub>
+        </view>
 
         <!-- 上下题切换按钮 -->
         <view class='btn-row'>

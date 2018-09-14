@@ -45,6 +45,7 @@
             <input style="text-align:right" name="地址" placeholder="定位中" value="{{locationValue}}" />
         </view>
 
+
         <!-- 添加嗅味类型 -->
         <view wx:for="{{checkbox}}">
             <pd id="pd" bindmyevent="onMyevent" msg6='嗅味类型' msg7='二级嗅味类型' msg8='嗅味强度'>

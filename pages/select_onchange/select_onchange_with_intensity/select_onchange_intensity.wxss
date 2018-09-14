@@ -1,1 +1,3 @@
-@import '../select_onchange_without_intensity/select_onchange.wxss'
+@import '../select_onchange_without_intensity/select_onchange.wxss';
+
+

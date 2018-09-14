@@ -1,3 +1,4 @@
+var app = getApp()
 Page({
 
     /**
@@ -33,7 +34,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+      var itemId = wx.getStorageSync('trainItemId')
+      console.log('itemId is ', itemId)
+      var postData = {
+        "trainingItemId": itemId,
+        "size": 2
+      }
+      var that = this
+      app.functions.authRequest('/app/smell/training/start', 'POST', postData, function (res){
+        console.log('res ', res.data)
+      })
     },
 
     /**
