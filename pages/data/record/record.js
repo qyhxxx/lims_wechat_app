@@ -1,4 +1,5 @@
 const app = getApp()
+const util = require('../../../utils/util.js')
 Page({
 
   /**
@@ -8,7 +9,7 @@ Page({
     list: [],
     isEmpty: true,
     page: 1,
-    size: 10,
+    size: 12,
     showLoading: false,
     showLoadingComplete: false
   },
@@ -29,15 +30,21 @@ Page({
     app.functions.authRequest('/app/smell/monitor/list', 'POST', postData, function (res) {
       var content = res.data.content
       if (content.length != 0) {
+        for (var i = 0; i < content.length; i++) {
+          content[i].createTime = util.formatTime(new Date(content[i].createTime))
+        }
         that.setData({
           list: that.data.isEmpty ? content : that.data.list.concat(content),
           showLoading: true
         })
-        console.log(that.data.list)
       } else {
         that.setData({
           showLoading: false,
           showLoadingComplete: true
+        })
+        wx.showToast({
+          title: '没有更多数据了',
+          icon: 'none'
         })
       }
     })
@@ -47,10 +54,18 @@ Page({
     if (this.data.showLoading && !this.data.showLoadingComplete) {
       this.setData({
         page: this.data.page + 1,
+        size: 6,
         isEmpty: false
       })
       this.showList()
     }
+  },
+
+  navigateToDetail: function (e) {
+    var detail = e.currentTarget.dataset.detail
+    wx.navigateTo({
+      url: '/pages/data/detail/detail?detail=' + JSON.stringify(detail),
+    })
   },
 
   /**
