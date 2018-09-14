@@ -3,7 +3,7 @@
 
         <!-- 假数据, 之后使用API数据填充 -->
         <view class='title'>
-            <text>{{title}}</text>
+            <text>{{exercise[exercise_num-1].stem}}</text>
         </view>
 
         <!-- 引入自定义组件 -->
