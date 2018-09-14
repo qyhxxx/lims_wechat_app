@@ -1,4 +1,5 @@
 // pd/pd.js
+var app = getApp()
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
@@ -19,6 +20,14 @@ Component({
       type: String,
       value: '3'
     },
+    array1:{
+      type: Array,
+      value: null
+    },
+    array20:{
+      type: Array,
+      value: null
+    }
   },
 
   /**
@@ -29,15 +38,16 @@ Component({
     hide1: true,
     index: 0,
     array: [0, 2, 4, 6, 8, 10, 12],
-    inputvalue: '',
+    inputvalue: null,
     index1: 0,
-    array1: ['土霉味','氯味/臭氧味','草味','腐败味/沼泽味','鱼腥味','芳香味','药味','化学品味','自定义'],
-    inputvalue1: '',
+    // array1: [],
+    array1_fromApi: [],
+    inputvalue1: null,
     hiddenmodalput1: true,
-    voteTitle1: '',
+    voteTitle1: null,
     index2: 0,
     array2: [],
-    array20: ['霉味','淤泥味','土味','自定义'],
+    array20: [],
     array21: ['氯味/臭氧味','自定义'],
     array22: ['烟草味','鲜草味','干草味','木材味','自定义'],
     array23: ['腐败味','臭鸡蛋味','腐烂蔬菜味','自定义'],
@@ -46,9 +56,9 @@ Component({
     array26: ['药味','自定义'],
     array27: ['汽油味','油漆味','塑料味','胶水味','自定义'],
     array28: ['自定义'],
-    inputvalue2: '',
+    inputvalue2: null,
     hiddenmodalput2: true,
-    voteTitle2: '',
+    voteTitle2: null,
   },
 
   /**
@@ -175,7 +185,6 @@ Component({
         inputvalue2: this.data.voteTitle2
       })
     },
-
 
   }
 })

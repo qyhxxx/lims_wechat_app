@@ -15,22 +15,28 @@ Page({
     msg7:'二级嗅味类型',
     msg8: '嗅味强度',
     msg9: '添加嗅味类型',
-    inputvalue1: '',
+    inputvalue1: null,
     hiddenmodalput1: true,
     voteTitle1: null,
-    array1: ['龙头水', '沸腾水', '凉开水', '茶水', '水源水', '自定义'],
+    array1: [],
+    array1_fromApi: [],
     index1: 0,
-    inputvalue2: '',
-    array2: ['源水','水厂','出厂水','管网水','水龙头出水','自定义'],
+    inputvalue2: null,
+    array2: [],
+    array2_fromApi: [],
     index2: 0,
     voteTitle2: null,
     hiddenmodalput2: true,
     locationValue: '',
     checkbox: [-1],
+    array3: [],
+    array3_fromApi: [],
+    array20: [],
+    array20_fromApi: [],
 // 上报用
     smell: [],
     location: {
-      address:  '',  //地址
+      address:  null,  //地址
       latitude: 1.1,  //纬度
       longitude: 1.1, //经度
     },
@@ -122,9 +128,8 @@ Page({
     if(this.data.index2 == this.data.array2.length-1){
       other_ws_loc = this.data.inputvalue2
     }
-    console.log('form发生了submit事件，携带数据为：', e.detail.value.temperature)
     var postData = {
-      "temperature": e.detail.value.temperature,
+      "temperature": parseFloat(e.detail.value.temperature),
       "location": this.data.location,
       "object": e.detail.value.object,
       "other_object": other_object,
@@ -158,18 +163,57 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.functions.getLocationInfo()
-    var loca = wx.getStorageSync('locationInfo').address
-    var lati = wx.getStorageSync('locationInfo').latitude
-    var longi = wx.getStorageSync('locationInfo').longitude
-    this.setData({
-      locationValue: loca,
-      location: {
-        address: loca,  //地址
-        latitude: lati,  //纬度
-        longitude: longi, //经度
+    var that = this
+    app.functions.authRequest('/app/smell/basicdata/list', 'GET', null, function (res) {
+      console.log(res)
+      that.data.array1_fromApi = res.data.objects
+      that.data.array2_fromApi = res.data.ws_locs
+      that.data.array3_fromApi = res.data.smell_types
+      that.data.array20_fromApi = res.data.smell_types[0].sub_types
+
+      var array_temp = []
+      for (var i = 0; i < that.data.array1_fromApi.length; i++){
+        array_temp[i] = that.data.array1_fromApi[i].title
       }
+      array_temp.push('自定义')
+
+      var array_temp1 = []
+      for (var i = 0; i < that.data.array2_fromApi.length; i++) {
+        array_temp1[i] = that.data.array2_fromApi[i].title
+      }
+      array_temp1.push('自定义')
+
+      var array_temp2 = []
+      for (var i = 0; i < that.data.array3_fromApi.length; i++) {
+        array_temp2[i] = that.data.array3_fromApi[i].title
+      }
+      array_temp2.push('自定义')
+
+      var array_temp3 = []
+      for (var i = 0; i < that.data.array20_fromApi.length; i++) {
+        array_temp3[i] = that.data.array20_fromApi[i].title
+      }
+      array_temp3.push('自定义')
+
+      app.functions.getLocationInfo()
+      var loca = wx.getStorageSync('locationInfo').address
+      var lati = wx.getStorageSync('locationInfo').latitude
+      var longi = wx.getStorageSync('locationInfo').longitude
+
+      that.setData({
+        locationValue: loca,
+        location: {
+          address: loca,  //地址
+          latitude: lati,  //纬度
+          longitude: longi, //经度
+        },
+        array1: array_temp,
+        array2: array_temp1,
+        array3: array_temp2,
+        array20: array_temp3,
+      })
     })
+
   },
 
   /**
