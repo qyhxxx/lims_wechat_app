@@ -36,7 +36,8 @@
 .btn-row{
   display: flex;
   flex-direction: row;
-  margin-top: 20rpx;
+  /* 50 -> 150 */
+  margin-top: 150rpx;
   margin-bottom: 20rpx;
   justify-content: space-between;
   align-items: center;

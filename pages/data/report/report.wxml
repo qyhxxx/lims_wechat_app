@@ -8,7 +8,7 @@
   </view> -->
 
         <view class="report-row">
-            <text>{{msg2}}</text>
+            <text class='txt'>{{msg2}}</text>
             <view class="section">
                 <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}" name="object">
                     <view class="picker">
@@ -22,7 +22,7 @@
         </view>
 
         <view class="report-row">
-            <text>{{msg3}}</text>
+            <text class='txt'>{{msg3}}</text>
             <view class="section">
                 <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}" name="ws_loc">
                     <view class="picker">
@@ -36,12 +36,12 @@
         </view>
 
         <view class="report-row">
-            <text>{{msg4}}</text>
+            <text class='txt'>{{msg4}}</text>
             <input style="text-align:right" name="temperature" placeholder="请输入水温" type='digit' />
         </view>
 
         <view class="report-row">
-            <text>{{msg5}}</text>
+            <text class='txt'>{{msg5}}</text>
             <input style="text-align:right" name="地址" placeholder="定位中" value="{{locationValue}}" />
         </view>
 
