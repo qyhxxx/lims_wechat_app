@@ -22,7 +22,7 @@ const myFormatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('-')
+  return [year, month, day].map(formatNumber).join('/')
 }
 
 module.exports = {
