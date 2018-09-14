@@ -1,24 +1,8 @@
 @import '/common_wxss/choose_exercise.wxss';
 
-.picker-title{
-    color: rgb(57, 57, 122);
-    padding-left: 13px;
-    margin-top: 35px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.picker-content{
-    color: rgb(57, 57, 122);
-    padding-left: 13px;
-    padding-top: 15px;
-    margin-top: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: blue;
-    border-bottom-width: thin;
-}
-
-.button{
-    margin-top: 100px;
-    margin-left:15%;
+.picker-view {
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
 }
