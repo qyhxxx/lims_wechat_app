@@ -21,9 +21,14 @@
                 <input style='text-align:right' bindtap='withoutOne' disabled='true' placeholder='请选择' value='{{inputvalue2}}' />
             </view>
         </picker>
+
         <!-- <modal hidden="{{hiddenmodalput2}}" title="自定义" confirm-text="确定" cancel-text="取消" bindcancel="cancel2" bindconfirm="confirm2">
             <input placeholder="请输入内容" bindinput="voteTitle2" />
         </modal> -->
+
+        <modal hidden='{{hiddenmodalput2}}' title='自定义' confirm-text='确定' cancel-text='取消' bindcancel='cancel2' bindconfirm='confirm2'>
+            <input placeholder='请输入内容' bindinput='voteTitle2' />
+        </modal>
 
     </view>
 </view>
