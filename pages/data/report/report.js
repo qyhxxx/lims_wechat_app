@@ -33,6 +33,23 @@ Page({
     array3_fromApi: [],
     array20: [],
     array20_fromApi: [],
+    array21: [],
+    array21_fromApi: [],
+    array22: [],
+    array22_fromApi: [],
+    array23: [],
+    array23_fromApi: [],
+    array24: [],
+    array24_fromApi: [],
+    array25: [],
+    array25_fromApi: [],
+    array26: [],
+    array26_fromApi: [],
+    array27: [],
+    array27_fromApi: [],
+    array28: [],
+    array28_fromApi: [],
+
 // 上报用
     smell: [],
     location: {
@@ -120,30 +137,40 @@ Page({
 
 // form提交
   formSubmit: function (e) {
-    var other_object = ''
+    console.log('formit携带:',e.detail.value)
+    var other_object = null
     if(this.data.index1 == this.data.array1.length-1){
       other_object = this.data.inputvalue1
     }
-    var other_ws_loc = ''
+    var other_ws_loc = null
     if(this.data.index2 == this.data.array2.length-1){
       other_ws_loc = this.data.inputvalue2
+    }
+    var object_id = null
+    if(this.data.index1 != this.data.array1.length-1){
+      object_id = this.data.array1_fromApi[this.data.index1].id
+    }
+    var ws_loc_id = null
+    if(this.data.index2 != this.data.array2.length-1){
+      ws_loc_id = this.data.array2_fromApi[this.data.index2].id
     }
     var postData = {
       "temperature": parseFloat(e.detail.value.temperature),
       "location": this.data.location,
-      "object": e.detail.value.object,
+      "object": object_id,
       "other_object": other_object,
-      "ws_loc": e.detail.value.ws_loc,
+      "ws_loc": ws_loc_id,
       "other_ws_loc": other_ws_loc,
       "smell": this.data.smell
     }
     console.log(postData)
-    if(this.data.inputvalue1==''||this.data.inputvalue1==''||e.detail.value.temperature==''||this.data.locationValue==''||this.data.smell==''){
+    if(this.data.inputvalue1==null ||this.data.inputvalue2==null||e.detail.value.temperature==''||this.data.locationValue==null||this.data.smell==null){
       wx.showToast({
         title: '每一项内容不能为空',
         icon: 'none'
       })
     }else{
+      console.log('提交了')
       app.functions.authRequest('/app/smell/monitor/report', 'POST', postData, function (res) {
         console.log(res)
       })
@@ -170,6 +197,14 @@ Page({
       that.data.array2_fromApi = res.data.ws_locs
       that.data.array3_fromApi = res.data.smell_types
       that.data.array20_fromApi = res.data.smell_types[0].sub_types
+      that.data.array21_fromApi = res.data.smell_types[1].sub_types
+      that.data.array22_fromApi = res.data.smell_types[2].sub_types
+      that.data.array23_fromApi = res.data.smell_types[3].sub_types
+      that.data.array24_fromApi = res.data.smell_types[4].sub_types
+      that.data.array25_fromApi = res.data.smell_types[5].sub_types
+      that.data.array26_fromApi = res.data.smell_types[6].sub_types
+      that.data.array27_fromApi = res.data.smell_types[7].sub_types
+      
 
       var array_temp = []
       for (var i = 0; i < that.data.array1_fromApi.length; i++){
@@ -195,6 +230,48 @@ Page({
       }
       array_temp3.push('自定义')
 
+      var array_temp4 = []
+      for (var i = 0; i < that.data.array21_fromApi.length; i++) {
+        array_temp4[i] = that.data.array21_fromApi[i].title
+      }
+      array_temp4.push('自定义')
+
+      var array_temp5 = []
+      for (var i = 0; i < that.data.array22_fromApi.length; i++) {
+        array_temp5[i] = that.data.array22_fromApi[i].title
+      }
+      array_temp5.push('自定义')
+
+      var array_temp6 = []
+      for (var i = 0; i < that.data.array23_fromApi.length; i++) {
+        array_temp6[i] = that.data.array23_fromApi[i].title
+      }
+      array_temp6.push('自定义')
+
+      var array_temp7 = []
+      for (var i = 0; i < that.data.array24_fromApi.length; i++) {
+        array_temp7[i] = that.data.array24_fromApi[i].title
+      }
+      array_temp7.push('自定义')
+
+      var array_temp8 = []
+      for (var i = 0; i < that.data.array25_fromApi.length; i++) {
+        array_temp8[i] = that.data.array25_fromApi[i].title
+      }
+      array_temp8.push('自定义')
+
+      var array_temp9 = []
+      for (var i = 0; i < that.data.array26_fromApi.length; i++) {
+        array_temp9[i] = that.data.array26_fromApi[i].title
+      }
+      array_temp9.push('自定义')
+
+      var array_temp10 = []
+      for (var i = 0; i < that.data.array27_fromApi.length; i++) {
+        array_temp10[i] = that.data.array27_fromApi[i].title
+      }
+      array_temp10.push('自定义')
+
       app.functions.getLocationInfo()
       var loca = wx.getStorageSync('locationInfo').address
       var lati = wx.getStorageSync('locationInfo').latitude
@@ -210,7 +287,15 @@ Page({
         array1: array_temp,
         array2: array_temp1,
         array3: array_temp2,
+        array3_fromApi: res.data.smell_types,
         array20: array_temp3,
+        array21: array_temp4,
+        array22: array_temp5,
+        array23: array_temp6,
+        array24: array_temp7,
+        array25: array_temp8,
+        array26: array_temp9,
+        array27: array_temp10,
       })
     })
 

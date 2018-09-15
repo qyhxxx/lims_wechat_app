@@ -20,6 +20,10 @@ Component({
       type: String,
       value: '3'
     },
+    array_fromApi:{
+      type: Array,
+      value: null
+    },
     array1:{
       type: Array,
       value: null
@@ -27,7 +31,35 @@ Component({
     array20:{
       type: Array,
       value: null
-    }
+    },
+    array21: {
+      type: Array,
+      value: null
+    },
+    array22: {
+      type: Array,
+      value: null
+    },
+    array23: {
+      type: Array,
+      value: null
+    },
+    array24: {
+      type: Array,
+      value: null
+    },
+    array25: {
+      type: Array,
+      value: null
+    },
+    array26: {
+      type: Array,
+      value: null
+    },
+    array27: {
+      type: Array,
+      value: null
+    },
   },
 
   /**
@@ -40,21 +72,19 @@ Component({
     array: [0, 2, 4, 6, 8, 10, 12],
     inputvalue: null,
     index1: 0,
-    // array1: [],
-    array1_fromApi: [],
     inputvalue1: null,
     hiddenmodalput1: true,
     voteTitle1: null,
     index2: 0,
     array2: [],
-    array20: [],
-    array21: ['氯味/臭氧味','自定义'],
-    array22: ['烟草味','鲜草味','干草味','木材味','自定义'],
-    array23: ['腐败味','臭鸡蛋味','腐烂蔬菜味','自定义'],
-    array24: ['腥味','鲜鱼味','臭鱼味','藻腥味','自定义'],
-    array25: ['水果味','香味','甜味','自定义'],
-    array26: ['药味','自定义'],
-    array27: ['汽油味','油漆味','塑料味','胶水味','自定义'],
+    // array20: [],
+    // array21: ['氯味/臭氧味','自定义'],
+    // array22: ['烟草味','鲜草味','干草味','木材味','自定义'],
+    // array23: ['腐败味','臭鸡蛋味','腐烂蔬菜味','自定义'],
+    // array24: ['腥味','鲜鱼味','臭鱼味','藻腥味','自定义'],
+    // array25: ['水果味','香味','甜味','自定义'],
+    // array26: ['药味','自定义'],
+    // array27: ['汽油味','油漆味','塑料味','胶水味','自定义'],
     array28: ['自定义'],
     inputvalue2: null,
     hiddenmodalput2: true,
@@ -70,12 +100,27 @@ Component({
       var array_temp = this.data.array
       var temp = array_temp[e.detail.value]
       // 传输数据给页面
+      var other_sub_type = null
+      var other_type = null
+      var type_id = null
+      var sub_type = null
+      if(this.data.index1 != this.data.array1.length-1){
+        type_id = this.data.array_fromApi[this.data.index1].id
+        if (this.data.index2 != this.data.array_fromApi[this.data.index1].sub_types.length) {
+          sub_type = this.data.array_fromApi[this.data.index1].sub_types[this.data.index2].id
+        }else{
+          other_sub_type = this.data.inputvalue2
+        }
+      }else{
+        other_type = this.data.inputvalue1
+        other_sub_type = this.data.inputvalue2
+      }
       var myEventDetail = {
-        other_sub_type: this.data.voteTitle2,   //自定义二级嗅味类型
-        other_type: this.data.voteTitle1, //自定义一级嗅味类型
+        other_sub_type: other_sub_type,   //自定义二级嗅味类型
+        other_type: other_type, //自定义一级嗅味类型
         strength: temp,  //嗅味强度
-        sub_type: this.data.index2, //二级嗅味类型id
-        type: this.data.index1, //一级嗅味类型id
+        sub_type: sub_type, //二级嗅味类型id
+        type: type_id, //一级嗅味类型id
       } // detail对象，提供给事件监听函数
       var myEventOption = {} // 触发事件的选项
       this.triggerEvent('myevent', myEventDetail)
@@ -112,8 +157,8 @@ Component({
         inputvalue1: temp,
         hiddenmodalput1: temp1,
         array2: array_temp1,
-        inputvalue: '',
-        inputvalue2: '',
+        inputvalue: null,
+        inputvalue2: null,
         hide1: true
       })
     },
@@ -131,7 +176,7 @@ Component({
         inputvalue2: temp,
         hiddenmodalput2: temp1,
         hide1: false,
-        inputvalue: ''
+        inputvalue: null
       })
     },
 
@@ -144,7 +189,7 @@ Component({
       }
     },
     withoutTwo: function () {
-      if(this.data.hide1 == true || this.data.inputvalue2 == ''){
+      if(this.data.hide1 == true || this.data.inputvalue2 == null){
         wx.showToast({
           title: '先选择二级嗅味类型',
           icon: 'none'
