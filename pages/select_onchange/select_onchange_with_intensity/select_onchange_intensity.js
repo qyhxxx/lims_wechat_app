@@ -16,6 +16,9 @@ Page({
         index1: 0,
         inputvalue2: null,
         index2: 0,
+        type_firstvalue: null,
+        sub_type_firstvalue: null,
+        strength_firstvalue: null,
         //从api中获取的对象数组(包含id和文字)
         smell_types_api: [],
         sub_smell0_api: [],
@@ -147,7 +150,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        this.pd = this.selectComponent("#pd");
+        this.pd_dif = this.selectComponent("#pd_dif");
     },
 
     /**

@@ -9,8 +9,8 @@
 
         <!-- 引入自定义组件 -->
         <view class='picker-view'>
-            <pd id="pd" bindmyevent="onMyevent" msg6='嗅味类型' msg7='二级嗅味类型' msg8='嗅味强度' array_fromApi='{{smell_types_api}}' array1='{{smell_types}}' array20='{{sub_smell0}}' array21='{{sub_smell1}}' array22='{{sub_smell2}}' array23='{{sub_smell3}}' array24='{{sub_smell4}}' array25='{{sub_smell5}}' array26='{{sub_smell6}}' array27='{{sub_smell7}}'>
-            </pd>
+            <pd_dif id="pd_dif" bindmyevent="onMyevent" msg6='嗅味类型' msg7='二级嗅味类型' msg8='嗅味强度' array_fromApi='{{smell_types_api}}' array1='{{smell_types}}' array20='{{sub_smell0}}' array21='{{sub_smell1}}' array22='{{sub_smell2}}' array23='{{sub_smell3}}' array24='{{sub_smell4}}' array25='{{sub_smell5}}' array26='{{sub_smell6}}' array27='{{sub_smell7}}' inputvalue1='{{type_firstvalue}}' inputvalue2='{{sub_type_firstvalue}}' inputvalue='{{strength_firstvalue}}'>
+            </pd_dif>
         </view>
         
         <!-- 上下题切换按钮 -->
