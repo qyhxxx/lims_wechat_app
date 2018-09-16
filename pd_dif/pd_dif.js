@@ -111,6 +111,8 @@ Component({
             other_type = this.data.inputvalue1
         }
         var myEventDetail = {
+            type_text: this.data.inputvalue1,
+            sub_type_text: this.data.inputvalue2,
             otherType: other_type, //自定义一级嗅味类型
             strength: temp, //嗅味强度
             subtype: sub_type, //二级嗅味类型id
