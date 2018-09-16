@@ -22,8 +22,8 @@ Page({
         msg7: '二级嗅味类型',
         button_pre: '上一题',
         button_next: '下一题',
-        type_firstvalue: '土味',
-        sub_type_firstvalue: '美味',
+        type_firstvalue: null,
+        sub_type_firstvalue: null,
         //从api中获取的对象数组(包含id和文字)
         smell_types_api: [],
         sub_smell0_api: [],
@@ -48,8 +48,8 @@ Page({
     },
 
     onMyevent: function(e) {
-        this.data.smell[this.data.exercise_num - 1] = e.detail
-        console.log('hhh smell ', this.data.smell[0])
+        this.data.smell = e.detail
+        console.log('hhh smell ', this.data.smell)
         var postSmellType = this.data.post_smell_type
         var postSmellTypeText = this.data.post_smell_type_text
         var postSmellSubType = this.data.post_smell_subtype
@@ -61,10 +61,10 @@ Page({
                 post_smell_othertype: postSmellOtherType
             })
         } else {
-            postSmellType[this.data.exercise_num - 1] = this.data.smell[this.data.exercise_num - 1].type
-            postSmellTypeText[this.data.exercise_num - 1] = this.data.smell[this.data.exercise_num - 1].type_text
-            postSmellSubType[this.data.exercise_num - 1] = this.data.smell[this.data.exercise_num - 1].sub_type
-            postSmellSubTypeText[this.data.exercise_num - 1] = this.data.smell[this.data.exercise_num - 1].sub_type_text
+            postSmellType[this.data.exercise_num - 1] = this.data.smell.type
+            postSmellTypeText[this.data.exercise_num - 1] = this.data.smell.type_text
+            postSmellSubType[this.data.exercise_num - 1] = this.data.smell.sub_type
+            postSmellSubTypeText[this.data.exercise_num - 1] = this.data.smell.sub_type_text
             this.setData({
                 post_smell_type: postSmellType,
                 post_smell_type_text: postSmellTypeText,
@@ -257,34 +257,33 @@ Page({
      */
     preExercise: function() {
         var postSmellType = this.data.post_smell_type
+        var postSmellTypeText = this.data.post_smell_type_text
         var postSmellSubType = this.data.post_smell_subtype
+        var postSmellSubTypeText = this.data.post_smell_subtype_text
         var postSmellOtherType = this.data.post_smell_othertype
         var exerciseNum = this.data.exercise_num
-        //var lastAnswer = postOptionId[exerciseNum - 2]
 
+        console.log('test', postSmellOtherType)
         if (exerciseNum == 1) {
             wx.showToast({
                 title: '这是第一道题了',
                 icon: 'none'
             })
         } else {
-            //上一题必定是已经被选择过的
-            // var newExercise = this.data.exercise
-            // var newIdx = -1
-            // for (var i = 0; i < 4; i++) {
-            //   newExercise[exerciseNum - 2].options[i].checked = false
-            // }
-            // console.log(lastAnswer, '+', (newExercise[0].options))
-            // for (var i = 0; i < 4; i++) {
-            //   if (newExercise[exerciseNum - 2].options[i].id == lastAnswer) {
-            //     newExercise[exerciseNum - 2].options[i].checked = true
-            //     newIdx = lastAnswer
-            //   }
-            // }
+            var typeFirstValue = null
+            var subTypeFirstValue = null
+            if(postSmellOtherType[exerciseNum-2] != "init"){
+              typeFirstValue = postSmellOtherType[exerciseNum - 2]
+              subTypeFirstValue = " "
+            }
+            else{
+              typeFirstValue = postSmellTypeText[exerciseNum - 2]
+              subTypeFirstValue = postSmellSubTypeText[exerciseNum - 2]
+            }
             this.setData({
                 exercise_num: exerciseNum - 1,
-                // exercise: newExercise,
-                // idx: newIdx
+                type_firstvalue: typeFirstValue,
+                sub_type_firstvalue: subTypeFirstValue
             })
         }
     },
@@ -294,7 +293,9 @@ Page({
      */
     nextExercise: function() {
         var postSmellType = this.data.post_smell_type
+        var postSmellTypeText = this.data.post_smell_type_text
         var postSmellSubType = this.data.post_smell_subtype
+        var postSmellSubTypeText = this.data.post_smell_subtype_text
         var postSmellOtherType = this.data.post_smell_othertype
         var exerciseNum = this.data.exercise_num
 
@@ -319,10 +320,19 @@ Page({
                             // 数据传至服务器端
                             var answer = that.data.final_answer
                             for (var i = 0; i < 7; i++) {
-                                answer[i].id = parseInt(that.data.post_exercise_id[i])
-                                answer[i].otherType = that.data.post_smell_othertype[i]
-                                answer[i].type = that.data.post_smell_type[i]
-                                answer[i].sub_type = that.data.post_smell_subtype[i]
+                              answer[i].id = parseInt(that.data.post_exercise_id[i])
+                              answer[i].otherType = that.data.post_smell_othertype[i] == "init" ? null : that.data.post_smell_othertype[i]
+                              answer[i].type = that.data.post_smell_type[i] == -1 ? null : that.data.post_smell_type[i]
+                              answer[i].subtype = that.data.post_smell_subtype[i] == -1 ? null : that.data.post_smell_subtype[i]
+                            }
+                            for(var i = 0; i < 7; i++){
+                              if(answer[i].otherType == null){
+                                delete answer[i].otherType
+                              }
+                              else if (answer[i].type == null && answer[i].subtype == null){
+                                delete answer[i].type
+                                delete answer[i].subtype
+                              }
                             }
                             //数据传至下一界面（显示做题正确情况以及分数）
                             var transmissionData = that.data.transmission_data
@@ -341,51 +351,47 @@ Page({
                                 }
                             }
                             console.log('transmission_data', transmissionData)
-                            // wx.setStorageSync('transmission_data', transmissionData)
-                            // //console.log(answer)
-                            // app.functions.getLocationInfo()
-                            // var location = wx.getStorageSync('locationInfo').address
-                            // console.log('location test', location)
-                            // var postData = {
-                            //     "trainingItemId": that.data.train_item_id,
-                            //     "location": location,
-                            //     "answers": answer
-                            // }
-                            // app.functions.authRequest('/app/smell/training/end', 'POST', postData, function(res) {
-                            //     console.log(res)
-                            //     wx.setStorageSync('score', res.data.score)
-                            //     wx.showToast({
-                            //         title: '分数上传成功',
-                            //         icon: 'success'
-                            //     })
-                            // })
-                            // //提交成功后需将当前做题页面出栈，所以使用redirectTo
-                            // wx.redirectTo({
-                            //     url: '/pages/exercises/completeExercise/completeExercise',
-                            // })
+                            wx.setStorageSync('transmission_data', transmissionData)
+                            console.log('answer is ',answer)
+                            app.functions.getLocationInfo()
+                            var location = wx.getStorageSync('locationInfo').address
+                            console.log('location test', location)
+                            var postData = {
+                                "trainingItemId": that.data.train_item_id,
+                                "location": location,
+                                "answers": answer
+                            }
+                            app.functions.authRequest('/app/smell/training/end', 'POST', postData, function(res) {
+                                console.log(res)
+                                wx.setStorageSync('score', res.data.score)
+                                wx.showToast({
+                                    title: '分数上传成功',
+                                    icon: 'success'
+                                })
+                            })
+                            //提交成功后需将当前做题页面出栈，所以使用redirectTo
+                            wx.redirectTo({
+                                url: '/pages/exercises/completeExercise/completeExercise',
+                            })
                         }
                     }
                 })
             } else {
                 //判断下一题是否已经被选择过
-                // var nextAnswer = postOptionId[exerciseNum]
-                // var newExercise = this.data.exercise //该变量是为了改变下一题选项的选中(checked)状态
-                // var newIdx = -1;
-                // for (var i = 0; i < 4; i++) {
-                //   newExercise[exerciseNum].options[i].checked = false
-                // }
-                // if (nextAnswer != -1) {
-                //   for (var i = 0; i < 4; i++) {
-                //     if (newExercise[exerciseNum].options[i].id == nextAnswer) {
-                //       newExercise[exerciseNum].options[i].checked = true
-                //       newIdx = nextAnswer
-                //     }
-                //   }
-                // }
+                var typeFirstValue = null
+                var subTypeFirstValue = null
+                if(postSmellOtherType[exerciseNum] != "init"){
+                  typeFirstValue = postSmellOtherType[exerciseNum]
+                  subTypeFirstValue = " "
+                }
+                else{
+                  typeFirstValue = postSmellTypeText[exerciseNum]
+                  subTypeFirstValue = postSmellSubTypeText[exerciseNum]
+                }
                 this.setData({
                     exercise_num: exerciseNum + 1,
-                    // exercise: newExercise,
-                    // idx: newIdx
+                    type_firstvalue: typeFirstValue=="init"?null:typeFirstValue,
+                    sub_type_firstvalue: subTypeFirstValue=="init"?null:subTypeFirstValue
                 })
             }
         }

@@ -14,8 +14,8 @@
 
         <!-- 上下题切换按钮 -->
         <view class='btn-row'>
-            <button bindtap='preExercise' class='btn-pre'>{{button_pre}}</button>
-            <button bindtap='nextExercise' class='btn-next'>{{button_next}}</button>
+            <button bindtap='preExercise' class='button-pre'>{{button_pre}}</button>
+            <button bindtap='nextExercise' class='button-next'>{{button_next}}</button>
         </view>
     </view>
 </form>
