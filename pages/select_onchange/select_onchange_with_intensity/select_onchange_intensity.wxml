@@ -4,7 +4,7 @@
 
         <!-- 假数据, 之后使用API数据填充 -->
         <view class='title'>
-            <text>{{title}}</text>
+            <text>题目{{exercise_num}}:{{exercise[exercise_num-1].stem}}</text>
         </view>
 
         <!-- 引入自定义组件 -->
@@ -16,7 +16,7 @@
         <!-- 上下题切换按钮 -->
         <view class='btn-row'>
             <button bindtap='preExercise' class='button-pre'>{{button_pre}}</button>
-            <button bindtap='nextExercise' class='button_next'>{{button_next}}</button>
+            <button bindtap='nextExercise' class='button-next'>{{button_next}}</button>
         </view>
     </view>
 </form>

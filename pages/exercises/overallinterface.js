@@ -101,6 +101,69 @@ Page({
   },
 
   // button点击（嗅味强度练习）
+  Button0: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[0].text,
+      content: that.data.title[0].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[0].trainItemId)
+          wx.navigateTo({
+            url: '/pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
+  Button1: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[1].text,
+      content: that.data.title[1].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[1].trainItemId)
+          wx.navigateTo({
+            url: '/pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
+  Button2: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[2].text,
+      content: that.data.title[2].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[2].trainItemId)
+          wx.navigateTo({
+            url: '/pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
   Button8: function () {
     var that = this
     wx.showModal({

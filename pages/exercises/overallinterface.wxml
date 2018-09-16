@@ -2,56 +2,56 @@
 
 <scroll-view scroll-y="true" >
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button0">
     <view class='view-text'>
         <text class='text-content'>{{title[0].text}}</text>
     </view>
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button1">
     <view class='view-text'>
         <text class='text-content'>{{title[1].text}}</text>
     </view>
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button2">
     <view class='view-text'>
         <text class='text-content'>{{title[2].text}}</text>
     </view>
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn3' bindtap="Button">
+  <button class='btn3' bindtap="Button3">
     <view class='view-btn3'>
         <text class='text-btn3'>{{title[3].text}}</text>
     </view>
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button4">
     <view class='view-text'>
         <text class='text-content'>{{title[4].text}}</text>
     </view>
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button5">
     <view class='view-text'>
         <text class='text-content'>{{title[5].text}}</text>
     </view>
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button6">
     <view class='view-text'>
         <text class='text-content'>{{title[6].text}}</text>
     </view>
     <image class='btnImg' src='/static/arrow_next.png'></image>
   </button>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button7">
     <view class='view-text'>
         <text class='text-content'>{{title[7].text}}</text>
     </view>
