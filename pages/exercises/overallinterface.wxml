@@ -97,7 +97,7 @@
     </view> -->
   </view></span>
 
-  <button class='btn' bindtap="Button">
+  <button class='btn' bindtap="Button11">
     <view class='view-text'>
         <text class='text-content'>{{title[11].text}}</text>
     </view>

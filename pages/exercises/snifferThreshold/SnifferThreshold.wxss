@@ -1,1 +1,2 @@
 /* pages/exercises/snifferThreshold/SnifferThreshold.wxss */
+@import '/common_wxss/choose_exercise.wxss'

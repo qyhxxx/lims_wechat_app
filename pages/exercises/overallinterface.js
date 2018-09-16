@@ -164,6 +164,111 @@ Page({
   },
 
   // button点击（嗅味强度练习）
+  Button3: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[3].text,
+      content: that.data.title[3].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[3].trainItemId)
+          wx.navigateTo({
+            url: '/pages/exercises/snifferThreshold/SnifferThreshold',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
+  Button4: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[4].text,
+      content: that.data.title[4].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[4].trainItemId)
+          wx.navigateTo({
+            url: '/pages/exercises/snifferThreshold/SnifferThreshold',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
+  Button5: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[5].text,
+      content: that.data.title[5].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[5].trainItemId)
+          wx.navigateTo({
+            url: '/pages/exercises/snifferThreshold/SnifferThreshold',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
+  Button6: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[6].text,
+      content: that.data.title[6].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[6].trainItemId)
+          wx.navigateTo({
+            url: '/pages/exercises/snifferThreshold/SnifferThreshold',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
+  Button7: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[7].text,
+      content: that.data.title[7].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[7].trainItemId)
+          wx.navigateTo({
+            url: '/pages/exercises/snifferThreshold/SnifferThreshold',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
   Button8: function () {
     var that = this
     wx.showModal({
@@ -217,6 +322,27 @@ Page({
           wx.setStorageSync('trainItemId', that.data.title[10].trainItemId)
           wx.navigateTo({
             url: '/pages/select_onchange/select_onchange_without_intensity/select_onchange',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
+  },
+
+  // button点击（嗅味强度练习）
+  Button11: function () {
+    var that = this
+    wx.showModal({
+      title: that.data.title[11].text,
+      content: that.data.title[11].description,
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.title[11].trainItemId)
+          wx.navigateTo({
+            url: '/pages/exercises/snifferThreshold/SnifferThreshold',
           })
         }
         else if (res.cancel) {
