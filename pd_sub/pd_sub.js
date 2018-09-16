@@ -76,7 +76,6 @@ Component({
         voteTitle1: null,
         index2: 0,
         array2: [],
-        array28: ['自定义'],
         inputvalue2: null,
         hiddenmodalput2: true,
         voteTitle2: null,
@@ -87,47 +86,47 @@ Component({
      */
     methods: {
 
-        bindPickerChange: function(e) {
-            var array_temp = this.data.array
-            var temp = array_temp[e.detail.value]
-            // 传输数据给页面
-            var other_sub_type = null
-            var other_type = null
-            var type_id = null
-            var sub_type = null
-            if (this.data.index1 != this.data.array1.length - 1) {
-                type_id = this.data.array_fromApi[this.data.index1].id
-                if (this.data.index2 != this.data.array_fromApi[this.data.index1].sub_types.length) {
-                    sub_type = this.data.array_fromApi[this.data.index1].sub_types[this.data.index2].id
-                } else {
-                    other_sub_type = this.data.inputvalue2
-                }
-            } else {
-                other_type = this.data.inputvalue1
-                other_sub_type = this.data.inputvalue2
-            }
-            var myEventDetail = {
-                other_sub_type: other_sub_type, //自定义二级嗅味类型
-                other_type: other_type, //自定义一级嗅味类型
-                strength: temp, //嗅味强度
-                sub_type: sub_type, //二级嗅味类型id
-                type: type_id, //一级嗅味类型id
-            } // detail对象，提供给事件监听函数
-            var myEventOption = {} // 触发事件的选项
-            this.triggerEvent('myevent', myEventDetail)
+        // bindPickerChange: function(e) {
+        //     var array_temp = this.data.array
+        //     var temp = array_temp[e.detail.value]
+        //     // 传输数据给页面
+        //     var other_sub_type = null
+        //     var other_type = null
+        //     var type_id = null
+        //     var sub_type = null
+        //     if (this.data.index1 != this.data.array1.length - 1) {
+        //         type_id = this.data.array_fromApi[this.data.index1].id
+        //         if (this.data.index2 != this.data.array_fromApi[this.data.index1].sub_types.length) {
+        //             sub_type = this.data.array_fromApi[this.data.index1].sub_types[this.data.index2].id
+        //         } else {
+        //             other_sub_type = this.data.inputvalue2
+        //         }
+        //     } else {
+        //         other_type = this.data.inputvalue1
+        //         other_sub_type = this.data.inputvalue2
+        //     }
+        //     var myEventDetail = {
+        //         other_sub_type: other_sub_type, //自定义二级嗅味类型
+        //         other_type: other_type, //自定义一级嗅味类型
+        //         strength: temp, //嗅味强度
+        //         sub_type: sub_type, //二级嗅味类型id
+        //         type: type_id, //一级嗅味类型id
+        //     } // detail对象，提供给事件监听函数
+        //     var myEventOption = {} // 触发事件的选项
+        //     this.triggerEvent('myevent', myEventDetail)
 
-            this.setData({
-                index: e.detail.value,
-                inputvalue: temp,
-            })
-        },
+        //     this.setData({
+        //         index: e.detail.value,
+        //         inputvalue: temp,
+        //     })
+        // },
 
         bindPickerChange1: function(e) {
             var array_temp = this.data.array1
             var temp = array_temp[e.detail.value]
             var temp1 = true
             var temp2 = false
-            var temp3 = ''
+            var temp3 = null
             if (e.detail.value == array_temp.length - 1) {
                 temp1 = false
                 temp2 = true
@@ -159,21 +158,16 @@ Component({
                 case '7':
                     array_temp1 = this.data.array27;
                     break;
-                case '8':
-                    array_temp1 = this.data.array28;
-                    break;
             }
             this.data.array2 = array_temp1
             this.setData({
-                hide: false,
+                hide: temp2,
                 index1: e.detail.value,
                 inputvalue1: temp,
                 hiddenmodalput1: temp1,
-                hiddenmodalput2: temp3,
                 array2: array_temp1,
                 inputvalue: null,
-                inputvalue2: null,
-                hide1: true
+                inputvalue2: temp3,
             })
         },
 
@@ -185,11 +179,23 @@ Component({
             if (e.detail.value == array_temp.length - 1) {
                 temp1 = false
             }
+          // 传输数据给页面
+          var type_id = null
+          var sub_type_id = null
+          type_id = this.data.array_fromApi[this.data.index1].id
+          sub_type_id = this.data.array_fromApi[this.data.index1].sub_types[e.detail.value].id
+          var myEventDetail = {
+            otherType: null,
+            sub_type: sub_type_id, //二级嗅味类型id
+            type: type_id, //一级嗅味类型id
+          } // detail对象，提供给事件监听函数
+          var myEventOption = {} // 触发事件的选项
+          this.triggerEvent('myevent', myEventDetail)
+
             this.setData({
                 index2: e.detail.value,
                 inputvalue2: temp,
                 hiddenmodalput2: temp1,
-                hide1: false,
                 inputvalue: null
             })
         },
@@ -227,8 +233,8 @@ Component({
             // 传输数据给页面
             var myEventDetail = {
                 otherType: this.data.voteTitle1,
-                sub_type: '', //二级嗅味类型id
-                type: this.data.index1, //一级嗅味类型id
+                sub_type: null, //二级嗅味类型id
+                type: null, //一级嗅味类型id
             } // detail对象，提供给事件监听函数
             var myEventOption = {} // 触发事件的选项
             this.triggerEvent('myevent', myEventDetail)

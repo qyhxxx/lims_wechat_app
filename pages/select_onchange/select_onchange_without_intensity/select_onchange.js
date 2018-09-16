@@ -105,7 +105,7 @@ Page({
             for (var i = 0; i < that.data.smell_types_api.length; i++) {
                 array_temp[i] = that.data.smell_types_api[i].title
             }
-            array_temp.push('自定义')
+            array_temp.push('其他')
 
             //二级类型数组
             var array_temp0 = []
