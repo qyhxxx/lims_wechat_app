@@ -22,7 +22,8 @@ Page({
         msg7: '二级嗅味类型',
         button_pre: '上一题',
         button_next: '下一题',
-
+        type_firstvalue: '土味',
+        sub_type_firstvalue: '美味',
         //从api中获取的对象数组(包含id和文字)
         smell_types_api: [],
         sub_smell0_api: [],

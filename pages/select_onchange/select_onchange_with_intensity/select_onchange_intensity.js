@@ -50,8 +50,8 @@ Page({
     },
 
     onMyevent: function(e) {
-        console.log(this.data.checkbox.length - 1, e.detail)
-        this.data.smell[this.data.checkbox.length - 1] = e.detail
+        console.log(this.data.checkbox.length, e.detail)
+        this.data.smell[this.data.checkbox.length] = e.detail
         console.log(this.data.smell)
     },
     /**
@@ -82,7 +82,7 @@ Page({
             for (var i = 0; i < that.data.smell_types_api.length; i++) {
                 array_temp[i] = that.data.smell_types_api[i].title
             }
-            array_temp.push('自定义')
+            array_temp.push('其他')
 
             //二级类型数组
             var array_temp0 = []

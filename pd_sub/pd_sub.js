@@ -60,6 +60,14 @@ Component({
             type: Array,
             value: null
         },
+        inputvalue1:{
+          type: String,
+          value: null
+        },
+        inputvalue2:{
+          type: String,
+          value: null
+        }
     },
 
     /**
@@ -71,12 +79,10 @@ Component({
         index: 0,
         inputvalue: null,
         index1: 0,
-        inputvalue1: null,
         hiddenmodalput1: true,
         voteTitle1: null,
         index2: 0,
         array2: [],
-        inputvalue2: null,
         hiddenmodalput2: true,
         voteTitle2: null,
     },
