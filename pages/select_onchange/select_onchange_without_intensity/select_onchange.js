@@ -169,7 +169,23 @@ Page({
             var postSmellOthertype = that.data.post_smell_othertype
             var finalAnswer = that.data.final_answer
             var transmissionData = that.data.transmission_data
-            for (var i = 0; i < 7; i++) {
+            if (res.data.questions.length == 0) {
+              wx.showModal({
+                title: '提示信息',
+                content: '本科目暂时无题目',
+                showCancel: false,
+                confirmText: '返回',
+                success: function (r) {
+                  if (r.confirm) {
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }
+                }
+              })
+            }
+            else{
+              for (var i = 0; i < 7; i++) {
                 postExerciseId.push(res.data.questions[i].id)
                 postSmellType.push(-1)
                 postSmellTypeText.push("init")
@@ -177,19 +193,19 @@ Page({
                 postSmellSubtypeText.push("init")
                 postSmellOthertype.push("init")
                 finalAnswer.push({
-                    id: -1,
-                    type: -1,
-                    subtype: -1,
-                    otherType: ""
+                  id: -1,
+                  type: -1,
+                  subtype: -1,
+                  otherType: ""
                 })
                 transmissionData.push({
-                    stem: "",
-                    your_answer: "",
-                    correct_answer: "",
-                    is_correct: false
+                  stem: "",
+                  your_answer: "",
+                  correct_answer: "",
+                  is_correct: false
                 })
-            }
-            that.setData({
+              }
+              that.setData({
                 exercise: res.data.questions,
                 post_exercise_id: postExerciseId,
                 post_smell_type: postSmellType,
@@ -198,8 +214,10 @@ Page({
                 post_smell_subtype_text: postSmellSubtypeText,
                 final_answer: finalAnswer,
                 transmission_data: transmissionData
-            })
-            console.log('data', that.data)
+              })
+              console.log('data', that.data)
+            }
+            
         })
     },
 
