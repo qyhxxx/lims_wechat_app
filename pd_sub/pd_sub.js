@@ -185,6 +185,8 @@ Component({
           type_id = this.data.array_fromApi[this.data.index1].id
           sub_type_id = this.data.array_fromApi[this.data.index1].sub_types[e.detail.value].id
           var myEventDetail = {
+            type_text: this.data.inputvalue1,
+            sub_type_text: temp,
             otherType: null,
             sub_type: sub_type_id, //二级嗅味类型id
             type: type_id, //一级嗅味类型id
