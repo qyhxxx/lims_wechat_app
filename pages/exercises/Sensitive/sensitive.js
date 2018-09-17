@@ -44,8 +44,23 @@ Page({
      * materialButton点击事件监听
      */
   materialButton: function (e) {
-    //打印所有关于点击对象的信息
-    console.log(e);
+    var that = this
+    wx.showModal({
+      title: this.data.title[1],
+      content: this.data.textGuide[1],
+      confirmText: '开始答题',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setStorageSync('trainItemId', that.data.trainItemId[1])
+          wx.navigateTo({
+            url: '/pages/select_onchange/select_onchange_with_intensity/select_onchange_intensity',
+          })
+        }
+        else if (res.cancel) {
+          console.log('cancel')
+        }
+      }
+    })
   },
 
   /**

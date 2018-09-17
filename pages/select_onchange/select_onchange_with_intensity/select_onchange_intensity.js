@@ -30,6 +30,8 @@ Page({
         type_firstvalue: null,
         sub_type_firstvalue: null,
         strength_firstvalue: null,
+
+        counter_i: 1, //计数器，计数题目总数
         //从api中获取的对象数组(包含id和文字)
         smell_types_api: [],
         sub_smell0_api: [],
@@ -91,10 +93,11 @@ Page({
      */
     onLoad: function(options) {
         var itemId = wx.getStorageSync('trainItemId')
+        var size = itemId == 2 ? 1 : 6
         console.log('itemId is ', itemId)
         var postData = {
             "trainingItemId": itemId,
-            "size": 7
+            "size": size
         }
         var that = this
         app.functions.authRequest('/app/smell/basicdata/list', 'GET', null, function (res) {
@@ -198,7 +201,7 @@ Page({
         }
         else{
           console.log(res.data.questions[0].id)
-          for (var i = 0; i < 6; i++) {
+          for (var i = 0; i < size; i++) {
             postExerciseId.push(res.data.questions[i].id)
             postSmellType.push(-1)
             postSmellTypeText.push("init")
@@ -231,7 +234,8 @@ Page({
             post_smell_subtype_text: postSmellSubtypeText,
             post_smell_strength: postSmellStrength,
             final_answer: finalAnswer,
-            transmission_data: transmissionData
+            transmission_data: transmissionData,
+            counter_i: size
           })
         }
         console.log('data', that.data)
@@ -298,6 +302,7 @@ Page({
     var postSmellOtherType = this.data.post_smell_othertype
     var postSmellStrength = this.data.post_smell_strength
     var exerciseNum = this.data.exercise_num
+    var counterI = this.data.counter_i
 
     console.log('test', postSmellOtherType)
     if (exerciseNum == 1) {
@@ -340,6 +345,7 @@ Page({
     var postSmellOtherType = this.data.post_smell_othertype
     var postSmellStrength = this.data.post_smell_strength
     var exerciseNum = this.data.exercise_num
+    var counterI = this.data.counter_i
 
     var currentType = postSmellType[exerciseNum - 1]
     var currentSubType = postSmellSubType[exerciseNum - 1]
@@ -353,7 +359,7 @@ Page({
         icon: 'none'
       })
     } else {
-      if (exerciseNum == 6) {
+      if (exerciseNum == counterI) {
         var that = this
         wx.showModal({
           title: '这是最后一道题了',
@@ -362,7 +368,7 @@ Page({
             if (res.confirm) {
               // 数据传至服务器端
               var answer = that.data.final_answer
-              for (var i = 0; i < 6; i++) {
+              for (var i = 0; i < counterI; i++) {
                 answer[i].id = parseInt(that.data.post_exercise_id[i])
                 answer[i].otherType = that.data.post_smell_othertype[i] == "init" ? null : that.data.post_smell_othertype[i]
                 answer[i].type = that.data.post_smell_type[i] == -1 ? null : that.data.post_smell_type[i]
@@ -381,7 +387,7 @@ Page({
               //数据传至下一界面（显示做题正确情况以及分数）
               var transmissionData = that.data.transmission_data
               console.log('cnm', that.data.post_smell_type_text)
-              for (var i = 0; i < 6; i++) {
+              for (var i = 0; i < counterI; i++) {
                 transmissionData[i].stem = that.data.exercise[i].stem
                 if (that.data.post_smell_othertype[i] != "init") {
                   transmissionData[i].your_answer = that.data.post_smell_othertype[i] + ':' + that.data.post_smell_strength[i]
