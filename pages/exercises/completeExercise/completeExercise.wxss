@@ -46,6 +46,12 @@
   margin-left: 20rpx;
 }
 .view-text1 .text-content1_right {
+  color: green;
+  font-size: 33rpx;
+  line-height: 40rpx;
+  margin-right: 20rpx;
+}
+.view-text1 .text-content1_wrong {
   color: red;
   font-size: 33rpx;
   line-height: 40rpx;

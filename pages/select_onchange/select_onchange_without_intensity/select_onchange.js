@@ -16,6 +16,7 @@ Page({
         post_smell_othertype: [],
         final_answer: [],
         transmission_data: [],
+        train_item_id: -1,
         smell: [], //用来储存每一级的嗅味信息
         checkbox: [],
         msg6: '嗅味类型',
@@ -213,7 +214,8 @@ Page({
                 post_smell_subtype: postSmellSubtype,
                 post_smell_subtype_text: postSmellSubtypeText,
                 final_answer: finalAnswer,
-                transmission_data: transmissionData
+                transmission_data: transmissionData,
+                train_item_id: itemId
               })
               console.log('data', that.data)
             }

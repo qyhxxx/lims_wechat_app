@@ -16,6 +16,7 @@ Page({
         post_smell_strength: [],
         final_answer: [],
         transmission_data: [],
+        train_item_id : -1,
         smell: [], //用来储存每一级的嗅味信息
         checkbox: [],
         title: '题目一, 烫烫烫烫锟斤烤烫烫烫烫',
@@ -69,8 +70,10 @@ Page({
       var postSmellStrength = this.data.post_smell_strength
       if (this.data.smell.otherType != null) {
         postSmellOtherType[this.data.exercise_num - 1] = this.data.smell.otherType
+        postSmellStrength[this.data.exercise_num - 1] = this.data.smell.strength
         this.setData({
-          post_smell_othertype: postSmellOtherType
+          post_smell_othertype: postSmellOtherType,
+          post_smell_strength: postSmellStrength
         })
       } else {
         postSmellType[this.data.exercise_num - 1] = this.data.smell.type
@@ -235,7 +238,8 @@ Page({
             post_smell_strength: postSmellStrength,
             final_answer: finalAnswer,
             transmission_data: transmissionData,
-            counter_i: size
+            counter_i: size,
+            train_item_id: itemId
           })
         }
         console.log('data', that.data)
