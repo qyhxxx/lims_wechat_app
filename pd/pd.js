@@ -181,7 +181,7 @@ Component({
     },
 
     withoutOne: function () {
-      if(this.data.hide == true){
+      if(this.data.hide == true || this.data.inputvalue1 == null){
         wx.showToast({
           title: '先选择一级嗅味类型',
           icon:'none'
@@ -207,13 +207,17 @@ Component({
 
     cancel1: function () {
       this.setData({
-        hiddenmodalput1: true
+        hiddenmodalput1: true,
+        inputvalue1: null,
+        hide: true
       });
     },
 
     cancel2: function () {
       this.setData({
-        hiddenmodalput2: true
+        hiddenmodalput2: true,
+        inputvalue2: null,
+        hide1: true
       });
     },
 

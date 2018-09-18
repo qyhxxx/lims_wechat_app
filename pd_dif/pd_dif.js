@@ -137,6 +137,7 @@ Component({
         temp1 = false
         temp2 = true
         temp3 = ' '
+
       }
       var array_temp1 = this.data.array2
       switch (e.detail.value) {
@@ -174,6 +175,7 @@ Component({
         array2: array_temp1,
         inputvalue: null,
         inputvalue2: temp3,
+        hide1: temp1
       })
     },
 
@@ -199,7 +201,6 @@ Component({
       // } // detail对象，提供给事件监听函数
       // var myEventOption = {} // 触发事件的选项
       // this.triggerEvent('myevent', myEventDetail)
-
       this.setData({
         index2: e.detail.value,
         inputvalue2: temp,
@@ -219,7 +220,7 @@ Component({
     },
 
     withoutTwo: function () {
-      if (this.data.hide1 == true || this.data.inputvalue2 == null) {
+      if (this.data.hide1 == true || this.data.inputvalue2 == null || this.data.inputvalue1==null||this.data.inputvalue1=='') {
         wx.showToast({
           title: '先选择二级嗅味类型',
           icon: 'none'
@@ -237,13 +238,18 @@ Component({
 
     cancel1: function () {
       this.setData({
-        hiddenmodalput1: true
+        hiddenmodalput1: true,
+        inputvalue1: null,
+        hide: true,
+        hide1: true
       });
     },
 
     cancel2: function () {
       this.setData({
-        hiddenmodalput2: true
+        hiddenmodalput2: true,
+        inputvalue2: null,
+        hide1: true,
       });
     },
 

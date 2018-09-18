@@ -227,15 +227,16 @@ Component({
 
         cancel1: function() {
             this.setData({
-                hiddenmodalput1: true
+                hiddenmodalput1: true,
+                inputvalue1: null
             });
         },
 
-        cancel2: function() {
-            this.setData({
-                hiddenmodalput2: true
-            });
-        },
+        // cancel2: function() {
+        //     this.setData({
+        //         hiddenmodalput2: true
+        //     });
+        // },
 
         confirm1: function() {
             // 传输数据给页面
@@ -252,12 +253,12 @@ Component({
             })
         },
 
-        confirm2: function() {
-            this.setData({
-                hiddenmodalput2: true,
-                inputvalue2: this.data.voteTitle2
-            })
-        },
+        // confirm2: function() {
+        //     this.setData({
+        //         hiddenmodalput2: true,
+        //         inputvalue2: this.data.voteTitle2
+        //     })
+        // },
 
     }
 })

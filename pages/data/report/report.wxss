@@ -26,6 +26,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 102, 255, 0.664);
+  margin-bottom: 30rpx;
 }
 .button-text{
   color: white; 

@@ -98,12 +98,14 @@ Page({
 //取消按钮
   cancel1: function () {
     this.setData({
-      hiddenmodalput1: true
+      hiddenmodalput1: true,
+      inputvalue1: null
     });
   },
   cancel2: function () {
     this.setData({
-      hiddenmodalput2: true
+      hiddenmodalput2: true,
+      inputvalue2: null
     });
   },
 //确认
