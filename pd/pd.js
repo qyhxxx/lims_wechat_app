@@ -151,6 +151,15 @@ Component({
         case '8': array_temp1 = this.data.array28; break;
       }
       this.data.array2 = array_temp1
+      var myEventDetail = {
+        other_sub_type: null,   //自定义二级嗅味类型
+        other_type: null, //自定义一级嗅味类型
+        strength: null,  //嗅味强度
+        sub_type: null, //二级嗅味类型id
+        type: null, //一级嗅味类型id
+      } // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      this.triggerEvent('myevent', myEventDetail)
       this.setData({
         hide: false,
         index1: e.detail.value,
@@ -171,6 +180,15 @@ Component({
       if (e.detail.value == array_temp.length-1) {
         temp1 = false
       }
+      var myEventDetail = {
+        other_sub_type: null,   //自定义二级嗅味类型
+        other_type: null, //自定义一级嗅味类型
+        strength: null,  //嗅味强度
+        sub_type: null, //二级嗅味类型id
+        type: null, //一级嗅味类型id
+      } // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      this.triggerEvent('myevent', myEventDetail)
       this.setData({
         index2: e.detail.value,
         inputvalue2: temp,

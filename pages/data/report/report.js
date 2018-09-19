@@ -51,7 +51,15 @@ Page({
     array28_fromApi: [],
 
 // 上报用
-    smell: [],
+    smell: [
+      {
+        other_sub_type: null,
+        other_type: null,
+        strength: null,
+        sub_type: null,
+        type: null,
+      },
+    ],
     location: {
       address:  null,  //地址
       latitude: 1.1,  //纬度
@@ -124,15 +132,29 @@ Page({
 
 // 添加嗅味类型
   addSmell: function (){
-    var temp = this.data.checkbox;
-    temp.push(this.data.checkbox.length);
+    var temp = this.data.checkbox
+    var temp1 = this.data.smell
+    if(this.data.smell[this.data.checkbox.length-1].strength == null){
+      wx.showToast({
+        title: '先填写完整以上内容',
+        icon: 'none'
+      })
+    }else{
+      temp.push(this.data.checkbox.length);
+      temp1.push({
+        other_sub_type: null,
+        other_type: null,
+        strength: null,
+        sub_type: null,
+        type: null,
+      })
+    }
     this.setData({
       checkbox: temp
     })
   },
 
   onMyevent: function(e){
-    console.log(this.data.checkbox.length-1,e.detail)
     this.data.smell[this.data.checkbox.length-1]=e.detail
     console.log(this.data.smell)
   },
@@ -166,16 +188,22 @@ Page({
       "smell": this.data.smell
     }
     console.log(postData)
-    if(this.data.inputvalue1==null ||this.data.inputvalue2==null||e.detail.value.temperature==''||this.data.locationValue==null||this.data.smell==null){
+    var smell_temp = true
+    for(var i = 0; i < this.data.smell.length; i++){
+      if(this.data.smell[i].strength == null){
+        smell_temp = false
+      }
+    }
+    if(this.data.inputvalue1==null ||this.data.inputvalue2==null||e.detail.value.temperature==''||this.data.locationValue==null||smell_temp==false){
       wx.showToast({
         title: '每一项内容不能为空',
         icon: 'none'
       })
     }else{
       console.log('提交了')
-      app.functions.authRequest('/app/smell/monitor/report', 'POST', postData, function (res) {
-        console.log(res)
-      })
+      // app.functions.authRequest('/app/smell/monitor/report', 'POST', postData, function (res) {
+      //   console.log(res)
+      // })
     }
   },
 

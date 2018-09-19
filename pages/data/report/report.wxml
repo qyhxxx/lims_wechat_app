@@ -12,7 +12,7 @@
             <view class="section">
                 <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}" name="object">
                     <view class="picker">
-                        <input style="text-align:right" placeholder="请选择" value="{{inputvalue1}}" />
+                        <input style="text-align:right" placeholder="请选择" value="{{inputvalue1}}" maxlength='50'/>
                     </view>
                 </picker>
                 <modal hidden="{{hiddenmodalput1}}" title="自定义" confirm-text="确定" cancel-text="取消" bindcancel="cancel1" bindconfirm="confirm1">

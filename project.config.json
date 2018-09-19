@@ -15,11 +15,11 @@
 	"libVersion": "2.2.5",
 	"appid": "wxf72105061fbf7d05",
 	"projectname": "LimsWx",
-	"svr": "",
-	"client": "",
-	"qcloudRoot": "",
-	"miniprogramRoot": "",
-	"pluginRoot": "",
+	"svr": "/",
+	"client": "/",
+	"qcloudRoot": "/",
+	"miniprogramRoot": "/",
+	"pluginRoot": "/",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
